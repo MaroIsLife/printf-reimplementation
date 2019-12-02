@@ -100,8 +100,8 @@ int main()
     char *s = "Hello";
     int a;
 
-    a = ft_printf("%37p",s);
-    ft_printf("%d",a);
+    a = printf("%4x",1132);
+    printf("%d",a);
 
     return(0);
 }

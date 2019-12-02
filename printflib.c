@@ -6,6 +6,11 @@ int print_s(va_list args, int *i)
     int c;
 
     s = va_arg(args,char *);
+    if (s == NULL)
+    {
+        c = ft_putstr("(null)");
+    }
+    else
     c = ft_putstr(s);
     *i = *i + 1;
     return (c);

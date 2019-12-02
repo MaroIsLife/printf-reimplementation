@@ -37,9 +37,9 @@ int print_p(va_list args, int *i)
     a = va_arg(args,unsigned long);
     while (a != 0)
     {
-        a = a / 16;
         b = a % 16;
         buff[c] = af[b];
+        a = a / 16;
         c++;
     }
     c = ft_putstr("0x");

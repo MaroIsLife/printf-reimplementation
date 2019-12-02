@@ -10,6 +10,7 @@ int printspace_s(va_list args,int h)
 
     s = va_arg(args,char *);
     c = ft_strlen(s);
+    o = 0;
     while (c < h)
     {
         ft_putchar(' ');
@@ -30,6 +31,7 @@ int printspace_d(va_list args,int h)
 
     s = va_arg(args,int);
     c = count(s);
+    o = 0;
     while (c < h)
     {
         ft_putchar(' ');
@@ -49,18 +51,20 @@ int printspace_c(va_list args,int h)
 
 
     s = va_arg(args,int);
-    c = 1
-    while (c < h)
+    c = 1;
+    o = 0;
+    while(c < h)
     {
         ft_putchar(' ');
         o++;
         c++;
     }
-    c = o + ft_putchar(s);
+    ft_putchar(s);
+    c = 1 + o;
     return (c);
 }
 
-int printspace_c(va_list args,int h)
+int printspace_u(va_list args,int h)
 {
     int o;
     unsigned int s;
@@ -69,6 +73,28 @@ int printspace_c(va_list args,int h)
 
 
     s = va_arg(args,unsigned int);
+    c = count(s);
+    while (c < h)
+    {
+        ft_putchar(' ');
+        o++;
+        c++;
+    }
+    c = o + ft_putnbr(s);
+    return (c);
+}
+
+int printspace_x(va_list args,int h)
+{
+    int o;
+    int s;
+    int c;
+    int n;
+    char *buff;
+    char *af; 
+    
+    af = "0123456789abcdef"; 
+    s = va_arg(args,int);
     c = count(s);
     while (c < h)
     {

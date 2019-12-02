@@ -28,39 +28,6 @@ int ncounter(const char *num,int z)
     return (a);
 }
 
-int printspace_s(va_list args,int h)
-{
-    int o;
-    char *s;
-    int c;
-    int n;
-
-
-    s = va_arg(args,char *);
-    c = ft_strlen(s);
-    while (c < h)
-    {
-        ft_putchar(' ');
-        o++;
-        c++;
-    }
-    c = o + ft_putstr(s);
-    return (c);
-}
-
-
-int whichspace(const char *num,int n,va_list args,int h)
-{
-    int c;
-
-    c = 0;
-    if (num[n + 1] == 's')
-    {
-        c = c + printspace_s(args,h);
-    }
-
-    return (c);
-}
 
 int printspace(va_list args,int *i,const char *num)
 {
@@ -133,7 +100,7 @@ int main()
     char *s = "Hello";
     int a;
 
-    a = ft_printf("%7s\n",s);
+    a = ft_printf("%37p",s);
     ft_printf("%d",a);
 
     return(0);

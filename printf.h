@@ -17,12 +17,15 @@ int     count(int n);
 char    *ft_strrev(char *str);
 void    ft_bzero(void *s, size_t n);
 void    *ft_calloc(size_t n, size_t size);
-char    *ft_substr(const char *s, unsigned int start, size_t len);
+char    *ft_substr(const char *s, int start, size_t len);
 int     ft_atoi(const char *str);
 
 
 
+int printspace_s(va_list args,int h);
 
+
+int whichspace(const char *num,int n,va_list args,int h);
 
 
 

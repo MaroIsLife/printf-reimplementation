@@ -97,10 +97,11 @@ int ft_printf(const char *num, ...)
 int main()
 {
 
-    char *s = "Hello";
+    char *s = "H";
     int a;
 
-    a = printf("%4x",1132);
+ 
+    a = ft_printf("%p\n",s);
     printf("%d",a);
 
     return(0);

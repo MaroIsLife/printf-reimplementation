@@ -26,7 +26,11 @@ int printspace_s(va_list args,int h);
 int printspace_x(va_list args,int h);
 int printspace_d(va_list args,int h);
 int printspace_c(va_list args,int h);
+int printspace_p(va_list args,int h);
 int printspace_u(va_list args,int h);
+int printspace_X(va_list args,int h);
+
+
 
 
 
@@ -35,8 +39,7 @@ int whichspace(const char *num,int n,va_list args,int h);
 
 int ft_hexa(int s);
 int ft_heXa(int s);
-
-
+int ft_adr(unsigned long s);
 
 
 

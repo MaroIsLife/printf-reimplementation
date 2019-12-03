@@ -13,16 +13,13 @@ int whichspace(const char *num,int n,va_list args,int h)
         c = c + printspace_c(args,h);
     else if (num[n + 1] == 'x')
         c = c + printspace_x(args,h);
-    else if (num[n + 1] == 's')
+    else if (num[n + 1] == 'X')
+        c = c + printspace_X(args,h);
+    else if (num[n + 1] == 'p')
+        c = c + printspace_p(args,h);
+    else if (num[n + 1] == 'u')
         c = c + printspace_s(args,h);
-    else if (num[n + 1] == 's')
-        c = c + printspace_s(args,h);
-    else if (num[n + 1] == 's')
-        c = c + printspace_s(args,h);
-    else if (num[n + 1] == 's')
-        c = c + printspace_s(args,h);
-    else if (num[n + 1] == 's')
-        c = c + printspace_s(args,h);
+
 
     return (c);
 }

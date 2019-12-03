@@ -23,3 +23,51 @@ int whichspace(const char *num,int n,va_list args,int h)
 
     return (c);
 }
+
+int zwhichspace(const char *num,int n,va_list args,int h)
+{
+    int c;
+
+    c = 0;
+    if (num[n + 1] == 's')
+        c = c + zprintspace_s(args,h);
+    else if (num[n + 1] == 'd')
+        c = c + zprintspace_d(args,h);
+    else if (num[n + 1] == 'c')
+        c = c + zprintspace_c(args,h);
+    else if (num[n + 1] == 'x')
+        c = c + zprintspace_x(args,h);
+    else if (num[n + 1] == 'X')
+        c = c + zprintspace_X(args,h);
+    else if (num[n + 1] == 'p')
+        c = c + zprintspace_p(args,h);
+    else if (num[n + 1] == 'u')
+        c = c + zprintspace_s(args,h);
+
+
+    return (c);
+}
+
+int mwhichspace(const char *num,int n,va_list args,int h)
+{
+    int c;
+
+    c = 0;
+    if (num[n + 1] == 's')
+        c = c + mprintspace_s(args,h);
+    else if (num[n + 1] == 'd')
+        c = c + mprintspace_d(args,h);
+    else if (num[n + 1] == 'c')
+        c = c + mprintspace_c(args,h);
+    else if (num[n + 1] == 'x')
+        c = c + mprintspace_x(args,h);
+    else if (num[n + 1] == 'X')
+        c = c + mprintspace_X(args,h);
+    else if (num[n + 1] == 'p')
+        c = c + mprintspace_p(args,h);
+    else if (num[n + 1] == 'u')
+        c = c + mprintspace_s(args,h);
+
+
+    return (c);
+}

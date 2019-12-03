@@ -1,6 +1,6 @@
 #include "printf.h"
 
-int printspace_s(va_list args,int h)
+int mprintspace_s(va_list args,int h)
 {
     int o;
     char *s;
@@ -14,16 +14,17 @@ int printspace_s(va_list args,int h)
     o = 1;
     else
     o = 0;
+    ft_putstr(s);
     while (o < c)
     {
         ft_putchar(' ');
         o++;
     }
-    c = o + ft_putstr(s);
+    c = ft_strlen(s) + o;
     return (c);
 }
 
-int printspace_d(va_list args,int h)
+int mprintspace_d(va_list args,int h)
 {
     int o;
     int s;
@@ -37,16 +38,17 @@ int printspace_d(va_list args,int h)
     o = 1;
     else
     o = 0;
+    ft_putnbr(s);
     while (o < c)
     {
         ft_putchar(' ');
         o++;
     }
-    c = o + ft_putnbr(s);
+    c = o + count(s);
     return (c);
 }
 
-int printspace_c(va_list args,int h)
+int mprintspace_c(va_list args,int h)
 {
     int o;
     int s;
@@ -59,17 +61,17 @@ int printspace_c(va_list args,int h)
     o = 1;
     else
     o = 0;
+    ft_putchar(s);
     while(o < c)
     {
         ft_putchar(' ');
         o++;
     }
-    ft_putchar(s);
     c = 1 + o;
     return (c);
 }
 
-int printspace_u(va_list args,int h)
+int mprintspace_u(va_list args,int h)
 {
     int o;
     unsigned int s;
@@ -80,64 +82,64 @@ int printspace_u(va_list args,int h)
     c = count(s);
     c = h - c;
     o = 0;
+    ft_putnbr(s);
     while (o < c)
     {
         ft_putchar(' ');
         o++;
     }
-    c = o + ft_putnbr(s);
+    c = o + count(s);
     return (c);
 }
 
-int printspace_x(va_list args,int h)
+int mprintspace_x(va_list args,int h)
 {
     int o;
     int s;
     int c;
-    char *buff;
-    char *af; 
+    int k;
     
     s = va_arg(args,int);
     c = count(s) - 1;
     c = h - c;
     o = 0;
+    k = ft_hexa(s);
     while (o < c)
     {
         ft_putchar(' ');
         o++;
     }
-    c = o + ft_hexa(s);
+    c = o + k;
     return (c);
 }
 
-int printspace_X(va_list args,int h)
+int mprintspace_X(va_list args,int h)
 {
     int o;
     int s;
     int c;
-    char *buff;
-    char *af; 
+    int k; 
     
     s = va_arg(args,int);
     c = count(s) - 1;
     c = h - c;
     o = 0;
+    k = ft_heXa(s);
     while (o < c)
     {
         ft_putchar(' ');
         o++;
     }
-    c = o + ft_heXa(s);
+    c = o + k;
     return (c);
 }
 
-int printspace_p(va_list args,int h)
+int mprintspace_p(va_list args,int h)
 {
     int o;
     unsigned long s;
     int c;
-    char *buff;
-    char *af; 
+    char k; 
     
     s = va_arg(args,unsigned long);
     if (s == 0)
@@ -146,12 +148,13 @@ int printspace_p(va_list args,int h)
     c = 11;
     c = h - c;
     o = 0;
+    k = ft_adr(s);
     while (o < c)
     {
         ft_putchar(' ');
         o++;
     }
     ft_putstr("0x");
-    c = o + ft_adr(s) + 2;
+    c = o + k + 2;
     return (c);
 }

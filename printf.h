@@ -13,6 +13,7 @@ int     ft_putstr(char *c);
 int     ft_strlen(const char *c);
 int     ft_putunsigned(unsigned int n);
 int     ft_putnbr(int n);
+int     zft_putnbr(int n);
 int     count(int n);
 char    *ft_strrev(char *str);
 void    ft_bzero(void *s, size_t n);
@@ -31,11 +32,27 @@ int printspace_u(va_list args,int h);
 int printspace_X(va_list args,int h);
 
 
+int zprintspace_s(va_list args,int h);
+int zprintspace_x(va_list args,int h);
+int zprintspace_d(va_list args,int h);
+int zprintspace_c(va_list args,int h);
+int zprintspace_p(va_list args,int h);
+int zprintspace_u(va_list args,int h);
+int zprintspace_X(va_list args,int h);
 
-
+int mprintspace_s(va_list args,int h);
+int mprintspace_x(va_list args,int h);
+int mprintspace_d(va_list args,int h);
+int mprintspace_c(va_list args,int h);
+int mprintspace_p(va_list args,int h);
+int mprintspace_u(va_list args,int h);
+int mprintspace_X(va_list args,int h);
 
 
 int whichspace(const char *num,int n,va_list args,int h);
+int zwhichspace(const char *num,int n,va_list args,int h);
+int mwhichspace(const char *num,int n,va_list args,int h);
+
 
 int ft_hexa(int s);
 int ft_heXa(int s);

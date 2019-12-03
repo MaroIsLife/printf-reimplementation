@@ -35,6 +35,8 @@ int print_p(va_list args, int *i)
     c = 0;
     buff = calloc(20,1);
     a = va_arg(args,unsigned long);
+    if (a == 0)
+    buff[0] = '0';
     while (a != 0)
     {
         b = a % 16;

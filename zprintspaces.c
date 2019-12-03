@@ -1,6 +1,6 @@
 #include "printf.h"
 
-int printspace_s(va_list args,int h)
+int zprintspace_s(va_list args,int h)
 {
     int o;
     char *s;
@@ -16,14 +16,14 @@ int printspace_s(va_list args,int h)
     o = 0;
     while (o < c)
     {
-        ft_putchar(' ');
+        ft_putchar('0');
         o++;
     }
     c = o + ft_putstr(s);
     return (c);
 }
 
-int printspace_d(va_list args,int h)
+int zprintspace_d(va_list args,int h)
 {
     int o;
     int s;
@@ -34,19 +34,22 @@ int printspace_d(va_list args,int h)
     c = count(s);
     c = h - c;
     if (s < 0)
-    o = 1;
+    {
+        o = 1;
+        ft_putchar('-');
+    }
     else
     o = 0;
     while (o < c)
     {
-        ft_putchar(' ');
+        ft_putchar('0');
         o++;
     }
-    c = o + ft_putnbr(s);
+    c = o + zft_putnbr(s);
     return (c);
 }
 
-int printspace_c(va_list args,int h)
+int zprintspace_c(va_list args,int h)
 {
     int o;
     int s;
@@ -61,7 +64,7 @@ int printspace_c(va_list args,int h)
     o = 0;
     while(o < c)
     {
-        ft_putchar(' ');
+        ft_putchar('0');
         o++;
     }
     ft_putchar(s);
@@ -69,7 +72,7 @@ int printspace_c(va_list args,int h)
     return (c);
 }
 
-int printspace_u(va_list args,int h)
+int zprintspace_u(va_list args,int h)
 {
     int o;
     unsigned int s;
@@ -82,14 +85,14 @@ int printspace_u(va_list args,int h)
     o = 0;
     while (o < c)
     {
-        ft_putchar(' ');
+        ft_putchar('0');
         o++;
     }
     c = o + ft_putnbr(s);
     return (c);
 }
 
-int printspace_x(va_list args,int h)
+int zprintspace_x(va_list args,int h)
 {
     int o;
     int s;
@@ -103,14 +106,14 @@ int printspace_x(va_list args,int h)
     o = 0;
     while (o < c)
     {
-        ft_putchar(' ');
+        ft_putchar('0');
         o++;
     }
     c = o + ft_hexa(s);
     return (c);
 }
 
-int printspace_X(va_list args,int h)
+int zprintspace_X(va_list args,int h)
 {
     int o;
     int s;
@@ -124,14 +127,14 @@ int printspace_X(va_list args,int h)
     o = 0;
     while (o < c)
     {
-        ft_putchar(' ');
+        ft_putchar('0');
         o++;
     }
     c = o + ft_heXa(s);
     return (c);
 }
 
-int printspace_p(va_list args,int h)
+int zprintspace_p(va_list args,int h)
 {
     int o;
     unsigned long s;
@@ -148,7 +151,7 @@ int printspace_p(va_list args,int h)
     o = 0;
     while (o < c)
     {
-        ft_putchar(' ');
+        ft_putchar('0');
         o++;
     }
     ft_putstr("0x");

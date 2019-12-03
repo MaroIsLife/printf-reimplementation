@@ -68,6 +68,32 @@ int    ft_putnbr(int n)
     return (c);
 }
 
+int    zft_putnbr(int n)
+{
+    unsigned int i;
+    int c;
+
+    c = count(n);
+    if (n < 0)
+    {
+        i = (unsigned int)(n * -1);
+    }
+    else
+    {
+        i = n;
+    }
+    if (i >= 10)
+    {
+        zft_putnbr(i / 10);
+        ft_putchar(i % 10 + '0');
+    }
+    else
+    {
+        ft_putchar(i + '0');
+    }
+    return (c);
+}
+
 int    ft_putunsigned(unsigned int n)
 {
     unsigned int i;

@@ -29,17 +29,6 @@ int zcounter(const char *num,int i)
     return (o);
 
 }
-int ncounter(const char *num,int z)
-{   
-    int a;
-    a = 0;
-    while (num[z + 1] >= '1' && num[z + 1] <= '9')
-    {
-        z++;
-        a++;
-    }
-    return (a);
-}
 
 int mcounter(const char *num,int i)
 {
@@ -104,8 +93,8 @@ int printspace(va_list args,int *i,const char *num)
     }
     else
     {
+        *i = *i + count(h) + 2;
         h = whichspace(num,n,args,h);
-        *i = *i + ncounter(num,z) + 2;
     }
     return (h);
 }
@@ -120,17 +109,17 @@ int aprintspace(va_list args,int *i,const char *num)
     n = convcounter(num,z);
     if (num[z] == '0')
     {
-        *i = *i + zcounter(num,z) + count(h) + acounter(num,z) + 1;
+        *i = *i + zcounter(num,z) + acounter(num,z) + 1;
         h = zwhichspace(num,n,args,h);
     }
     else if (num[z] == '-')
     {
-         *i = *i + mcounter(num,z) + count(h) + acounter(num,z) + 1;
+         *i = *i + mcounter(num,z) + acounter(num,z) + 1;
         h = mwhichspace(num,n,args,h);
     }
     else
     {
-        *i = *i + count(h) + 2;
+        *i = *i + acounter(num,z) + 1;
         h = whichspace(num,n,args,h);
     }
     return (h);
@@ -195,14 +184,23 @@ int ft_printf(const char *num, ...)
     return (c);
 }
 
-/*int main()
+int	main()
 {
-
-    int a;
-
- 
-    a = ft_printf("hello\n");
-    printf("%d",a);
-
-    return(0);
-}*/
+	
+	
+	ft_printf("%-*c\n",30,'G');
+	printf("%-*c\n",30,'G');
+	ft_printf("%-*c\n",-30,'G');
+	printf("%-*c\n",-30,'G');
+	ft_printf("%-30c\n",'G');
+	printf("%-30c\n",'G');
+	    printf("--------------------------------\n");
+	ft_printf("%--30c\n",'G');
+	printf("%--30c\n",'G');
+	     printf("--------------------------------\n");
+	ft_printf("%-----30c\n",'G');
+	printf("%-----30c\n",'G');
+	      printf("--------------------------------\n");
+	return (0);
+}
+   // a = ft_printf("%10d\n",-111);

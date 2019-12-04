@@ -39,22 +39,31 @@ int mcounter(const char *num,int i)
         o++;
         i++;
     }
-    return (o);
-
+    /*if (num[i] == 'c' || num[i] == 'd' || num[i] == 's' || num[i] == 'p' || num[i] == 'u' || num[i] == 'x' || num[i] == 'X')
+    {
+        return (0);
+    }*/ 
+    //else
+    return (i);
 }
-
 int mcounter2(const char *num,int i)
 {
     int o;
     o = 0;
-    while (num[i] != 'd' && num[i] != 's' && num[i] != 'i' && num[i] != 'u' && num[i] != 'p' && num[i] != 'x' && num[i] != 'X' && num[i] != '%' && num[i] != 'c')
+    while (num[i] == '-')
     {
         o++;
         i++;
     }
+    /*if (num[i] == 'c' || num[i] == 'd' || num[i] == 's' || num[i] == 'p' || num[i] == 'u' || num[i] == 'x' || num[i] == 'X')
+    {
+        return (0);
+    }*/ 
+    //else
     return (o);
-
 }
+
+
 
 int acounter(const char *num,int i)
 {
@@ -88,12 +97,12 @@ int printspace(va_list args,int *i,const char *num)
     }
     else if (num[z] == '-')
     {
-        *i = *i + mcounter(num,z) + count(h) + 1;
+        *i = *i + mcounter2(num,z) + count(h) + 1;
         h = mwhichspace(num,n,args,h);
     }
     else
     {
-        *i = *i + count(h) + 2;
+        *i = *i + count(h) + 1;
         h = whichspace(num,n,args,h);
     }
     return (h);
@@ -114,12 +123,12 @@ int aprintspace(va_list args,int *i,const char *num)
     }
     else if (num[z] == '-')
     {
-         *i = *i + mcounter(num,z) + acounter(num,z) + 1;
+         *i = *i + mcounter2(num,z) + acounter(num,z) + 1;
         h = mwhichspace(num,n,args,h);
     }
     else
     {
-        *i = *i + acounter(num,z) + 1;
+        *i = *i + acounter(num,z) + 2;
         h = whichspace(num,n,args,h);
     }
     return (h);
@@ -152,10 +161,10 @@ int ft_checkstring(const char *num, va_list args)
             c = c + printspace(args,&i,num);
         else if (num[i] == '%' && (num[i + 1 + n] == '-' && num[i + 2 + n] == '*'))
             c = c + aprintspace(args,&i,num);
-        else if (num[i] == '%' && (num[i + k] == '-'))
+        else if (num[i] == '%' && (num[i + 1] == '-' && (num[i + k] >= '1' && num[i + k] <= '9')))
             c = c + printspace(args,&i,num);
-        else if (num[i] == '%' && num[i + 1] == 'c')
-            c = c + print_c(args,&i);
+        else if (num[i] == '%' && num[i + k] == 'c')
+            c = c + print_c(args,&i,num);
         else if (num[i] == '%' && num[i + 1] == 'x')
             c = c + print_x(args,&i);
         else if (num[i] == '%' && num[i + 1] == 'X')
@@ -187,20 +196,10 @@ int ft_printf(const char *num, ...)
 int	main()
 {
 	
+
+   ft_printf("%10d\n",-111);   
 	
-	ft_printf("%-*c\n",30,'G');
-	printf("%-*c\n",30,'G');
-	ft_printf("%-*c\n",-30,'G');
-	printf("%-*c\n",-30,'G');
-	ft_printf("%-30c\n",'G');
-	printf("%-30c\n",'G');
-	    printf("--------------------------------\n");
-	ft_printf("%--30c\n",'G');
-	printf("%--30c\n",'G');
-	     printf("--------------------------------\n");
-	ft_printf("%-----30c\n",'G');
-	printf("%-----30c\n",'G');
-	      printf("--------------------------------\n");
 	return (0);
+
+    // Add mcounter2 to print_c and Num parameter to print_c should add it to others
 }
-   // a = ft_printf("%10d\n",-111);

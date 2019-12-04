@@ -24,6 +24,9 @@ char    *ft_substr(const char *s, int start, size_t len);
 int     ft_atoi(const char *str);
 
 
+int mcounter2(const char *num,int i);
+
+
 
 int printspace_s(va_list args,int h);
 int printspace_x(va_list args,int h);
@@ -68,7 +71,7 @@ int     print_x(va_list args, int *i);
 int     print_X(va_list args, int *i);
 int     print_p(va_list args, int *i);
 int     print_u(va_list args, int *i);
-int     print_c(va_list args, int *i);
+int     print_c(va_list args, int *i,const char *num);
 int     print_perc(int *i);
 int     print_n(const char *num,int *i);
 

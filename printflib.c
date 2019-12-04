@@ -27,15 +27,17 @@ int print_d(va_list args, int *i)
     return (c);
 }
 
-int print_c(va_list args, int *i)
+int print_c(va_list args, int *i,const char *num) // ADD NUM to others
 {
     int s;
     int c;
+    int k;
 
+    k = *i;
     s = va_arg(args,int);
     ft_putchar(s);
     c = 1;
-    *i = *i + 1;
+    *i = *i + 1 + mcounter2(num,k + 1); // ADD TO OTHERS MCOUNTER
     return (c);
 }
 

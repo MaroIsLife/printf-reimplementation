@@ -54,6 +54,7 @@ int printspace_c(va_list args,int h)
 
 
     s = va_arg(args,int);
+    c = 1;
     c = h - c;
     if (s < 0)
     o = 1;
@@ -94,8 +95,6 @@ int printspace_x(va_list args,int h)
     int o;
     int s;
     int c;
-    char *buff;
-    char *af; 
     
     s = va_arg(args,int);
     c = count(s) - 1;
@@ -115,8 +114,6 @@ int printspace_X(va_list args,int h)
     int o;
     int s;
     int c;
-    char *buff;
-    char *af; 
     
     s = va_arg(args,int);
     c = count(s) - 1;
@@ -136,8 +133,6 @@ int printspace_p(va_list args,int h)
     int o;
     unsigned long s;
     int c;
-    char *buff;
-    char *af; 
     
     s = va_arg(args,unsigned long);
     if (s == 0)

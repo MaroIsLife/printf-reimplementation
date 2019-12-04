@@ -32,7 +32,6 @@ int zcounter(const char *num,int i)
 int ncounter(const char *num,int z)
 {   
     int a;
-    int m;
     a = 0;
     while (num[z + 1] >= '1' && num[z + 1] <= '9')
     {
@@ -114,7 +113,6 @@ int aprintspace(va_list args,int *i,const char *num)
 {
     int h;
     int n;
-    char *s;
     int z;
 
     z = *i + 1;
@@ -197,15 +195,14 @@ int ft_printf(const char *num, ...)
     return (c);
 }
 
-int main()
+/*int main()
 {
 
-    char *s = "H";
     int a;
 
  
-    a = ft_printf("%04dh\n",-11);
+    a = ft_printf("hello\n");
     printf("%d",a);
 
     return(0);
-}
+}*/

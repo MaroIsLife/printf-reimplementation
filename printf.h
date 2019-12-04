@@ -8,6 +8,8 @@
 #include <unistd.h>
 
 
+int ft_printf(const char *num, ...);
+
 void     ft_putchar(char c);
 int     ft_putstr(char *c);
 int     ft_strlen(const char *c);

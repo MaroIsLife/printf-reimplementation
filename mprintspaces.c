@@ -56,6 +56,7 @@ int mprintspace_c(va_list args,int h)
 
 
     s = va_arg(args,int);
+    c = 1;
     c = h - c;
     if (s < 0)
     o = 1;

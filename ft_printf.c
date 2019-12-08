@@ -39,12 +39,12 @@ int mcounter(const char *num,int i)
         o++;
         i++;
     }
-    /*if (num[i] == 'c' || num[i] == 'd' || num[i] == 's' || num[i] == 'p' || num[i] == 'u' || num[i] == 'x' || num[i] == 'X')
+    if ((num[i] == 'c' || num[i] == 'd' || num[i] == 's' || num[i] == 'p' || num[i] == 'u' || num[i] == 'x' || num[i] == 'X') || (num[i] >= '1' && num[i] <= '9'))
     {
-        return (0);
-    }*/ 
-    //else
-    return (i);
+        return (o);
+    } 
+    else
+    return (0);
 }
 int mcounter2(const char *num,int i)
 {
@@ -145,12 +145,12 @@ int ft_checkstring(const char *num, va_list args)
 
     while (num[++i] != '\0')
     {
-        n = zcounter(num,i + 1); // Add != 'd'
+        n = zcounter(num,i + 1);
         k = mcounter(num,i + 1);
         if (num[i] == '%' && num[i + 1] == 's')
-            c = c + print_s(args,&i);
-        else if (num[i] == '%' && num[i + 1] == 'd')
-            c = c + print_d(args,&i);
+            c = c + print_s(args,&i,num);
+        else if (num[i] == '%' && num[i + k + 1] == 'd')
+            c = c + print_d(args,&i,num);
         else if (num[i] == '%' && (num[i + 1] >= '1' && num[i + 1] <= '9'))
             c = c + printspace(args,&i,num);
         else if (num[i] == '%' && (num[i + 1 + n] == '*'))
@@ -161,18 +161,18 @@ int ft_checkstring(const char *num, va_list args)
             c = c + printspace(args,&i,num);
         else if (num[i] == '%' && (num[i + 1 + n] == '-' && num[i + 2 + n] == '*'))
             c = c + aprintspace(args,&i,num);
-        else if (num[i] == '%' && (num[i + 1] == '-' && (num[i + k] >= '1' && num[i + k] <= '9')))
+        else if (num[i] == '%' && (num[i + 1] == '-' && (num[i + k + 1] >= '1' && num[i + k + 1] <= '9')))
             c = c + printspace(args,&i,num);
-        else if (num[i] == '%' && num[i + k] == 'c')
+        else if (num[i] == '%' && num[i + k + 1] == 'c')
             c = c + print_c(args,&i,num);
-        else if (num[i] == '%' && num[i + 1] == 'x')
-            c = c + print_x(args,&i);
-        else if (num[i] == '%' && num[i + 1] == 'X')
-            c = c + print_X(args,&i);
-        else if (num[i] == '%' && num[i + 1] == 'u')
-            c = c + print_u(args,&i);
-        else if (num[i] == '%' && num[i + 1] == 'p')
-            c = c + print_p(args,&i);
+        else if (num[i] == '%' && num[i + k + 1] == 'x')
+            c = c + print_x(args,&i,num);
+        else if (num[i] == '%' && num[i + k + 1] == 'X')
+            c = c + print_X(args,&i ,num);
+        else if (num[i] == '%' && num[i + k + 1] == 'u')
+            c = c + print_u(args,&i,num);
+        else if (num[i] == '%' && num[i + k + 1] == 'p')
+            c = c + print_p(args,&i,num);
         else if (num[i] == '%' && num[i + 1] == '%')
             c = c + print_perc(&i);
         else
@@ -195,11 +195,9 @@ int ft_printf(const char *num, ...)
 
 int	main()
 {
-	
+    // try Yahya tests with 0
 
-   ft_printf("%10d\n",-111);   
-	
+
 	return (0);
-
-    // Add mcounter2 to print_c and Num parameter to print_c should add it to others
 }
+  

@@ -65,13 +65,13 @@ int ft_adr(unsigned long s);
 
 
 
-int     print_s(va_list args, int *i);
-int     print_d(va_list args, int *i);
-int     print_x(va_list args, int *i);
-int     print_X(va_list args, int *i);
-int     print_p(va_list args, int *i);
-int     print_u(va_list args, int *i);
-int     print_c(va_list args, int *i,const char *num);
+int     print_s(va_list args, int *i ,const char *num);
+int     print_d(va_list args, int *i ,const char *num);
+int     print_x(va_list args, int *i ,const char *num);
+int     print_X(va_list args, int *i ,const char *num);
+int     print_p(va_list args, int *i ,const char *num);
+int     print_u(va_list args, int *i ,const char *num);
+int     print_c(va_list args, int *i ,const char *num);
 int     print_perc(int *i);
 int     print_n(const char *num,int *i);
 

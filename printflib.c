@@ -1,6 +1,6 @@
 #include "printf.h"
 
-int print_s(va_list args, int *i)
+int print_s(va_list args, int *i ,const char *num)
 {
     char *s;
     int c;
@@ -16,14 +16,16 @@ int print_s(va_list args, int *i)
     return (c);
 }
 
-int print_d(va_list args, int *i)
+int print_d(va_list args, int *i ,const char *num)
 {
     int s;
     int c;
+    int k;
 
+    k = *i;
     s = va_arg(args,int);
     c = ft_putnbr(s);
-    *i = *i + 1;
+    *i = *i + 1 + mcounter2(num,k + 1);
     return (c);
 }
 
@@ -41,18 +43,20 @@ int print_c(va_list args, int *i,const char *num) // ADD NUM to others
     return (c);
 }
 
-int print_u(va_list args, int *i)
+int print_u(va_list args, int *i ,const char *num)
 {
     unsigned int s;
     int c;
+    int k;
 
+    k = *i;
     s = va_arg(args,unsigned int);
     c = ft_putunsigned(s);
-    *i = *i + 1;
+    *i = *i + 1 + mcounter2(num,k + 1);
     return (c);
 }
 
-int print_x(va_list args, int *i)
+int print_x(va_list args, int *i ,const char *num)
 {
     int c;
     int a;
@@ -71,6 +75,7 @@ int print_x(va_list args, int *i)
     }
     c = ft_putstr(ft_strrev(buff));
     free(buff);
-    *i = *i + 1;
+    a = *i;
+    *i = *i + 1 + mcounter2(num,a + 1);
     return (c);
 }

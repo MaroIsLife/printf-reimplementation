@@ -1,6 +1,6 @@
 #include "printf.h"
 
-int print_X(va_list args, int *i)
+int print_X(va_list args, int *i ,const char *num)
 {
     int c;
     int a;
@@ -19,11 +19,12 @@ int print_X(va_list args, int *i)
     }
     c = ft_putstr(ft_strrev(buff));
     free(buff);
-    *i = *i + 1;
+    a = *i;
+    *i = *i + 1 + mcounter2(num,a + 1);
     return (c);
 }
 
-int print_p(va_list args, int *i)
+int print_p(va_list args, int *i ,const char *num)
 {
     int c;
     unsigned long a;
@@ -47,7 +48,8 @@ int print_p(va_list args, int *i)
     c = ft_putstr("0x");
     c = c + ft_putstr(ft_strrev(buff));
     free(buff);
-    *i = *i + 1;
+    a = *i;
+    *i = *i + 1 + mcounter2(num,a + 1);
     return (c);
 }
 

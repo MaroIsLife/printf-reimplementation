@@ -1,0 +1,98 @@
+#include "printf.h"
+
+
+int convcounter(const char *num,int z)
+{   int n;
+    int a;
+    a = z;
+    n = 0;
+    while (num[a] != 'd' && num[a] != 's' && num[a] != 'i' && num[a] != 'u' && num[a] != 'p' && num[a] != 'x' && num[a] != 'X' && num[a] != '%' && num[a] != 'c')
+    {
+        n++;
+        a++;
+    }
+    return (n);
+    
+}
+
+
+int zcounter(const char *num,int i)
+{
+    int o;
+    o = 0;
+    while (num[i] == '0')
+    {
+        o++;
+        i++;
+    }
+    if ((num[i] == 'c' || num[i] == 'd' || num[i] == 's' || num[i] == 'p' || num[i] == 'u' || num[i] == 'x' || num[i] == 'X') || (num[i] >= '1' && num[i] <= '9'))
+    {
+        return (o);
+    } 
+    else
+        return(0);
+}
+int zcounter2(const char *num,int i)
+{
+    int o;
+    o = 0;
+    while (num[i] == '0')
+    {
+        o++;
+        i++;
+    }
+    /*if (num[i] == 'c' || num[i] == 'd' || num[i] == 's' || num[i] == 'p' || num[i] == 'u' || num[i] == 'x' || num[i] == 'X')
+    {
+        return (0);
+    }*/ 
+    //else
+    return (o);
+}
+
+int mcounter(const char *num,int i)
+{
+    int o;
+    o = 0;
+    while (num[i] == '-')
+    {
+        o++;
+        i++;
+    }
+    if ((num[i] == 'c' || num[i] == 'd' || num[i] == 's' || num[i] == 'p' || num[i] == 'u' || num[i] == 'x' || num[i] == 'X') || (num[i] >= '1' && num[i] <= '9'))
+    {
+        return (o);
+    } 
+    else
+        return (0);
+}
+int mcounter2(const char *num,int i)
+{
+    int o;
+    o = 0;
+    while (num[i] == '-')
+    {
+        o++;
+        i++;
+    }
+    /*if (num[i] == 'c' || num[i] == 'd' || num[i] == 's' || num[i] == 'p' || num[i] == 'u' || num[i] == 'x' || num[i] == 'X')
+    {
+        return (0);
+    }*/ 
+    //else
+    return (o);
+}
+
+
+
+int acounter(const char *num,int i)
+{
+    int o;
+    o = 0;
+    while (num[i + 1] == '*' || num[i + 2] == '*')
+    {
+        o++;
+        i++;
+    }
+    return (o);
+
+}

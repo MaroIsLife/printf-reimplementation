@@ -1,83 +1,5 @@
 #include "printf.h"
 
-//int whichspace()
-
-int convcounter(const char *num,int z)
-{   int n;
-    int a;
-    a = z;
-    n = 0;
-    while (num[a] != 'd' && num[a] != 's' && num[a] != 'i' && num[a] != 'u' && num[a] != 'p' && num[a] != 'x' && num[a] != 'X' && num[a] != '%' && num[a] != 'c')
-    {
-        n++;
-        a++;
-    }
-    return (n);
-    
-}
-
-
-int zcounter(const char *num,int i)
-{
-    int o;
-    o = 0;
-    while (num[i] == '0')
-    {
-        o++;
-        i++;
-    }
-    return (o);
-
-}
-
-int mcounter(const char *num,int i)
-{
-    int o;
-    o = 0;
-    while (num[i] == '-')
-    {
-        o++;
-        i++;
-    }
-    if ((num[i] == 'c' || num[i] == 'd' || num[i] == 's' || num[i] == 'p' || num[i] == 'u' || num[i] == 'x' || num[i] == 'X') || (num[i] >= '1' && num[i] <= '9'))
-    {
-        return (o);
-    } 
-    else
-    return (0);
-}
-int mcounter2(const char *num,int i)
-{
-    int o;
-    o = 0;
-    while (num[i] == '-')
-    {
-        o++;
-        i++;
-    }
-    /*if (num[i] == 'c' || num[i] == 'd' || num[i] == 's' || num[i] == 'p' || num[i] == 'u' || num[i] == 'x' || num[i] == 'X')
-    {
-        return (0);
-    }*/ 
-    //else
-    return (o);
-}
-
-
-
-int acounter(const char *num,int i)
-{
-    int o;
-    o = 0;
-    while (num[i + 1] == '*' || num[i + 2] == '*')
-    {
-        o++;
-        i++;
-    }
-    return (o);
-
-}
-
 
 int printspace(va_list args,int *i,const char *num)
 {
@@ -149,17 +71,17 @@ int ft_checkstring(const char *num, va_list args)
         k = mcounter(num,i + 1);
         if (num[i] == '%' && num[i + 1] == 's')
             c = c + print_s(args,&i,num);
-        else if (num[i] == '%' && num[i + k + 1] == 'd')
+        else if (num[i] == '%' && num[i + k + 1 + n] == 'd')
             c = c + print_d(args,&i,num);
         else if (num[i] == '%' && (num[i + 1] >= '1' && num[i + 1] <= '9'))
             c = c + printspace(args,&i,num);
-        else if (num[i] == '%' && (num[i + 1 + n] == '*'))
+        else if (num[i] == '%' && (num[i + 1] == '*'))
             c = c + aprintspace(args,&i,num);
-        else if (num[i] == '%' && (num[i + 1 + n] == '0' && num[i + 2 + n] == '*'))
+        else if (num[i] == '%' && (num[i + n] == '0' && num[i + n + 1] == '*'))
             c = c + aprintspace(args,&i,num);
-        else if (num[i] == '%' && (num[i + n] == '0'))
+        else if (num[i] == '%' && (num[i + 1] == '0' && (num[i + n + 1] >= '1' && num[i + n + 1] <= '9')))
             c = c + printspace(args,&i,num);
-        else if (num[i] == '%' && (num[i + 1 + n] == '-' && num[i + 2 + n] == '*'))
+        else if (num[i] == '%' && (num[i + 1] == '-' && num[i + 2] == '*'))
             c = c + aprintspace(args,&i,num);
         else if (num[i] == '%' && (num[i + 1] == '-' && (num[i + k + 1] >= '1' && num[i + k + 1] <= '9')))
             c = c + printspace(args,&i,num);
@@ -195,9 +117,9 @@ int ft_printf(const char *num, ...)
 
 int	main()
 {
-    // try Yahya tests with 0
 
-
+	ft_printf("%0d\n",'G');
+	printf("%0d\n",'G');
 	return (0);
 }
-  
+  // try Yahya testes with 0

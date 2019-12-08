@@ -23,8 +23,13 @@ void    *ft_calloc(size_t n, size_t size);
 char    *ft_substr(const char *s, int start, size_t len);
 int     ft_atoi(const char *str);
 
-
+int mcounter(const char *num,int i);
 int mcounter2(const char *num,int i);
+int zcounter(const char *num,int i);
+int zcounter2(const char *num,int i);
+int convcounter(const char *num,int z);
+int acounter(const char *num,int i);
+
 
 
 

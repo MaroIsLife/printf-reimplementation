@@ -9,12 +9,12 @@ int printspace(va_list args,int *i,const char *num)
     int z;
 
     z = *i + 1;
-    n = convcounter(num,z);
+    n = *i + convcounter(num,z); // ADDED *i + CHECK OTHER
     s = ft_substr(num,z,n);
     h = ft_atoi(s);
     if (num[z] == '0')
     {
-        *i = *i + zcounter(num,z) + count(h) + 1;
+        *i = *i + zcounter2(num,z) + count(h) + 1;
         h = zwhichspace(num,n,args,h);
     }
     else if (num[z] == '-')
@@ -37,10 +37,10 @@ int aprintspace(va_list args,int *i,const char *num)
 
     z = *i + 1;
     h = va_arg(args,int);
-    n = convcounter(num,z);
+    n = *i + convcounter(num,z);
     if (num[z] == '0')
     {
-        *i = *i + zcounter(num,z) + acounter(num,z) + 1;
+        *i = *i + zcounter2(num,z) + acounter(num,z) + 1;
         h = zwhichspace(num,n,args,h);
     }
     else if (num[z] == '-')
@@ -50,7 +50,7 @@ int aprintspace(va_list args,int *i,const char *num)
     }
     else
     {
-        *i = *i + acounter(num,z) + 2;
+        *i = *i + acounter(num,z) + 1;
         h = whichspace(num,n,args,h);
     }
     return (h);
@@ -81,7 +81,7 @@ int ft_checkstring(const char *num, va_list args)
             c = c + aprintspace(args,&i,num);
         else if (num[i] == '%' && (num[i + 1] == '0' && (num[i + n + 1] >= '1' && num[i + n + 1] <= '9')))
             c = c + printspace(args,&i,num);
-        else if (num[i] == '%' && (num[i + 1] == '-' && num[i + 2] == '*'))
+        else if (num[i] == '%' && (num[i + 1] == '-' && num[i + k + 1] == '*'))
             c = c + aprintspace(args,&i,num);
         else if (num[i] == '%' && (num[i + 1] == '-' && (num[i + k + 1] >= '1' && num[i + k + 1] <= '9')))
             c = c + printspace(args,&i,num);
@@ -118,8 +118,15 @@ int ft_printf(const char *num, ...)
 int	main()
 {
 
-	ft_printf("%0d\n",'G');
-	printf("%0d\n",'G');
+	//ft_printf("%0*d\n",12,'G');
+   ft_printf("%*d\n",12,-123);
+   printf("%*d\n",12,-123);
+
+
+    //ft_printf("--%---4dh\n",'G');
+
+	
+
 	return (0);
 }
   // try Yahya testes with 0

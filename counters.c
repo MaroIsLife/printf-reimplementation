@@ -25,7 +25,7 @@ int zcounter(const char *num,int i)
         o++;
         i++;
     }
-    if ((num[i] == 'c' || num[i] == 'd' || num[i] == 's' || num[i] == 'p' || num[i] == 'u' || num[i] == 'x' || num[i] == 'X') || (num[i] >= '1' && num[i] <= '9'))
+    if ((num[i] == 'c' || num[i] == 'd' || num[i] == 's' || num[i] == 'p' || num[i] == 'u' || num[i] == 'x' || num[i] == 'X') || (num[i] >= '1' && num[i] <= '9') || num[i] == '*')
     {
         return (o);
     } 
@@ -58,7 +58,7 @@ int mcounter(const char *num,int i)
         o++;
         i++;
     }
-    if ((num[i] == 'c' || num[i] == 'd' || num[i] == 's' || num[i] == 'p' || num[i] == 'u' || num[i] == 'x' || num[i] == 'X') || (num[i] >= '1' && num[i] <= '9'))
+    if ((num[i] == 'c' || num[i] == 'd' || num[i] == 's' || num[i] == 'p' || num[i] == 'u' || num[i] == 'x' || num[i] == 'X') || (num[i] >= '1' && num[i] <= '9') || num[i] == '*')
     {
         return (o);
     } 
@@ -81,14 +81,34 @@ int mcounter2(const char *num,int i)
     //else
     return (o);
 }
+int mcounter3(const char *num,int i)
+{
+    int o;
+    o = 0;
+    while (num[i] == '-')
+    {
+        if (num[i] == 'c' || num[i] == 'd' || num[i] == 's' || num[i] == 'p' || num[i] == 'u' || num[i] == 'x' || num[i] == 'X')
+    {
+        return (0);
+    }
+        o++;
+        i++;
+    }
+    return (o);
+}
 
 
 
 int acounter(const char *num,int i)
 {
     int o;
+    int m;
+    int z;
+    z = zcounter(num,i);
+    m = mcounter2(num,i);
+
     o = 0;
-    while (num[i + 1] == '*' || num[i + 2] == '*')
+    if (num[i + z + m] == '*' || num[i + z + m + 2] == '*')
     {
         o++;
         i++;

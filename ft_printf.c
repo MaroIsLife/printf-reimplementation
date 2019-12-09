@@ -117,7 +117,7 @@ int ft_printf(const char *num, ...)
     return (g_r);
 }
 
-int	main()
+/*int	main()
 {
     // try * with normal width
 
@@ -128,8 +128,8 @@ int	main()
    int a;
    int b;
 
-   a = ft_printf("%-1s\n",NULL);
-    b = printf("%-1s\n",NULL);
+   a = ft_printf("%02d\n",100);
+    b = printf("%02d\n",100);
 
     printf("Me: %d\n",a);
       printf("Them: %d\n",b);

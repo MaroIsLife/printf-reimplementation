@@ -8,19 +8,24 @@ int mprintspace_s(va_list args,int h)
 
 
     s = va_arg(args,char *);
+    if (s == NULL)
+        c = 6;
+    else
     c = ft_strlen(s);
     c = h - c;
     if (s < 0)
     o = 1;
     else
     o = 0;
+    if (s != NULL)
     ft_putstr(s);
+    else
+    ft_putstr("(null)");
     while (o < c)
     {
         ft_putchar(' ');
         o++;
     }
-    c = ft_strlen(s) + o;
     return (c);
 }
 
@@ -146,16 +151,16 @@ int mprintspace_p(va_list args,int h)
     if (s == 0)
     c = 3;
     else
-    c = 11;
+    c = count(s) + 1;
     c = h - c;
     o = 0;
+    ft_putstr("0x");
     k = ft_adr(s);
     while (o < c)
     {
         ft_putchar(' ');
         o++;
     }
-    ft_putstr("0x");
     c = o + k + 2;
     return (c);
 }

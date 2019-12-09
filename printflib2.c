@@ -3,20 +3,22 @@
 int print_X(va_list args, int *i ,const char *num)
 {
     int c;
-    unsigned long a;
+    unsigned int a;
+    unsigned int b;
     char *buff;
     char *af; 
     
     af = "0123456789ABCDEF"; 
     c = 0;
     buff = calloc(20,1);
-    a = va_arg(args,int);
+    a = va_arg(args,unsigned int);
     if (a == 0)
     buff[0] = '0';
     while (a != 0)
     {
+        b = a % 16;
+        buff[c] = af[b];
         a = a / 16;
-        buff[c] = af[a % 16];
         c++;
     }
     c = ft_putstr(ft_strrev(buff));

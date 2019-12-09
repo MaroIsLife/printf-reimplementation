@@ -41,6 +41,7 @@ int ft_heXa(int s)
 int ft_adr(unsigned long s)
 {
     int c;
+    int b;
     char *buff;
     char *af; 
     
@@ -51,7 +52,8 @@ int ft_adr(unsigned long s)
     buff[0] = '0';
     while (s != 0)
     {
-        buff[c] = af[s % 16];
+        b = s % 16;
+        buff[c] = af[b];
         s = s / 16;
         c++;
     }

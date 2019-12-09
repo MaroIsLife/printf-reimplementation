@@ -8,6 +8,9 @@ int printspace_s(va_list args,int h)
 
 
     s = va_arg(args,char *);
+    if (s == NULL)
+        c = 6;
+    else
     c = ft_strlen(s);
     c = h - c;
     if (s < 0)
@@ -19,7 +22,10 @@ int printspace_s(va_list args,int h)
         ft_putchar(' ');
         o++;
     }
+    if (s != NULL)
     c = o + ft_putstr(s);
+    else
+    c = ft_putstr("(null)");
     return (c);
 }
 
@@ -136,7 +142,7 @@ int printspace_p(va_list args,int h)
     
     s = va_arg(args,unsigned long);
     if (s == 0)
-    c = 3; // Replaced G with C
+    c = 3;
     else
     c = count(s) + 1;
     c = h - c;

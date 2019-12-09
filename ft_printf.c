@@ -128,8 +128,8 @@ int	main()
    int a;
    int b;
 
-   a = ft_printf("%2p\n",(void *)0);
-    b = printf("%2p\n",(void *)0);
+   a = ft_printf("%-1s\n",NULL);
+    b = printf("%-1s\n",NULL);
 
     printf("Me: %d\n",a);
       printf("Them: %d\n",b);

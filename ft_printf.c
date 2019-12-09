@@ -69,7 +69,7 @@ int ft_checkstring(const char *num, va_list args)
     {
         n = zcounter(num,i + 1);
         k = mcounter(num,i + 1);
-        if (num[i] == '%' && num[i + 1] == 's')
+        if (num[i] == '%' && num[i + k + 1 + n] == 's')
             c = c + print_s(args,&i,num);
         else if (num[i] == '%' && num[i + k + 1 + n] == 'd')
             c = c + print_d(args,&i,num);
@@ -85,15 +85,15 @@ int ft_checkstring(const char *num, va_list args)
             c = c + aprintspace(args,&i,num);
         else if (num[i] == '%' && (num[i + 1] == '-' && (num[i + k + 1] >= '1' && num[i + k + 1] <= '9')))
             c = c + printspace(args,&i,num);
-        else if (num[i] == '%' && num[i + k + 1] == 'c')
+        else if (num[i] == '%' && num[i + k + 1 + n] == 'c')
             c = c + print_c(args,&i,num);
-        else if (num[i] == '%' && num[i + k + 1] == 'x')
+        else if (num[i] == '%' && num[i + k + 1 + n] == 'x')
             c = c + print_x(args,&i,num);
-        else if (num[i] == '%' && num[i + k + 1] == 'X')
+        else if (num[i] == '%' && num[i + k + 1 + n] == 'X')
             c = c + print_X(args,&i ,num);
-        else if (num[i] == '%' && num[i + k + 1] == 'u')
+        else if (num[i] == '%' && num[i + k + 1 + n] == 'u')
             c = c + print_u(args,&i,num);
-        else if (num[i] == '%' && num[i + k + 1] == 'p')
+        else if (num[i] == '%' && num[i + k + 1 + n] == 'p')
             c = c + print_p(args,&i,num);
         else if (num[i] == '%' && num[i + 1] == '%')
             c = c + print_perc(&i);
@@ -117,10 +117,16 @@ int ft_printf(const char *num, ...)
 
 int	main()
 {
+    // try * with normal width
 
 	//ft_printf("%0*d\n",12,'G');
-   ft_printf("%*d\n",12,-123);
-   printf("%*d\n",12,-123);
+   //ft_printf("%*d\n",12,-123);
+   //printf("%*d\n",12,-123);
+
+   int a;
+
+   a = ft_printf("|%12d|\n", 100);
+   printf("%d",a);
 
 
     //ft_printf("--%---4dh\n",'G');
@@ -129,4 +135,4 @@ int	main()
 
 	return (0);
 }
-  // try Yahya testes with 0
+  // try Yahya testes with 0*/

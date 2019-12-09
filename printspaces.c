@@ -136,9 +136,9 @@ int printspace_p(va_list args,int h)
     
     s = va_arg(args,unsigned long);
     if (s == 0)
-    c = 3;
+    c = 3; // Replaced G with C
     else
-    c = 11;
+    c = count(s) + 1;
     c = h - c;
     o = 0;
     while (o < c)

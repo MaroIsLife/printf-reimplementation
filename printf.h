@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+int g_r;
 
 int ft_printf(const char *num, ...);
 

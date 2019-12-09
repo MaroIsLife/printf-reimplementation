@@ -3,7 +3,7 @@
 int print_X(va_list args, int *i ,const char *num)
 {
     int c;
-    int a;
+    unsigned long a;
     char *buff;
     char *af; 
     
@@ -11,6 +11,8 @@ int print_X(va_list args, int *i ,const char *num)
     c = 0;
     buff = calloc(20,1);
     a = va_arg(args,int);
+    if (a == 0)
+    buff[0] = '0';
     while (a != 0)
     {
         a = a / 16;

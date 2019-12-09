@@ -13,6 +13,7 @@ int ft_strlen(const char *c)
 void ft_putchar(char c)
 {
     write(1,&c,1);
+    g_r = g_r + 1;
 }
 
 int ft_putstr(char *c)

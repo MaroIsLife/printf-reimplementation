@@ -1,5 +1,6 @@
 #include "printf.h"
 
+int g_r;
 
 int printspace(va_list args,int *i,const char *num)
 {
@@ -108,11 +109,12 @@ int ft_printf(const char *num, ...)
 {
     va_list args;
     int c;
+    g_r = 0;
 
     va_start(args,num);
     c = ft_checkstring(num,args);
     va_end(args);
-    return (c);
+    return (g_r);
 }
 
 int	main()
@@ -124,9 +126,14 @@ int	main()
    //printf("%*d\n",12,-123);
 
    int a;
+   int b;
 
-   a = ft_printf("|%12d|\n", 100);
-   printf("%d",a);
+   a = ft_printf("%2p\n",(void *)0);
+    b = printf("%2p\n",(void *)0);
+
+    printf("Me: %d\n",a);
+      printf("Them: %d\n",b);
+
 
 
     //ft_printf("--%---4dh\n",'G');

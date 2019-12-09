@@ -61,7 +61,7 @@ int print_u(va_list args, int *i ,const char *num)
 int print_x(va_list args, int *i ,const char *num)
 {
     int c;
-    int a;
+    unsigned long a;
     char *buff;
     char *af; 
     
@@ -69,6 +69,8 @@ int print_x(va_list args, int *i ,const char *num)
     c = 0;
     buff = calloc(20,1);
     a = va_arg(args,int);
+    if (a == 0)
+    buff[0] = '0';
     while (a != 0)
     {
         buff[c] = af[a % 16];

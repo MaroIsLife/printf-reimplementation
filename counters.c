@@ -15,6 +15,20 @@ int convcounter(const char *num,int z)
     
 }
 
+int dotcounter(const char *num,int z)
+{   int n;
+    int a;
+    a = z;
+    n = 0;
+    while (num[a] != '.')
+    {
+        n++;
+        a++;
+    }
+    return (n);
+    
+}
+
 
 int zcounter(const char *num,int i)
 {

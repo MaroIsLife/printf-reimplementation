@@ -94,7 +94,7 @@ int mprintspace_u(va_list args,int h)
     c = count(s);
     c = h - c;
     o = 0;
-    ft_putnbr(s);
+    ft_putunsigned(s);
     while (o < c)
     {
         ft_putchar(' ');
@@ -107,11 +107,11 @@ int mprintspace_u(va_list args,int h)
 int mprintspace_x(va_list args,int h)
 {
     int o;
-    int s;
+    unsigned int s;
     int c;
     int k;
     
-    s = va_arg(args,int);
+    s = va_arg(args,unsigned int);
     c = count(s) - 1;
     if (h < 0)
     h = h * - 1;
@@ -130,11 +130,11 @@ int mprintspace_x(va_list args,int h)
 int mprintspace_X(va_list args,int h)
 {
     int o;
-    int s;
+    unsigned int s;
     int c;
     int k; 
     
-    s = va_arg(args,int);
+    s = va_arg(args,unsigned int);
     c = count(s) - 1;
     if (h < 0)
     h = h * - 1;

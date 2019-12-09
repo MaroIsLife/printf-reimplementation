@@ -89,17 +89,22 @@ int zprintspace_u(va_list args,int h)
         ft_putchar('0');
         o++;
     }
-    c = o + ft_putnbr(s);
+    c = o + ft_putunsigned(s);
     return (c);
 }
 
 int zprintspace_x(va_list args,int h)
 {
     int o;
-    int s;
+    unsigned int s;
     int c;
+    int k;
     
     s = va_arg(args,int);
+    k = s;
+    if (k < 0)
+    c = 8;
+    else
     c = count(s) - 1;
     c = h - c;
     o = 0;
@@ -115,11 +120,16 @@ int zprintspace_x(va_list args,int h)
 int zprintspace_X(va_list args,int h)
 {
     int o;
-    int s;
+    unsigned int s;
     int c;
+    int k;
     
     s = va_arg(args,int);
-    c = count(s) - 1;
+    k = s;
+    if (k < 0)
+    c = 8;
+    else
+    c = count(s) - 1;    
     c = h - c;
     o = 0;
     while (o < c)

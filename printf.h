@@ -30,6 +30,7 @@ int zcounter(const char *num,int i);
 int zcounter2(const char *num,int i);
 int convcounter(const char *num,int z);
 int acounter(const char *num,int i);
+int dotcounter(const char *num,int z);
 
 
 
@@ -65,8 +66,8 @@ int zwhichspace(const char *num,int n,va_list args,int h);
 int mwhichspace(const char *num,int n,va_list args,int h);
 
 
-int ft_hexa(int s);
-int ft_heXa(int s);
+int ft_hexa(unsigned int s);
+int ft_heXa(unsigned int s);
 int ft_adr(unsigned long s);
 
 

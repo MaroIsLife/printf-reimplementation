@@ -92,17 +92,22 @@ int printspace_u(va_list args,int h)
         ft_putchar(' ');
         o++;
     }
-    c = o + ft_putnbr(s);
+    c = ft_putunsigned(s);
     return (c);
 }
 
 int printspace_x(va_list args,int h)
 {
     int o;
-    int s;
+    unsigned int s;
+    int k;
     int c;
     
-    s = va_arg(args,int);
+    s = va_arg(args,unsigned int);
+    k = s;
+    if (k < 0)
+    c = 8;
+    else
     c = count(s) - 1;
     c = h - c;
     o = 0;
@@ -118,10 +123,15 @@ int printspace_x(va_list args,int h)
 int printspace_X(va_list args,int h)
 {
     int o;
-    int s;
+    unsigned int s;
     int c;
+    int k;
     
-    s = va_arg(args,int);
+    s = va_arg(args,unsigned int);
+     k = s;
+    if (k < 0)
+    c = 8;
+    else
     c = count(s) - 1;
     c = h - c;
     o = 0;

@@ -18,7 +18,7 @@ int whichspace(const char *num,int n,va_list args,int h)
     else if (num[n + 1] == 'p')
         c = c + printspace_p(args,h);
     else if (num[n + 1] == 'u')
-        c = c + printspace_s(args,h);
+        c = c + printspace_u(args,h);
 
 
     return (c);
@@ -42,7 +42,7 @@ int zwhichspace(const char *num,int n,va_list args,int h)
     else if (num[n + 1] == 'p')
         c = c + zprintspace_p(args,h);
     else if (num[n + 1] == 'u')
-        c = c + zprintspace_s(args,h);
+        c = c + zprintspace_u(args,h);
 
 
     return (c);
@@ -66,7 +66,7 @@ int mwhichspace(const char *num,int n,va_list args,int h)
     else if (num[n + 1] == 'p')
         c = c + mprintspace_p(args,h);
     else if (num[n + 1] == 'u')
-        c = c + mprintspace_s(args,h);
+        c = c + mprintspace_u(args,h);
 
 
     return (c);

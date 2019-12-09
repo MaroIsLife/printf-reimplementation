@@ -2,34 +2,6 @@
 
 int g_r;
 
-int printspace(va_list args,int *i,const char *num)
-{
-    int h;
-    int n;
-    char *s;
-    int z;
-
-    z = *i + 1;
-    n = *i + convcounter(num,z); // ADDED *i + CHECK OTHER
-    s = ft_substr(num,z,n);
-    h = ft_atoi(s);
-    if (num[z] == '0')
-    {
-        *i = *i + zcounter2(num,z) + count(h) + 1;
-        h = zwhichspace(num,n,args,h);
-    }
-    else if (num[z] == '-')
-    {
-        *i = *i + mcounter2(num,z) + count(h) + 1;
-        h = mwhichspace(num,n,args,h);
-    }
-    else
-    {
-        *i = *i + count(h) + 1;
-        h = whichspace(num,n,args,h);
-    }
-    return (h);
-}
 int aprintspace(va_list args,int *i,const char *num)
 {
     int h;
@@ -62,6 +34,59 @@ int aprintspace(va_list args,int *i,const char *num)
     return (h);
 }
 
+int printspace(va_list args,int *i,const char *num)
+{
+    int h;
+    int n;
+    char *s;
+    int z;
+
+    z = *i + 1;
+    n = *i + convcounter(num,z); // ADDED *i + CHECK OTHER
+    s = ft_substr(num,z,n);
+    h = ft_atoi(s);
+    if (num[z] == '0')
+    {
+        *i = *i + zcounter2(num,z) + count(h) + 1;
+        h = zwhichspace(num,n,args,h);
+    }
+    else if (num[z] == '-')
+    {
+        *i = *i + mcounter2(num,z) + count(h) + 1;
+        h = mwhichspace(num,n,args,h);
+    }
+    else
+    {
+        *i = *i + count(h) + 1;
+        h = whichspace(num,n,args,h);
+    }
+    return (h);
+}
+
+int dprintspace(va_list args,int *i,const char *num)
+{
+    int h;
+    int n;
+    int z;
+    char *s1;
+    char *s2;
+    int h1;
+    int h2;
+
+    z = *i + 1;
+    n = *i + dotcounter(num,z);
+    s1 = ft_substr(num,z,n);
+    n = *i + convcounter(num,z + 2);
+    s2 = ft_substr(num,z + 2,n);
+    h1 = atoi(s1);
+    h2 = atoi(s2);
+
+    *i = *i + count(h1) + count (h2) + 2;
+
+    return (0);
+}
+
+
 int ft_checkstring(const char *num, va_list args)
 {
     int i;
@@ -79,6 +104,8 @@ int ft_checkstring(const char *num, va_list args)
             c = c + print_s(args,&i,num);
         else if (num[i] == '%' && num[i + k + 1 + n] == 'd')
             c = c + print_d(args,&i,num);
+        else if (num[i] == '%' && (num[i + 1] >= '1' && num[i + 1] <= '9') && num[i + 2] == '.')
+            dprintspace(args,&i,num);
         else if (num[i] == '%' && (num[i + 1] >= '1' && num[i + 1] <= '9'))
             c = c + printspace(args,&i,num);
         else if (num[i] == '%' && (num[i + 1] == '*'))
@@ -125,9 +152,9 @@ int ft_printf(const char *num, ...)
 int	main()
 {
     // try * with normal width
-
-   //ft_printf("%*dh\n",-12,123);
-   ft_printf("%-12dh\n",-123);
+    // NEgative argument in %*x or Printspaces
+   char *s = "Haa";
+   ft_printf("%012x",-102);
 
    
 

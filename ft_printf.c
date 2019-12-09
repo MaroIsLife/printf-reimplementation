@@ -39,7 +39,12 @@ int aprintspace(va_list args,int *i,const char *num)
     z = *i + 1;
     h = va_arg(args,int);
     n = *i + convcounter(num,z);
-    if (num[z] == '0')
+    if (h < 0)
+    {
+        *i = *i + mcounter2(num,z) + acounter(num,z) + 1;
+        h = mwhichspace(num,n,args,h);
+    }
+    else if (num[z] == '0')
     {
         *i = *i + zcounter2(num,z) + acounter(num,z) + 1;
         h = zwhichspace(num,n,args,h);
@@ -117,23 +122,14 @@ int ft_printf(const char *num, ...)
     return (g_r);
 }
 
-/*int	main()
+int	main()
 {
     // try * with normal width
 
-	//ft_printf("%0*d\n",12,'G');
-   //ft_printf("%*d\n",12,-123);
-   //printf("%*d\n",12,-123);
+   //ft_printf("%*dh\n",-12,123);
+   ft_printf("%-12dh\n",-123);
 
-   int a;
-   int b;
-
-   a = ft_printf("%02d\n",100);
-    b = printf("%02d\n",100);
-
-    printf("Me: %d\n",a);
-      printf("Them: %d\n",b);
-
+   
 
 
     //ft_printf("--%---4dh\n",'G');

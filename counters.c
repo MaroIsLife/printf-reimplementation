@@ -8,8 +8,14 @@ int ncounter(const char *num,int i)
     {
         o++;
         i++;
+        if (num[i] == '0')
+        {
+            i++;
+            o++;
+        }
+        
     }
-    if (num[i] == '.')
+    if (num[i] == '.' || num[i + 1] == '.')
     {
         return (o);
     } 

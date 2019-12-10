@@ -69,6 +69,9 @@ int dprintspace(va_list args,int *i,const char *num)
     int n;
     int z;
     int b;
+    char *s1;
+    char *s2;
+    int h2;
     struct s_test st;
 
     z = *i + 1;
@@ -109,7 +112,9 @@ int ft_checkstring(const char *num, va_list args)
             c = c + print_s(args,&i,num);
         else if (num[i] == '%' && num[i + k + 1 + n] == 'd')
             c = c + print_d(args,&i,num);
-        else if (num[i] == '%' && (num[i + 1] >= '1' && num[i + 1] <= '9') && num[b + 1] == '.')
+        else if (num[i] == '%' && num[i + 1] >= '.')
+            dprintspace(args,&i,num);
+        else if (num[i] == '%' && (num[i + 1] >= '1' && num[i + 1] <= '9') && num[i + b + 1] == '.')
             dprintspace(args,&i,num);
         else if (num[i] == '%' && (num[i + 1] >= '1' && num[i + 1] <= '9'))
             c = c + printspace(args,&i,num);
@@ -160,10 +165,10 @@ int	main()
     // NEgative argument in %*x or Printspaces
    char *s = "Haa";
 
-   
+   //Right = 0;
+    //Left = Space
 
-
-    ft_printf("%15.12dh\n",23);
+    printf("%4.0dh\n",12);
 
 	
 

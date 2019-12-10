@@ -8,9 +8,7 @@ int print_s(va_list args, int *i ,const char *num)
 
     s = va_arg(args,char *);
     if (s == NULL)
-    {
         c = ft_putstr("(null)");
-    }
     else
     c = ft_putstr(s);
     k = *i;

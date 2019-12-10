@@ -86,8 +86,8 @@ int dprintspace(va_list args,int *i,const char *num)
 
     dwhichspace(num,args,st,n);
     
-
-    *i = *i + count(st.h1) + count (st.h2) + 2;
+    z = convcounter(num,z);
+    *i = z + 1;
 
     return (0);
 }
@@ -168,7 +168,7 @@ int	main()
    //Right = 0;
     //Left = Space
 
-    printf("%4.0dh\n",12);
+    ft_printf("%8.dh\n",12);
 
 	
 

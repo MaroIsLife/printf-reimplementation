@@ -9,6 +9,15 @@
 
 int g_r;
 
+
+struct s_test {
+    int h1;
+    int h2;
+    char *s1;
+    char *s2;
+
+};
+
 int ft_printf(const char *num, ...);
 
 void     ft_putchar(char c);
@@ -24,6 +33,8 @@ void    *ft_calloc(size_t n, size_t size);
 char    *ft_substr(const char *s, int start, size_t len);
 int     ft_atoi(const char *str);
 
+
+int ncounter(const char *num,int i);
 int mcounter(const char *num,int i);
 int mcounter2(const char *num,int i);
 int zcounter(const char *num,int i);
@@ -32,6 +43,7 @@ int convcounter(const char *num,int z);
 int acounter(const char *num,int i);
 int dotcounter(const char *num,int z);
 
+int dprintspace_d(struct s_test st,va_list args);
 
 
 
@@ -64,6 +76,7 @@ int mprintspace_X(va_list args,int h);
 int whichspace(const char *num,int n,va_list args,int h);
 int zwhichspace(const char *num,int n,va_list args,int h);
 int mwhichspace(const char *num,int n,va_list args,int h);
+int dwhichspace(const char *num, va_list args,struct s_test st,int n);
 
 
 int ft_hexa(unsigned int s);

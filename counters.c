@@ -1,5 +1,21 @@
 #include "printf.h"
 
+int ncounter(const char *num,int i)
+{
+    int o;
+    o = 0;
+    while (num[i] >= '1' && num[i] <= '9')
+    {
+        o++;
+        i++;
+    }
+    if (num[i] == '.')
+    {
+        return (o);
+    } 
+    else
+        return (0);
+}
 
 int convcounter(const char *num,int z)
 {   int n;

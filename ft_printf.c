@@ -68,20 +68,23 @@ int dprintspace(va_list args,int *i,const char *num)
     int h;
     int n;
     int z;
-    char *s1;
-    char *s2;
-    int h1;
-    int h2;
+    int b;
+    struct s_test st;
 
     z = *i + 1;
     n = *i + dotcounter(num,z);
-    s1 = ft_substr(num,z,n);
-    n = *i + convcounter(num,z + 2);
-    s2 = ft_substr(num,z + 2,n);
-    h1 = atoi(s1);
-    h2 = atoi(s2);
+    st.s1 = ft_substr(num,z,n);
+    b = ncounter(num,z) + 1;
+    n = *i + convcounter(num,b);
+    st.s2 = ft_substr(num,b,n);
+    st.h1 = ft_atoi(st.s1);
+    st.h2 = ft_atoi(st.s2);
+    n = *i + dotcounter(num,z) + convcounter(num,b);
 
-    *i = *i + count(h1) + count (h2) + 2;
+    dwhichspace(num,args,st,n);
+    
+
+    *i = *i + count(st.h1) + count (st.h2) + 2;
 
     return (0);
 }
@@ -92,6 +95,7 @@ int ft_checkstring(const char *num, va_list args)
     int i;
     int c;
     int n;
+    int b;
     int k;
 
     i = -1;
@@ -100,11 +104,12 @@ int ft_checkstring(const char *num, va_list args)
     {
         n = zcounter(num,i + 1);
         k = mcounter(num,i + 1);
+        b = ncounter(num,i + 1);
         if (num[i] == '%' && num[i + k + 1 + n] == 's')
             c = c + print_s(args,&i,num);
         else if (num[i] == '%' && num[i + k + 1 + n] == 'd')
             c = c + print_d(args,&i,num);
-        else if (num[i] == '%' && (num[i + 1] >= '1' && num[i + 1] <= '9') && num[i + 2] == '.')
+        else if (num[i] == '%' && (num[i + 1] >= '1' && num[i + 1] <= '9') && num[b + 1] == '.')
             dprintspace(args,&i,num);
         else if (num[i] == '%' && (num[i + 1] >= '1' && num[i + 1] <= '9'))
             c = c + printspace(args,&i,num);
@@ -154,12 +159,11 @@ int	main()
     // try * with normal width
     // NEgative argument in %*x or Printspaces
    char *s = "Haa";
-   ft_printf("%012x",-102);
 
    
 
 
-    //ft_printf("--%---4dh\n",'G');
+    ft_printf("%15.12dh\n",23);
 
 	
 

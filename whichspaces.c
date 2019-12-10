@@ -24,6 +24,19 @@ int whichspace(const char *num,int n,va_list args,int h)
     return (c);
 }
 
+int dwhichspace(const char *num, va_list args,struct s_test st,int n)
+{
+    int c;
+
+    c = 0;
+   
+    if (num[n + 1] == 'd')
+        c = c + dprintspace_d(st,args);
+
+
+    return (c);
+}
+
 int zwhichspace(const char *num,int n,va_list args,int h)
 {
     int c;

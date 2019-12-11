@@ -163,12 +163,15 @@ int ft_printf(const char *num, ...)
 int	main()
 {
    //Precision D with Negative Argument.
+   // Work Precision S NULL.
    char *s = "Haa";
 
    //Right = 0;
     //Left = Space
+    int a;
 
-    ft_printf("%5.4s\n","hel"); 
+   printf("%4.d\n",-123);
+
 
 
 	

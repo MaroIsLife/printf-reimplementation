@@ -14,19 +14,26 @@ int dprintspace_d(struct s_test st,va_list args)
         c = st.h1 - count(s);
     else
     c = st.h1 - st.h2;
+    if (s < 0)
+    {
+        o = 1;
+    }
+    else
     o = 0;
     while (o < c)
     {
         ft_putchar(' ');
         o++;
     }
+    if (s < 0)
+    ft_putchar('-');
     o = 0;
     while (o < b)
     {
         ft_putchar('0');
         o++;
     }
-    ft_putnbr(s);
+    zft_putnbr(s);
 
     return (0);
 }

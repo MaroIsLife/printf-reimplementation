@@ -59,8 +59,11 @@ int dprintspace_s(struct s_test st,va_list args)
     int o;
 
     s = va_arg(args,char *);
-    if (st.h2 >= ft_strlen(s))
-        c = st.h1 - ft_strlen(s);
+    if (s == NULL)
+    s = "(null)";
+    b = ft_strlen(s);
+    if (st.h2 >= b)
+        c = st.h1 - b;
     else
         c = st.h1 - st.h2;
     
@@ -71,9 +74,6 @@ int dprintspace_s(struct s_test st,va_list args)
         o++;
     }
     b = st.h2;
-    if (s != NULL)
     wordputter(b,s);
-    else 
-    ft_putstr("(null)");
     return (0);
 }

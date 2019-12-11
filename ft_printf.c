@@ -170,7 +170,7 @@ int	main()
     //Left = Space
     int a;
 
-   printf("%4.d\n",-123);
+   ft_printf("%4.1s\n","Hejuu");
 
 
 

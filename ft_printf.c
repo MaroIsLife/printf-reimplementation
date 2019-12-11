@@ -2,7 +2,7 @@
 
 int g_r;
 
-int aprintspace(va_list args,int *i,const char *num)
+int aprintspace(va_list args, int *i, const char *num)
 {
     int h;
     int n;
@@ -64,7 +64,7 @@ int printspace(va_list args,int *i,const char *num)
     return (h);
 }
 
-int dprintspace(va_list args,int *i,const char *num)
+int dprintspace(va_list args, int *i, const char *num)
 {
     int n;
     int z;
@@ -164,8 +164,7 @@ int ft_printf(const char *num, ...)
    //Right = 0;
     //Left = Space
 
-   printf("%4.1d",0);
-
+   ft_printf("%4.3d\n",0);
 
 
 	

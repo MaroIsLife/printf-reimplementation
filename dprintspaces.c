@@ -11,15 +11,21 @@ int dprintspace_d(struct s_test st,va_list args)
     c = count(s);
     b = st.h2 - c;
     if (st.h2 == 0)
+    {
+        if (s == 0)
+        c = st.h1;
+        else
         c = st.h1 - count(s);
+    }
     else
     c = st.h1 - st.h2;
     if (s < 0)
-    {
         o = 1;
-    }
     else
     o = 0;
+    if (s == 0)
+        b = b + 1;
+        
     while (o < c)
     {
         ft_putchar(' ');
@@ -33,9 +39,10 @@ int dprintspace_d(struct s_test st,va_list args)
         ft_putchar('0');
         o++;
     }
-    if (s == 0 && st.h2 == 0)
-    ft_putchar(' ');
-    else
+    //if (s == 0 && st.h2 == 0)
+    //ft_putchar(' ');
+    //else
+    if (s != 0)
     zft_putnbr(s);
     return (0);
 }
@@ -43,12 +50,19 @@ int dprintspace_d(struct s_test st,va_list args)
 int wordputter(int b,char *s)
 {
     int o;
+    int a;
 
-    o = 0;
-    while (o < b)
+    a = ft_strlen(s);
+    o = 0; 
+    if (a == 0)
+    return (o);
+    else
     {
-        ft_putchar(s[o]);
-        o++;
+        while (o < b && s[o] != '\0')
+        {
+            ft_putchar(s[o]);
+            o++;
+        }
     }
     return (o);
 }

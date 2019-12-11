@@ -74,7 +74,7 @@ int dprintspace(va_list args,int *i,const char *num)
     z = *i + 1;
     n = *i + dotcounter(num,z);
     st.s1 = ft_substr(num,z,n);
-    b = ncounter(num,z) + 1;
+    b = *i + ncounter(num,z) + 1;
     n = *i + convcounter(num,b);
     st.s2 = ft_substr(num,b,n);
     st.h1 = ft_atoi(st.s1);
@@ -156,7 +156,7 @@ int ft_printf(const char *num, ...)
     return (g_r);
 }
 
-/*int	main()
+int	main()
 {
    //Precision D with Negative Argument.
    // Work Precision S NULL.
@@ -164,11 +164,11 @@ int ft_printf(const char *num, ...)
    //Right = 0;
     //Left = Space
 
-   ft_printf("a%3da",100);
+   ft_printf("a%3.3da",100);
 
 
 
 	
 
 	return (0);
-}*/
+}

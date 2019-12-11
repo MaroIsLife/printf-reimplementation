@@ -57,7 +57,8 @@ int printspace(va_list args,int *i,const char *num)
     }
     else
     {
-        *i = *i + count(h) + 1;
+        //*i = *i + count(h) + 1;
+        *i = *i + n + 1;
         h = whichspace(num,n,args,h);
     }
     return (h);
@@ -87,7 +88,7 @@ int dprintspace(va_list args,int *i,const char *num)
     dwhichspace(num,args,st,n);
     
     z = convcounter(num,z);
-    *i = z + 1;
+    *i = *i + z + 1;
 
     return (0);
 }
@@ -112,7 +113,7 @@ int ft_checkstring(const char *num, va_list args)
             c = c + print_s(args,&i,num);
         else if (num[i] == '%' && num[i + k + 1 + n] == 'd')
             c = c + print_d(args,&i,num);
-        else if (num[i] == '%' && num[i + 1] >= '.')
+        else if (num[i] == '%' && num[i + 1] == '.')
             dprintspace(args,&i,num);
         else if (num[i] == '%' && (num[i + 1] >= '1' && num[i + 1] <= '9') && num[i + b + 1] == '.')
             dprintspace(args,&i,num);
@@ -137,11 +138,11 @@ int ft_checkstring(const char *num, va_list args)
         else if (num[i] == '%' && num[i + k + 1 + n] == 'u')
             c = c + print_u(args,&i,num);
         else if (num[i] == '%' && num[i + k + 1 + n] == 'p')
-            c = c + print_p(args,&i,num);
+                print_p(args,&i,num);
         else if (num[i] == '%' && num[i + 1] == '%')
-            c = c + print_perc(&i);
+                print_perc(&i);
         else
-        c = c + print_n(num,&i);
+            print_n(num,&i);
     }
     return (c);
 
@@ -161,17 +162,16 @@ int ft_printf(const char *num, ...)
 
 int	main()
 {
-    // try * with normal width
-    // NEgative argument in %*x or Printspaces
+   //Precision D with Negative Argument.
    char *s = "Haa";
 
    //Right = 0;
     //Left = Space
 
-    ft_printf("%8.dh\n",12);
+    ft_printf("%5.4s\n","hel"); 
+
 
 	
 
 	return (0);
 }
-  // try Yahya testes with 0*/

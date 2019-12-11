@@ -32,6 +32,8 @@ int dwhichspace(const char *num, va_list args,struct s_test st,int n)
    
     if (num[n + 1] == 'd')
         c = c + dprintspace_d(st,args);
+        else if(num[n + 1] == 's')
+        dprintspace_s(st,args);
 
 
     return (c);

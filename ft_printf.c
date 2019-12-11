@@ -57,8 +57,8 @@ int printspace(va_list args,int *i,const char *num)
     }
     else
     {
-        //*i = *i + count(h) + 1;
-        *i = *i + n + 1;
+        *i = *i + count(h) + 1;
+        //*i = *i + n + 1;
         h = whichspace(num,n,args,h);
     }
     return (h);
@@ -66,13 +66,9 @@ int printspace(va_list args,int *i,const char *num)
 
 int dprintspace(va_list args,int *i,const char *num)
 {
-    int h;
     int n;
     int z;
     int b;
-    char *s1;
-    char *s2;
-    int h2;
     struct s_test st;
 
     z = *i + 1;
@@ -160,21 +156,19 @@ int ft_printf(const char *num, ...)
     return (g_r);
 }
 
-int	main()
+/*int	main()
 {
    //Precision D with Negative Argument.
    // Work Precision S NULL.
-   char *s = "Haa";
 
    //Right = 0;
     //Left = Space
-    int a;
 
-   ft_printf("%4.1s\n","Hejuu");
+   ft_printf("a%3da",100);
 
 
 
 	
 
 	return (0);
-}
+}*/

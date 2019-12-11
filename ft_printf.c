@@ -156,7 +156,7 @@ int ft_printf(const char *num, ...)
     return (g_r);
 }
 
-int	main()
+/*int	main()
 {
    //Precision D with Negative Argument.
    // Work Precision S NULL.
@@ -164,11 +164,10 @@ int	main()
    //Right = 0;
     //Left = Space
 
-   ft_printf("a%3.3da",100);
+   printf("%4.1d",0);
 
 
 
 	
-
 	return (0);
-}
+}*/

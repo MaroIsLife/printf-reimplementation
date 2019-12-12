@@ -81,6 +81,7 @@ int dprintspace(va_list args, int *i, const char *num)
     st.h2 = ft_atoi(st.s2);
     n = *i + dotcounter(num,z) + convcounter(num,b);
 
+
     dwhichspace(num,args,st,n);
     
     z = convcounter(num,z);
@@ -109,9 +110,9 @@ int ft_checkstring(const char *num, va_list args)
             c = c + print_s(args,&i,num);
         else if (num[i] == '%' && num[i + k + 1 + n] == 'd')
             c = c + print_d(args,&i,num);
-        else if (num[i] == '%' && num[i + 1] == '.')
+        else if ((num[i] == '%' && num[i + n + 1] == '.') || (num[i] == '%' && num[i + 1] == '0' && (num[i + 2] >= '1' && num[i + 2] <= '9') && num[i + 3] == '.'))
             dprintspace(args,&i,num);
-        else if (num[i] == '%' && (num[i + 1] >= '1' && num[i + 1] <= '9') && num[i + b + 1] == '.')
+        else if (num[i] == '%' && (num[i + n + 1] >= '1' && num[i + n + 1] <= '9') && num[i + b + 1] == '.')
             dprintspace(args,&i,num);
         else if (num[i] == '%' && (num[i + 1] >= '1' && num[i + 1] <= '9'))
             c = c + printspace(args,&i,num);
@@ -156,17 +157,15 @@ int ft_printf(const char *num, ...)
     return (g_r);
 }
 
-/*int	main()
+int	main()
 {
-   //Precision D with Negative Argument.
-   // Work Precision S NULL.
+   //Precisions with other convertions 
 
    //Right = 0;
     //Left = Space
 
-   ft_printf("%4.3d\n",0);
-
+    ft_printf("%8.4d\n",123);
 
 	
 	return (0);
-}*/
+}

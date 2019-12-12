@@ -43,6 +43,8 @@ int convcounter(const char *num,int z);
 int acounter(const char *num,int i);
 int dotcounter(const char *num,int z);
 
+
+
 int dprintspace_d(struct s_test st,va_list args);
 int dprintspace_s(struct s_test st,va_list args);
 int dprintspace_c(struct s_test st,va_list args);

@@ -4,11 +4,11 @@ int ncounter(const char *num,int i)
 {
     int o;
     o = 0;
-    while (num[i] >= '1' && num[i] <= '9')
+    while ((num[i] >= '1' && num[i] <= '9') || (num[i] == '0'))
     {
         o++;
         i++;
-        if (num[i] == '0')
+        while (num[i] == '0') // changed from If to while
         {
             i++;
             o++;
@@ -61,7 +61,7 @@ int zcounter(const char *num,int i)
         o++;
         i++;
     }
-    if ((num[i] == 'c' || num[i] == 'd' || num[i] == 's' || num[i] == 'p' || num[i] == 'u' || num[i] == 'x' || num[i] == 'X') || (num[i] >= '1' && num[i] <= '9') || num[i] == '*')
+    if ((num[i] == 'c' || num[i] == 'd' || num[i] == 's' || num[i] == 'p' || num[i] == 'u' || num[i] == 'x' || num[i] == 'X') || (num[i] >= '1' && num[i] <= '9') || num[i] == '*' || num[i] == '.')
     {
         return (o);
     } 
@@ -94,7 +94,7 @@ int mcounter(const char *num,int i)
         o++;
         i++;
     }
-    if ((num[i] == 'c' || num[i] == 'd' || num[i] == 's' || num[i] == 'p' || num[i] == 'u' || num[i] == 'x' || num[i] == 'X') || (num[i] >= '1' && num[i] <= '9') || num[i] == '*')
+    if ((num[i] == 'c' || num[i] == 'd' || num[i] == 's' || num[i] == 'p' || num[i] == 'u' || num[i] == 'x' || num[i] == 'X') || (num[i] >= '1' && num[i] <= '9') || num[i] == '*' || num[i] == '.')
     {
         return (o);
     } 

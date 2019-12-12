@@ -19,13 +19,12 @@ int dprintspace_d(struct s_test st,va_list args)
     }
     else
     c = st.h1 - st.h2;
+    if (s == 0)
+        b = b + 1;
     if (s < 0)
         o = 1;
     else
-    o = 0;
-    if (s == 0)
-        b = b + 1;
-        
+    o = 0; 
     while (o < c)
     {
         ft_putchar(' ');

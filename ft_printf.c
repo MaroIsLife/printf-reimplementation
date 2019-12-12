@@ -42,9 +42,10 @@ int printspace(va_list args,int *i,const char *num)
     int z;
 
     z = *i + 1;
-    n = *i + convcounter(num,z); // ADDED *i + CHECK OTHER
+    n = *i + convcounter(num,z);
     s = ft_substr(num,z,n);
     h = ft_atoi(s);
+    free(s);
     if (num[z] == '0')
     {
         *i = *i + zcounter2(num,z) + count(h) + 1;
@@ -79,11 +80,12 @@ int dprintspace(va_list args, int *i, const char *num)
     st.s2 = ft_substr(num,b,n);
     st.h1 = ft_atoi(st.s1);
     st.h2 = ft_atoi(st.s2);
+    free(st.s1);
+    free(st.s2);
     n = *i + dotcounter(num,z) + convcounter(num,b);
 
-
     dwhichspace(num,args,st,n);
-    
+
     z = convcounter(num,z);
     *i = *i + z + 1;
 
@@ -164,7 +166,9 @@ int	main()
    //Right = 0;
     //Left = Space
 
-    ft_printf("%8.4d\n",123);
+    //rework all %x to calculate depending on the Hexadecimal Value
+
+   printf("%0.9x\n",-1);
 
 	
 	return (0);

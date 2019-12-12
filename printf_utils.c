@@ -41,6 +41,18 @@ int     count(int n)
     }
     return (i);
 }
+int     unsignedcount(unsigned int n)
+{
+    unsigned int i;
+
+    i = 1;
+    while (n / 10 != 0)
+    {
+        n = n / 10;
+        i++;
+    }
+    return (i);
+}
 
 int    ft_putnbr(int n)
 {
@@ -221,3 +233,22 @@ int     ft_atoi(const char *str)
     return (r * s);
 }
 
+int wordputter(int b,char *s)
+{
+    int o;
+    int a;
+
+    a = ft_strlen(s);
+    o = 0; 
+    if (a == 0)
+    return (o);
+    else
+    {
+        while (o < b && s[o] != '\0')
+        {
+            ft_putchar(s[o]);
+            o++;
+        }
+    }
+    return (o);
+}

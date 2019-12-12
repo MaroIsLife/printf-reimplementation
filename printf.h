@@ -27,12 +27,13 @@ int     ft_putunsigned(unsigned int n);
 int     ft_putnbr(int n);
 int     zft_putnbr(int n);
 int     count(int n);
+int     unsignedcount(unsigned int n);
 char    *ft_strrev(char *str);
 void    ft_bzero(void *s, size_t n);
 void    *ft_calloc(size_t n, size_t size);
 char    *ft_substr(const char *s, int start, size_t len);
 int     ft_atoi(const char *str);
-
+int     wordputter(int b,char *s);
 
 int ncounter(const char *num,int i);
 int mcounter(const char *num,int i);
@@ -48,10 +49,11 @@ int dotcounter(const char *num,int z);
 int dprintspace_d(struct s_test st,va_list args);
 int dprintspace_s(struct s_test st,va_list args);
 int dprintspace_c(struct s_test st,va_list args);
-int dprintspace_p(struct s_test st,va_list args);
+int dprintspace_u(struct s_test st,va_list args);
 int dprintspace_x(struct s_test st,va_list args);
 int dprintspace_X(struct s_test st,va_list args);
-int dprintspace_u(struct s_test st,va_list args);
+int dprintspace_p(struct s_test st,va_list args);
+
 
 
 
@@ -91,6 +93,7 @@ int dwhichspace(const char *num, va_list args,struct s_test st,int n);
 
 
 int ft_hexa(unsigned int s);
+int ct_hexa(unsigned int s);
 int ft_heXa(unsigned int s);
 int ft_adr(unsigned long s);
 

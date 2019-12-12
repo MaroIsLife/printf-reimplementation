@@ -108,7 +108,7 @@ int printspace_x(va_list args,int h)
     if (k < 0)
     c = 8;
     else
-    c = count(s) - 1;
+    c = ct_hexa(s);
     c = h - c;
     o = 0;
     while (o < c)
@@ -132,7 +132,7 @@ int printspace_X(va_list args,int h)
     if (k < 0)
     c = 8;
     else
-    c = count(s) - 1;
+    c = ct_hexa(s);
     c = h - c;
     o = 0;
     while (o < c)

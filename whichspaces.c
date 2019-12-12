@@ -7,7 +7,7 @@ int whichspace(const char *num,int n,va_list args,int h)
     c = 0;
     if (num[n + 1] == 's')
         c = c + printspace_s(args,h);
-    else if (num[n + 1] == 'd')
+    else if (num[n + 1] == 'd' || num[n + 1] == 'i')
         c = c + printspace_d(args,h);
     else if (num[n + 1] == 'c')
         c = c + printspace_c(args,h);
@@ -30,10 +30,21 @@ int dwhichspace(const char *num, va_list args,struct s_test st,int n)
 
     c = 0;
    
-    if (num[n + 1] == 'd' || num[n] == 'd')
+    if (num[n + 1] == 'd' || num[n] == 'd' || num[n] == 'i' || num[n + 1] == 'i')
         dprintspace_d(st,args);
-        else if(num[n + 1] == 's' || num[n] == 's')
+    else if(num[n + 1] == 's' || num[n] == 's')
         dprintspace_s(st,args);
+    else if(num[n + 1] == 'c' || num[n] == 'c')
+        dprintspace_c(st,args);
+    else if(num[n + 1] == 'u' || num[n] == 'u')
+        dprintspace_u(st,args);
+    else if(num[n + 1] == 'x' || num[n] == 'x')
+        dprintspace_x(st,args);
+    else if(num[n + 1] == 'X' || num[n] == 'X')
+        dprintspace_X(st,args);
+   /* else if(num[n + 1] == 'p' || num[n] == 'p')
+        dprintspace_p(st,args);*/
+        
 
 
     return (c);

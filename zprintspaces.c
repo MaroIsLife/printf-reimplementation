@@ -105,7 +105,7 @@ int zprintspace_x(va_list args,int h)
     if (k < 0)
     c = 8;
     else
-    c = count(s) - 1;
+    c = ct_hexa(s);
     c = h - c;
     o = 0;
     while (o < c)
@@ -129,7 +129,7 @@ int zprintspace_X(va_list args,int h)
     if (k < 0)
     c = 8;
     else
-    c = count(s) - 1;    
+    c = ct_hexa(s);
     c = h - c;
     o = 0;
     while (o < c)

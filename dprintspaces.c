@@ -38,33 +38,11 @@ int dprintspace_d(struct s_test st,va_list args)
         ft_putchar('0');
         o++;
     }
-    //if (s == 0 && st.h2 == 0)
-    //ft_putchar(' ');
-    //else
     if (s != 0)
     zft_putnbr(s);
     return (0);
 }
 
-int wordputter(int b,char *s)
-{
-    int o;
-    int a;
-
-    a = ft_strlen(s);
-    o = 0; 
-    if (a == 0)
-    return (o);
-    else
-    {
-        while (o < b && s[o] != '\0')
-        {
-            ft_putchar(s[o]);
-            o++;
-        }
-    }
-    return (o);
-}
 
 int dprintspace_s(struct s_test st,va_list args)
 {
@@ -90,5 +68,143 @@ int dprintspace_s(struct s_test st,va_list args)
     }
     b = st.h2;
     wordputter(b,s);
+    return (0);
+}
+
+int dprintspace_u(struct s_test st,va_list args)
+{
+
+    unsigned int s;
+    int c;
+    int b;
+    int o;
+
+    s = va_arg(args,unsigned int);
+    c = unsignedcount(s);
+    b = st.h2 - c;
+    if (st.h2 == 0)
+    {
+        if (s == 0)
+        c = st.h1;
+        else
+        c = st.h1 - unsignedcount(s);
+    }
+    else
+    c = st.h1 - st.h2;
+    if (s == 0)
+        b = b + 1;
+    o = 0; 
+    while (o < c)
+    {
+        ft_putchar(' ');
+        o++;
+    }
+    o = 0;
+    while (o < b)
+    {
+        ft_putchar('0');
+        o++;
+    }
+    if (s != 0)
+    ft_putunsigned(s);
+    return (0);
+}
+int dprintspace_c(struct s_test st,va_list args)
+{
+    int s;
+    int c;
+    int b;
+    int o;
+
+    s = va_arg(args,int);
+    
+    b = 1;
+  
+    c = st.h1 - 1;
+    
+    o = 0;
+    while (o < c)
+    {
+        ft_putchar(' ');
+        o++;
+    }
+    if (s != 0)
+    ft_putchar(s);
+    return (0);
+}
+
+int dprintspace_x(struct s_test st,va_list args)
+{
+    unsigned int s;
+    int c;
+    int b;
+    int o;
+
+    s = va_arg(args,unsigned int);
+    c = ct_hexa(s);
+    b = st.h2 - c;
+    if (st.h2 == 0)
+    {
+        if (s == 0)
+        c = st.h1;
+        else
+        c = st.h1 - ct_hexa(s);
+    }
+    else
+    c = st.h1 - st.h2;
+    if (s == 0)
+        b = b + 1;
+    o = 0; 
+    while (o < c)
+    {
+        ft_putchar(' ');
+        o++;
+    }
+    o = 0;
+    while (o < b)
+    {
+        ft_putchar('0');
+        o++;
+    }
+    if (s != 0)
+    ft_hexa(s);
+    return (0);
+}
+
+int dprintspace_x(struct s_test st,va_list args)
+{
+    unsigned int s;
+    int c;
+    int b;
+    int o;
+
+    s = va_arg(args,unsigned int);
+    c = ct_hexa(s);
+    b = st.h2 - c;
+    if (st.h2 == 0)
+    {
+        if (s == 0)
+        c = st.h1;
+        else
+        c = st.h1 - ct_hexa(s);
+    }
+    else
+    c = st.h1 - st.h2;
+    if (s == 0)
+        b = b + 1;
+    o = 0; 
+    while (o < c)
+    {
+        ft_putchar(' ');
+        o++;
+    }
+    o = 0;
+    while (o < b)
+    {
+        ft_putchar('0');
+        o++;
+    }
+    if (s != 0)
+    ft_heXa(s);
     return (0);
 }

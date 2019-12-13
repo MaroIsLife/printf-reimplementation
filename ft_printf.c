@@ -84,6 +84,9 @@ int dprintspace(va_list args, int *i, const char *num)
     free(st.s2);
     n = *i + dotcounter(num,z) + convcounter(num,b);
 
+    if (num[z] == '-')
+        zdwhichspace(num,args,st,n);
+    else
     dwhichspace(num,args,st,n);
 
     z = convcounter(num,z);
@@ -115,6 +118,8 @@ int ft_checkstring(const char *num, va_list args)
         else if ((num[i] == '%' && num[i + n + 1] == '.') || (num[i] == '%' && num[i + 1] == '0' && (num[i + 2] >= '1' && num[i + 2] <= '9') && num[i + 3] == '.'))
             dprintspace(args,&i,num);
         else if (num[i] == '%' && (num[i + n + 1] >= '1' && num[i + n + 1] <= '9') && num[i + b + 1] == '.')
+            dprintspace(args,&i,num);
+         else if (num[i] == '%' && num[i + n + k] == '-' && (num[i + n + k + 1] >= '1' && num[i + n + k + 1] <= '9') && num[i + b + 1] == '.')
             dprintspace(args,&i,num);
         else if (num[i] == '%' && (num[i + 1] >= '1' && num[i + 1] <= '9'))
             c = c + printspace(args,&i,num);
@@ -166,9 +171,9 @@ int	main()
    //Right = 0;
     //Left = Space
 
-    //rework all %x to calculate depending on the Hexadecimal Value
-    char *s = " hello";
-    printf("%83.p",(void *)-15342);
+    // ft_printf("%4.3u",-100); TEST THIS <
+
+    printf("%4.3u",-100);
 	
 	return (0);
 }

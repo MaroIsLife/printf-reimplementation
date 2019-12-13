@@ -4,7 +4,7 @@ int ncounter(const char *num,int i)
 {
     int o;
     o = 0;
-    while ((num[i] >= '1' && num[i] <= '9') || (num[i] == '0'))
+    while ((num[i] >= '1' && num[i] <= '9') || (num[i] == '0') || num[i] == '-')
     {
         o++;
         i++;

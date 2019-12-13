@@ -56,6 +56,13 @@ int dprintspace_x(struct s_test st,va_list args);
 int dprintspace_X(struct s_test st,va_list args);
 int dprintspace_p(struct s_test st,va_list args);
 
+int zdprintspace_d(struct s_test st,va_list args);
+int zdprintspace_s(struct s_test st,va_list args);
+int zdprintspace_c(struct s_test st,va_list args);
+int zdprintspace_u(struct s_test st,va_list args);
+int zdprintspace_x(struct s_test st,va_list args);
+int zdprintspace_X(struct s_test st,va_list args);
+int zdprintspace_p(struct s_test st,va_list args);
 
 
 
@@ -92,6 +99,7 @@ int whichspace(const char *num,int n,va_list args,int h);
 int zwhichspace(const char *num,int n,va_list args,int h);
 int mwhichspace(const char *num,int n,va_list args,int h);
 int dwhichspace(const char *num, va_list args,struct s_test st,int n);
+int zdwhichspace(const char *num, va_list args,struct s_test st,int n);
 
 
 int ft_hexa(unsigned int s);

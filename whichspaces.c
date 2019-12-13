@@ -50,6 +50,32 @@ int dwhichspace(const char *num, va_list args,struct s_test st,int n)
     return (c);
 }
 
+int zdwhichspace(const char *num, va_list args,struct s_test st,int n)
+{
+    int c;
+
+    c = 0;
+   
+    if (num[n + 1] == 'd' || num[n] == 'd' || num[n] == 'i' || num[n + 1] == 'i')
+        zdprintspace_d(st,args);
+    else if(num[n + 1] == 's' || num[n] == 's')
+        zdprintspace_s(st,args);
+    else if(num[n + 1] == 'c' || num[n] == 'c')
+        zdprintspace_c(st,args);
+    else if(num[n + 1] == 'u' || num[n] == 'u')
+        zdprintspace_u(st,args);
+    else if(num[n + 1] == 'x' || num[n] == 'x')
+        zdprintspace_x(st,args);
+    else if(num[n + 1] == 'X' || num[n] == 'X')
+        zdprintspace_X(st,args);
+    else if(num[n + 1] == 'p' || num[n] == 'p')
+        zdprintspace_p(st,args);
+        
+
+
+    return (c);
+}
+
 int zwhichspace(const char *num,int n,va_list args,int h)
 {
     int c;

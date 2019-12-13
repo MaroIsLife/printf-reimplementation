@@ -17,7 +17,7 @@ int dprintspace_d(struct s_test st,va_list args)
         else
         c = st.h1 - count(s);
     }
-    if (st.h2 > count(s))
+    else if (st.h2 > count(s))
         c = st.h1 - st.h2;
     else
         c = st.h1 - count(s);
@@ -91,8 +91,10 @@ int dprintspace_u(struct s_test st,va_list args)
         else
         c = st.h1 - unsignedcount(s);
     }
+    else if (st.h2 > unsignedcount(s))
+        c = st.h1 - st.h2;
     else
-    c = st.h1 - st.h2;
+        c = st.h1 - unsignedcount(s);
     if (s == 0)
         b = b + 1;
     o = 0; 

@@ -164,19 +164,15 @@ int ft_printf(const char *num, ...)
     return (g_r);
 }
 
-int	main()
+/*int	main()
 {
    //Precisions with other convertions 
 
    //Right = 0;
     //Left = Space
-
-    ft_printf("%4.3x",-100);
-    //4.0x 0
-    //4.0x 100
-    //4.x 100
-    //1.c 0
+    // %-.p  (void *)100
+    // %-.c 'L'
 
 	
 	return (0);
-}
+}*/

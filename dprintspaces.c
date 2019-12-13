@@ -132,7 +132,6 @@ int dprintspace_c(struct s_test st,va_list args)
         ft_putchar(' ');
         o++;
     }
-    if (s != 0)
     ft_putchar(s);
     return (0);
 }
@@ -154,10 +153,10 @@ int dprintspace_x(struct s_test st,va_list args)
         else
         c = st.h1 - ct_hexa(s);
     }
-    if (st.h2 > count(s))
+    else if (st.h2 > ct_hexa(s))
         c = st.h1 - st.h2;
     else
-        c = st.h1 - count(s);
+        c = st.h1 - ct_hexa(s);
     if (s == 0)
         b = b + 1;
     o = 0; 
@@ -194,10 +193,10 @@ int dprintspace_X(struct s_test st,va_list args)
         else
         c = st.h1 - ct_hexa(s);
     }
-    if (st.h2 > count(s))
+    else if (st.h2 > ct_hexa(s))
         c = st.h1 - st.h2;
     else
-        c = st.h1 - count(s);
+        c = st.h1 - ct_hexa(s);
     if (s == 0)
         b = b + 1;
     o = 0; 

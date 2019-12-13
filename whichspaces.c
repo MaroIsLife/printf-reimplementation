@@ -42,8 +42,8 @@ int dwhichspace(const char *num, va_list args,struct s_test st,int n)
         dprintspace_x(st,args);
     else if(num[n + 1] == 'X' || num[n] == 'X')
         dprintspace_X(st,args);
-   /* else if(num[n + 1] == 'p' || num[n] == 'p')
-        dprintspace_p(st,args);*/
+    else if(num[n + 1] == 'p' || num[n] == 'p')
+        dprintspace_p(st,args);
         
 
 

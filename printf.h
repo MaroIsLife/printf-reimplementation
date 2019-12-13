@@ -35,6 +35,8 @@ char    *ft_substr(const char *s, int start, size_t len);
 int     ft_atoi(const char *str);
 int     wordputter(int b,char *s);
 
+int ct_adr(unsigned long s);
+
 int ncounter(const char *num,int i);
 int mcounter(const char *num,int i);
 int mcounter2(const char *num,int i);

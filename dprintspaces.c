@@ -171,7 +171,7 @@ int dprintspace_x(struct s_test st,va_list args)
     return (0);
 }
 
-int dprintspace_x(struct s_test st,va_list args)
+int dprintspace_X(struct s_test st,va_list args)
 {
     unsigned int s;
     int c;
@@ -206,5 +206,32 @@ int dprintspace_x(struct s_test st,va_list args)
     }
     if (s != 0)
     ft_heXa(s);
+    return (0);
+}
+
+int dprintspace_p(struct s_test st,va_list args)
+{
+    unsigned long s;
+    int c;
+    int b;
+    int o;
+
+    s = va_arg(args,unsigned long);
+    if (s == 0)
+    c = ct_adr(s) + 1;
+    else
+    c = ct_adr(s) + 2;
+    c = st.h1 - c;
+    if (s == 0)
+        b = b + 1;
+    o = 0; 
+    while (o < c)
+    {
+        ft_putchar(' ');
+        o++;
+    }
+    ft_putstr("0x"); 
+    if (s != 0)
+        ft_adr(s);
     return (0);
 }

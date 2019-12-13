@@ -167,9 +167,8 @@ int	main()
     //Left = Space
 
     //rework all %x to calculate depending on the Hexadecimal Value
-
-   printf("%0.9x\n",-1);
-
+    char *s = " hello";
+    printf("%83.p",(void *)-15342);
 	
 	return (0);
 }

@@ -75,9 +75,7 @@ int    ft_putnbr(int n)
         ft_putchar(i % 10 + '0');
     }
     else
-    {
         ft_putchar(i + '0');
-    }
     return (c);
 }
 
@@ -101,9 +99,7 @@ int    zft_putnbr(int n)
         ft_putchar(i % 10 + '0');
     }
     else
-    {
         ft_putchar(i + '0');
-    }
     return (c);
 }
 
@@ -121,9 +117,7 @@ int    ft_putunsigned(unsigned int n)
         ft_putchar(i % 10 + '0');
     }
     else
-    {
         ft_putchar(i + '0');
-    }
     return (c);
 }
 

@@ -173,7 +173,7 @@ int	main()
 
     // ft_printf("%4.3u",-100); TEST THIS <
 
-    printf("%4.3u",-100);
+    ft_printf("%-11.9d",1234567891);
 	
 	return (0);
 }

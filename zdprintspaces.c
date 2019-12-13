@@ -18,8 +18,10 @@ int zdprintspace_d(struct s_test st,va_list args)
         else
         c = st.h1 - count(s);
     }
+    if (st.h2 > count(s))
+        c = st.h1 - st.h2;
     else
-    c = st.h1 - st.h2;
+        c = st.h1 - count(s);
     if (s == 0)
         b = b + 1;
     if (s < 0)
@@ -90,8 +92,10 @@ int zdprintspace_u(struct s_test st,va_list args)
         else
         c = st.h1 - unsignedcount(s);
     }
+    if (st.h2 > count(s))
+        c = st.h1 - st.h2;
     else
-    c = st.h1 - st.h2;
+        c = st.h1 - count(s);
     if (s == 0)
         b = b + 1;
     o = 0; 
@@ -148,8 +152,10 @@ int zdprintspace_x(struct s_test st,va_list args)
         else
         c = st.h1 - ct_hexa(s);
     }
+    if (st.h2 > count(s))
+        c = st.h1 - st.h2;
     else
-    c = st.h1 - st.h2;
+        c = st.h1 - count(s);
     if (s == 0)
         b = b + 1;
     o = 0; 
@@ -186,8 +192,10 @@ int zdprintspace_X(struct s_test st,va_list args)
         else
         c = st.h1 - ct_hexa(s);
     }
+    if (st.h2 > count(s))
+        c = st.h1 - st.h2;
     else
-    c = st.h1 - st.h2;
+        c = st.h1 - count(s);
     if (s == 0)
         b = b + 1;
     o = 0; 

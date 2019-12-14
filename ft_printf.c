@@ -119,6 +119,8 @@ int ft_checkstring(const char *num, va_list args)
             dprintspace(args,&i,num);
         else if (num[i] == '%' && (num[i + n + 1] >= '1' && num[i + n + 1] <= '9') && num[i + b + 1] == '.')
             dprintspace(args,&i,num);
+        else if (num[i] == '%' && num[i + n + 1] == '-' && num[i + b + 1] == '.')
+            dprintspace(args,&i,num);
          else if (num[i] == '%' && num[i + n + k] == '-' && (num[i + n + k + 1] >= '1' && num[i + n + k + 1] <= '9') && num[i + b + 1] == '.')
             dprintspace(args,&i,num);
         else if (num[i] == '%' && (num[i + 1] >= '1' && num[i + 1] <= '9'))
@@ -164,7 +166,7 @@ int ft_printf(const char *num, ...)
     return (g_r);
 }
 
-/*int	main()
+int	main()
 {
    //Precisions with other convertions 
 
@@ -173,6 +175,11 @@ int ft_printf(const char *num, ...)
     // %-.p  (void *)100
     // %-.c 'L'
 
+    //ft_printf("%-0.c",'l');
+
+    ft_printf("%-.p",(void *)100);
+
+
 	
 	return (0);
-}*/
+}

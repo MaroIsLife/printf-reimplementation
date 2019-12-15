@@ -158,3 +158,14 @@ int pcounter(const char *num)
     }
     return (a);
 }
+
+int acounter2(const char *num)
+{
+    int a;
+    a = i;
+    while (num[i] == '%' && num[a] != '*' && num[a] != '\0')
+    {
+        a++;
+    }
+    return (a);
+}

@@ -47,6 +47,7 @@ int convcounter(const char *num,int z);
 int acounter(const char *num,int i);
 int dotcounter(const char *num,int z);
 int pcounter(const char *num);
+int acounter2(const char *num);
 
 
 
@@ -65,9 +66,6 @@ int zdprintspace_u(struct s_test st,va_list args);
 int zdprintspace_x(struct s_test st,va_list args);
 int zdprintspace_X(struct s_test st,va_list args);
 int zdprintspace_p(struct s_test st,va_list args);
-
-
-
 
 
 

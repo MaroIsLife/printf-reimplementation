@@ -59,7 +59,6 @@ int printspace(va_list args,int *i,const char *num)
     else
     {
         *i = *i + count(h) + 1;
-        //*i = *i + n + 1;
         h = whichspace(num,n,args,h);
     }
     return (h);
@@ -113,7 +112,7 @@ int dprintspace(va_list args,const char *num)
     int z;
     int b;
     struct s_test st;
-
+ 
     z = i + 1;
     n = i + dotcounter(num,z);
     st.s1 = ft_substr(num,z,n);
@@ -167,7 +166,13 @@ int adprintspace(va_list args,const char *num)
         st.h2 = numb_counter2(num);
     }
     n = i + convcounter(num,z);
-    if (num[z] == '-')
+
+    if (st.h1 < 0)
+    {
+        st.h1 = st.h1 * -1;
+        zdwhichspace(num,args,st,n);
+    }
+    else if (num[z] == '-')
         zdwhichspace(num,args,st,n);
     else
     dwhichspace(num,args,st,n);
@@ -207,12 +212,15 @@ void mehdiconv2(va_list args,const char *num)
     int n;
     int k;
     int b;
+    int a;
         
         n = zcounter(num,i + 1);
         k = mcounter(num,i + 1);
         b = ncounter(num,i + 1);
+        a = acounter2(num);
 
-        if (num[i] == '%' && num[i + n + k + 1] == '*' && num[i + n + k + 2] == '.')
+
+        if (num[i] == '%' && ((num[i + a] == '*' && num[i + a + 1] == '.') || (num[i + a] == '*' && num[i + a - 1] == '.')))
             adprintspace(args,num);
        else if (num[i] == '%' && num[i + n + k + 1] >= '1' && num[i + n + k + 1] <= '9' && num[i + k + b] == '.')
             adprintspace(args,num);
@@ -281,7 +289,7 @@ int ft_printf(const char *num, ...)
 }
 
 
-/*int	main()
+int	main()
 {
    //Precisions with other convertions 
 
@@ -289,7 +297,7 @@ int ft_printf(const char *num, ...)
     //Left = Space
 
 
-   ft_printf("%d",100);
+  printf("%*.*d",-1,-1,0);
 
 
 
@@ -298,4 +306,4 @@ int ft_printf(const char *num, ...)
 
 	
 	return (0);
-}*/
+}

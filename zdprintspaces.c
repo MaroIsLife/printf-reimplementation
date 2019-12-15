@@ -25,10 +25,6 @@ int zdprintspace_d(struct s_test st,va_list args)
     if (s == 0)
         b = b + 1;
     if (s < 0)
-        o = 1;
-    else
-    o = 0; 
-    if (s < 0)
     ft_putchar('-');
      o = 0;
     while (o < b)
@@ -36,8 +32,13 @@ int zdprintspace_d(struct s_test st,va_list args)
         ft_putchar('0');
         o++;
     }
-    if (s != 0)
+    if (s == 0 && (st.h1 == 0 || st.h2 == 0))
+    ;
+    else
     zft_putnbr(s);
+    if (s < 0)
+        o = 1;
+    else
     o = 0;
     while (o < c)
     {

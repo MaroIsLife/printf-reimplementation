@@ -65,24 +65,66 @@ int printspace(va_list args,int *i,const char *num)
     return (h);
 }
 
-int dprintspace(va_list args, int *i, const char *num)
+int numb_counter1(const char *num)
+{ 
+    struct s_test st2;
+    int z;
+    int b;
+    int n;
+
+    z = i + 1;
+    n = i + dotcounter(num,z);
+    st2.s1 = ft_substr(num,z,n);
+    b = i + ncounter(num,z) + 1;
+    n = i + convcounter(num,b);
+    st2.s2 = ft_substr(num,b,n);
+    st2.h1 = ft_atoi(st2.s1);
+    st2.h2 = ft_atoi(st2.s2);
+    free(st2.s1);
+    free(st2.s2);
+
+    return(st2.h1);
+}
+
+int numb_counter2(const char *num)
+{ 
+    struct s_test st2;
+    int z;
+    int b;
+    int n;
+
+    z = i + 1;
+    n = i + dotcounter(num,z);
+    st2.s1 = ft_substr(num,z,n);
+    b = i + ncounter(num,z) + 1;
+    n = i + convcounter(num,b);
+    st2.s2 = ft_substr(num,b,n);
+    st2.h1 = ft_atoi(st2.s1);
+    st2.h2 = ft_atoi(st2.s2);
+    free(st2.s1);
+    free(st2.s2);
+
+    return(st2.h2);
+}
+
+int dprintspace(va_list args,const char *num)
 {
     int n;
     int z;
     int b;
     struct s_test st;
 
-    z = *i + 1;
-    n = *i + dotcounter(num,z);
+    z = i + 1;
+    n = i + dotcounter(num,z);
     st.s1 = ft_substr(num,z,n);
-    b = *i + ncounter(num,z) + 1;
-    n = *i + convcounter(num,b);
+    b = i + ncounter(num,z) + 1;
+    n = i + convcounter(num,b);
     st.s2 = ft_substr(num,b,n);
     st.h1 = ft_atoi(st.s1);
     st.h2 = ft_atoi(st.s2);
     free(st.s1);
     free(st.s2);
-    n = *i + dotcounter(num,z) + convcounter(num,b);
+    n = i + dotcounter(num,z) + convcounter(num,b);
 
     if (num[z] == '-')
         zdwhichspace(num,args,st,n);
@@ -90,67 +132,139 @@ int dprintspace(va_list args, int *i, const char *num)
     dwhichspace(num,args,st,n);
 
     z = convcounter(num,z);
-    *i = *i + z + 1;
+    i = i + z + 1;
 
     return (0);
+}
+
+int adprintspace(va_list args,const char *num)
+{
+    int n;
+    int z;
+    struct s_test st;
+    
+    z = i + 1;
+    n = i + dotcounter(num,z);
+    if (num[n] == '*' && num[n + 2] == '*')
+    {
+        st.h1 = va_arg(args,int);
+        st.h2 = va_arg(args,int);
+    }
+    else if (num[n] == '*' && num[n + 2] != '*')
+    {
+        st.h1 = va_arg(args,int);
+        st.h2 = numb_counter2(num);
+
+    }
+    else if (num[n] != '*' && num[n + 2] == '*')
+    {
+        st.h1 = numb_counter1(num);
+        st.h2 = va_arg(args,int);
+    }
+    else if (num[n] != '*' && num[n + 2] != '*')
+    {
+        st.h1 = numb_counter1(num);
+        st.h2 = numb_counter2(num);
+    }
+    n = i + convcounter(num,z);
+    if (num[z] == '-')
+        zdwhichspace(num,args,st,n);
+    else
+    dwhichspace(num,args,st,n);
+
+    z = convcounter(num,z);
+    i = i + z + 1;
+
+    return (0);
+
+}
+
+void  mehdiconv(va_list args,const char *num, char c)
+{
+     if (num[i] == '%' && c == 'c')
+        print_c(args,num);
+    else if (num[i] == '%' && c == 'x')
+        print_x(args,num);
+    else if (num[i] == '%' && c == 'X')
+        print_X(args,num);
+    else if (num[i] == '%' && c == 'u')
+         print_u(args,num);
+    else if (num[i] == '%' && c == 's')
+        print_s(args,num);
+    else if (num[i] == '%' && c == 'd')
+        print_d(args,num);
+    else if (num[i] == '%' && c == 'p')
+            print_p(args,num);
+    else if (num[i] == '%' && c == '%')
+            print_perc(i);
+    else
+         print_n(num,&i);
+    
+}
+
+void mehdiconv2(va_list args,const char *num)
+{
+    int n;
+    int k;
+    int b;
+        
+        n = zcounter(num,i + 1);
+        k = mcounter(num,i + 1);
+        b = ncounter(num,i + 1);
+
+        if (num[i] == '%' && num[i + n + k + 1] == '*' && num[i + n + k + 2] == '.')
+            adprintspace(args,num);
+       else if (num[i] == '%' && num[i + n + k + 1] >= '1' && num[i + n + k + 1] <= '9' && num[i + k + b] == '.')
+            adprintspace(args,num);
+        else if ((num[i] == '%' && num[i + n + 1] == '.') || (num[i] == '%' && num[i + 1] == '0' && (num[i + 2] >= '1' && num[i + 2] <= '9') && num[i + 3] == '.'))
+            dprintspace(args,num);
+        else if (num[i] == '%' && (num[i + n + 1] >= '1' && num[i + n + 1] <= '9') && num[i + b + 1] == '.')
+            dprintspace(args,num);
+        else if (num[i] == '%' && num[i + n + 1] == '-' && num[i + b + 1] == '.')
+            dprintspace(args,num);
+         else if (num[i] == '%' && num[i + n + k] == '-' && (num[i + n + k + 1] >= '1' && num[i + n + k + 1] <= '9') && num[i + b + 1] == '.')
+            dprintspace(args,num);
+
 }
 
 
 int ft_checkstring(const char *num, va_list args)
 {
-    int i;
-    int c;
     int n;
     int b;
+    int a;
     int k;
+
 
     i = -1;
 
     while (num[++i] != '\0')
     {
-        n = zcounter(num,i + 1);
+        n = zcounter(num,i + 1); // If n Is still useful cause 0 is already checked in Ncounter.
         k = mcounter(num,i + 1);
         b = ncounter(num,i + 1);
-        if (num[i] == '%' && num[i + k + 1 + n] == 's')
-            c = c + print_s(args,&i,num);
-        else if (num[i] == '%' && num[i + k + 1 + n] == 'd')
-            c = c + print_d(args,&i,num);
-        else if ((num[i] == '%' && num[i + n + 1] == '.') || (num[i] == '%' && num[i + 1] == '0' && (num[i + 2] >= '1' && num[i + 2] <= '9') && num[i + 3] == '.'))
-            dprintspace(args,&i,num);
-        else if (num[i] == '%' && (num[i + n + 1] >= '1' && num[i + n + 1] <= '9') && num[i + b + 1] == '.')
-            dprintspace(args,&i,num);
-        else if (num[i] == '%' && num[i + n + 1] == '-' && num[i + b + 1] == '.')
-            dprintspace(args,&i,num);
-         else if (num[i] == '%' && num[i + n + k] == '-' && (num[i + n + k + 1] >= '1' && num[i + n + k + 1] <= '9') && num[i + b + 1] == '.')
-            dprintspace(args,&i,num);
+        a = pcounter(num);
+        
+
+
+        if (num[i] == '%' && num[a] == '.')
+            mehdiconv2(args,num);     
         else if (num[i] == '%' && (num[i + 1] >= '1' && num[i + 1] <= '9'))
-            c = c + printspace(args,&i,num);
+            printspace(args,&i,num);
         else if (num[i] == '%' && (num[i + 1] == '*'))
-            c = c + aprintspace(args,&i,num);
+            aprintspace(args,&i,num);
         else if (num[i] == '%' && (num[i + n] == '0' && num[i + n + 1] == '*'))
-            c = c + aprintspace(args,&i,num);
+            aprintspace(args,&i,num);
         else if (num[i] == '%' && (num[i + 1] == '0' && (num[i + n + 1] >= '1' && num[i + n + 1] <= '9')))
-            c = c + printspace(args,&i,num);
+            printspace(args,&i,num);
         else if (num[i] == '%' && (num[i + 1] == '-' && num[i + k + 1] == '*'))
-            c = c + aprintspace(args,&i,num);
+            aprintspace(args,&i,num);
         else if (num[i] == '%' && (num[i + 1] == '-' && (num[i + k + 1] >= '1' && num[i + k + 1] <= '9')))
-            c = c + printspace(args,&i,num);
-        else if (num[i] == '%' && num[i + k + 1 + n] == 'c')
-            c = c + print_c(args,&i,num);
-        else if (num[i] == '%' && num[i + k + 1 + n] == 'x')
-            c = c + print_x(args,&i,num);
-        else if (num[i] == '%' && num[i + k + 1 + n] == 'X')
-            c = c + print_X(args,&i ,num);
-        else if (num[i] == '%' && num[i + k + 1 + n] == 'u')
-            c = c + print_u(args,&i,num);
-        else if (num[i] == '%' && num[i + k + 1 + n] == 'p')
-                print_p(args,&i,num);
-        else if (num[i] == '%' && num[i + 1] == '%')
-                print_perc(&i);
-        else
-            print_n(num,&i);
+                printspace(args,&i,num);
+        else 
+            mehdiconv(args, num, num[i + k + 1 + n]);
     }
-    return (c);
+    return (0);
 
 }
 
@@ -166,20 +280,22 @@ int ft_printf(const char *num, ...)
     return (g_r);
 }
 
-int	main()
+
+/*int	main()
 {
    //Precisions with other convertions 
 
    //Right = 0;
     //Left = Space
-    // %-.p  (void *)100
-    // %-.c 'L'
 
-    //ft_printf("%-0.c",'l');
 
-    ft_printf("%-.p",(void *)100);
+   ft_printf("%d",100);
+
+
+
+
 
 
 	
 	return (0);
-}
+}*/

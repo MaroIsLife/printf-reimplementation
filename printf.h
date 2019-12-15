@@ -8,6 +8,7 @@
 #include <unistd.h>
 
 int g_r;
+int i;
 
 
 struct s_test {
@@ -45,6 +46,7 @@ int zcounter2(const char *num,int i);
 int convcounter(const char *num,int z);
 int acounter(const char *num,int i);
 int dotcounter(const char *num,int z);
+int pcounter(const char *num);
 
 
 
@@ -109,14 +111,14 @@ int ft_adr(unsigned long s);
 
 
 
-int     print_s(va_list args, int *i ,const char *num);
-int     print_d(va_list args, int *i ,const char *num);
-int     print_x(va_list args, int *i ,const char *num);
-int     print_X(va_list args, int *i ,const char *num);
-int     print_p(va_list args, int *i ,const char *num);
-int     print_u(va_list args, int *i ,const char *num);
-int     print_c(va_list args, int *i ,const char *num);
-int     print_perc(int *i);
+int     print_s(va_list args,const char *num);
+int     print_d(va_list args,const char *num);
+int     print_x(va_list args,const char *num);
+int     print_X(va_list args,const char *num);
+int     print_p(va_list args,const char *num);
+int     print_u(va_list args,const char *num);
+int     print_c(va_list args,const char *num);
+int     print_perc();
 int     print_n(const char *num,int *i);
 
 

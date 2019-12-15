@@ -30,17 +30,18 @@ int zdprintspace_d(struct s_test st,va_list args)
     o = 0; 
     if (s < 0)
     ft_putchar('-');
-    if (s != 0)
-    zft_putnbr(s);
-    while (o < c)
-    {
-        ft_putchar(' ');
-        o++;
-    }
-    o = 0;
+     o = 0;
     while (o < b)
     {
         ft_putchar('0');
+        o++;
+    }
+    if (s != 0)
+    zft_putnbr(s);
+    o = 0;
+    while (o < c)
+    {
+        ft_putchar(' ');
         o++;
     }
     return (0);
@@ -99,17 +100,17 @@ int zdprintspace_u(struct s_test st,va_list args)
     if (s == 0)
         b = b + 1;
     o = 0; 
-    if (s != 0)
-    ft_putunsigned(s);
-    while (o < c)
-    {
-        ft_putchar(' ');
-        o++;
-    }
-    o = 0;
     while (o < b)
     {
         ft_putchar('0');
+        o++;
+    }
+    if (s != 0)
+    ft_putunsigned(s);
+    o = 0;
+    while (o < c)
+    {
+        ft_putchar(' ');
         o++;
     }
     return (0);

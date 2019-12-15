@@ -7,13 +7,7 @@ int ncounter(const char *num,int i)
     while ((num[i] >= '1' && num[i] <= '9') || (num[i] == '0') || num[i] == '-')
     {
         o++;
-        i++;
-        while (num[i] == '0') // changed from If to while
-        {
-            i++;
-            o++;
-        }
-        
+        i++;      
     }
     if (num[i] == '.' || num[i + 1] == '.')
     {
@@ -151,4 +145,16 @@ int acounter(const char *num,int i)
     }
     return (o);
 
+}
+
+
+int pcounter(const char *num)
+{
+    int a;
+    a = i;
+    while (num[i] == '%' && num[a] != '.' && num[a] != '\0')
+    {
+        a++;
+    }
+    return (a);
 }

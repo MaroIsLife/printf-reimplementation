@@ -156,7 +156,10 @@ int pcounter(const char *num)
     {
         a++;
     }
+    //if (a == '.')
     return (a);
+    //else 
+    //return (0);
 }
 
 int acounter2(const char *num)

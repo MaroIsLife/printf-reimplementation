@@ -13,17 +13,17 @@ int aprintspace(va_list args, int *i, const char *num)
     n = *i + convcounter(num,z);
     if (h < 0)
     {
-        *i = *i + mcounter2(num,z) + acounter(num,z) + 1;
+        *i = *i + mcounter2(num,z) + acounter(num,z) + zcounter2(num,z) + 1;
         h = mwhichspace(num,n,args,h);
     }
     else if (num[z] == '0')
     {
-        *i = *i + zcounter2(num,z) + acounter(num,z) + 1;
+        *i = *i + zcounter2(num,z) + acounter(num,z) + mcounter2(num,z) + 1;
         h = zwhichspace(num,n,args,h);
     }
     else if (num[z] == '-')
     {
-         *i = *i + mcounter2(num,z) + acounter(num,z) + 1;
+         *i = *i + mcounter2(num,z) + acounter(num,z) + zcounter2(num,z) + 1;
         h = mwhichspace(num,n,args,h);
     }
     else
@@ -165,6 +165,14 @@ int adprintspace(va_list args,const char *num)
         st.h1 = numb_counter1(num);
         st.h2 = numb_counter2(num);
     }
+    if (st.h2 < 0 && num[n - 1] == '0')
+    {
+        if (st.h1 >= 0)
+        {
+            st.h2 = st.h1;
+            st.h1 = 0;
+        }
+    }
     n = i + convcounter(num,z);
 
     if (st.h1 < 0)
@@ -301,17 +309,20 @@ int	main()
    //Right = 0;
     //Left = Space
 
+    //ft_printf("%0*dh\n",-15,1); // FIX THIS
+
+
 
     //ft_printf("%.*d",-5,0);
     //THIS VS THIS
     //printf("%0*.*d\n",15,-5,1);
       //  printf("%*.*d\n",15,-5,1);
 
-        printf("0*.*dh\n",5,-5,1);
+        ft_printf("%0*.*dh\n",4,-15,1);
 
+        //Ela kan arguemnt lowla negative 0 is not working
 
+       // printf("%0*.*d\n",-15,-5,1);
 
-
-   // ft_printf("*.*d",-5,5,1);	
 	return (0);
 }

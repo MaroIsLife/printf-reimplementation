@@ -144,6 +144,7 @@ int adprintspace(va_list args,const char *num)
     
     z = i + 1;
     n = i + dotcounter(num,z);
+    g_off = n - 1;
     if (num[n] == '*' && num[n + 2] == '*')
     {
         st.h1 = va_arg(args,int);
@@ -169,8 +170,10 @@ int adprintspace(va_list args,const char *num)
     {
         if (st.h1 >= 0)
         {
+
             st.h2 = st.h1;
             st.h1 = 0;
+            num1 = "az";
         }
     }
     n = i + convcounter(num,z);
@@ -296,13 +299,14 @@ int ft_printf(const char *num, ...)
     g_r = 0;
 
     va_start(args,num);
+    num1 = num;
     c = ft_checkstring(num,args);
     va_end(args);
     return (g_r);
 }
 
 
-int	main()
+/*int	main()
 {
    //Precisions with other convertions 
 
@@ -318,11 +322,13 @@ int	main()
     //printf("%0*.*d\n",15,-5,1);
       //  printf("%*.*d\n",15,-5,1);
 
-        ft_printf("%0*.*dh\n",4,-15,1);
+       //ft_printf("%0*.*dh\n",0,-5,0); //PROBLEM <
+
+       printf("%0*.*dh\n",0,-5,-1); 
 
         //Ela kan arguemnt lowla negative 0 is not working
 
        // printf("%0*.*d\n",-15,-5,1);
 
 	return (0);
-}
+}*/

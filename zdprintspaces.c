@@ -24,7 +24,7 @@ int zdprintspace_d(struct s_test st,va_list args)
         c = st.h1 - count(s);
     if (s == 0)
         b = b + 1;
-    if (s < 0)
+    if (s < 0) // TEST NEGATIVE NUMBER AND 0'S WITH D
     ft_putchar('-');
      o = 0;
     while (o < b)
@@ -94,10 +94,10 @@ int zdprintspace_u(struct s_test st,va_list args)
         else
         c = st.h1 - unsignedcount(s);
     }
-    else if (st.h2 > count(s))
+    else if (st.h2 > unsignedcount(s))
         c = st.h1 - st.h2;
     else
-        c = st.h1 - count(s);
+        c = st.h1 - unsignedcount(s);
     if (s == 0)
         b = b + 1;
     o = 0; 
@@ -106,7 +106,9 @@ int zdprintspace_u(struct s_test st,va_list args)
         ft_putchar('0');
         o++;
     }
-    if (s != 0)
+    if (s == 0 && st.h2 == 0)
+    ;
+    else
     ft_putunsigned(s);
     o = 0;
     while (o < c)

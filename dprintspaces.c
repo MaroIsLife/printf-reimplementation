@@ -38,6 +38,13 @@ int dprintspace_d(struct s_test st,va_list args)
     o = 1;
     else
     o = 0;
+    if (num1[0] == 'a' && num1[1] == 'z')
+    {
+        if (s < 0)
+        o = 1;
+        else if (s == 0)
+            st.h2 = 1;
+    }
     while (o < b)
     {
         ft_putchar('0');
@@ -114,7 +121,9 @@ int dprintspace_u(struct s_test st,va_list args)
         ft_putchar('0');
         o++;
     }
-    if (s != 0)
+    if (s == 0 && st.h2 == 0)
+    return (0);
+    else
     ft_putunsigned(s);
     return (0);
 }

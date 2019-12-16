@@ -9,6 +9,9 @@
 
 int g_r;
 int i;
+int g_off;
+const char *num1;
+
 
 
 struct s_test {

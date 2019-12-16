@@ -43,7 +43,7 @@ int dprintspace_d(struct s_test st,va_list args)
         ft_putchar('0');
         o++;
     }
-    if (s == 0 && (st.h1 == 0 || st.h2 == 0))
+    if (s == 0 && st.h2 == 0)
     return (0);
     else
     zft_putnbr(s);

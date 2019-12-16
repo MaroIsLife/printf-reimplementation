@@ -172,6 +172,11 @@ int adprintspace(va_list args,const char *num)
         st.h1 = st.h1 * -1;
         zdwhichspace(num,args,st,n);
     }
+    /*else if (st.h2 < 0)
+    {
+        st.h2 = st.h2 * -1;
+        zdwhichspace(num,args,st,n);
+    }*/
     else if (num[z] == '-')
         zdwhichspace(num,args,st,n);
     else
@@ -297,13 +302,16 @@ int	main()
     //Left = Space
 
 
-  printf("%*.*d",-1,-1,0);
+    //ft_printf("%.*d",-5,0);
+    //THIS VS THIS
+    //printf("%0*.*d\n",15,-5,1);
+      //  printf("%*.*d\n",15,-5,1);
+
+        printf("0*.*dh\n",5,-5,1);
 
 
 
 
-
-
-	
+   // ft_printf("*.*d",-5,5,1);	
 	return (0);
 }

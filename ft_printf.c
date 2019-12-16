@@ -305,7 +305,6 @@ int ft_printf(const char *num, ...)
     return (g_r);
 }
 
-
 /*int	main()
 {
    //Precisions with other convertions 
@@ -324,7 +323,7 @@ int ft_printf(const char *num, ...)
 
        //ft_printf("%0*.*dh\n",0,-5,0); //PROBLEM <
 
-       printf("%0*.*dh\n",0,-5,-1); 
+       ft_printf("%-4.3xh\n",0); 
 
         //Ela kan arguemnt lowla negative 0 is not working
 

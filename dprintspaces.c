@@ -115,6 +115,9 @@ int dprintspace_u(struct s_test st,va_list args)
         ft_putchar(' ');
         o++;
     }
+    if (s == 0)
+    o = 1;
+    else
     o = 0;
     while (o < b)
     {
@@ -179,13 +182,18 @@ int dprintspace_x(struct s_test st,va_list args)
         ft_putchar(' ');
         o++;
     }
+    if (s == 0)
+    o = 1;
+    else
     o = 0;
     while (o < b)
     {
         ft_putchar('0');
         o++;
     }
-    if (s != 0)
+    if (s == 0 && st.h2 == 0)
+    return (0);
+    else
     ft_hexa(s);
     return (0);
 }
@@ -219,13 +227,18 @@ int dprintspace_X(struct s_test st,va_list args)
         ft_putchar(' ');
         o++;
     }
+    if (s == 0)
+    o = 1;
+    else
     o = 0;
     while (o < b)
     {
         ft_putchar('0');
         o++;
     }
-    if (s != 0)
+    if (s == 0 && st.h2 == 0)
+    return (0);
+    else
     ft_heXa(s);
     return (0);
 }

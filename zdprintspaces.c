@@ -59,6 +59,8 @@ int zdprintspace_s(struct s_test st,va_list args)
     s = va_arg(args,char *);
     if (s == NULL)
     s = "(null)";
+    if (st.h2 < 0)
+        st.h2 = ft_strlen(s);
     b = ft_strlen(s);
     if (st.h2 >= b)
         c = st.h1 - b;

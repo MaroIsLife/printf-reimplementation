@@ -228,32 +228,19 @@ void  normal_print(va_list args,const char *num, char c)
 
 void precision_print(va_list args,const char *num)
 {
-    int n;
-    int k;
-    int b;
-    int a;
+  
+    int aa;
+    int ab;
         
-        n = zcounter(num,i + 1);
-        k = mcounter(num,i + 1);
-        b = ncounter(num,i + 1);
-        a = acounter2(num);
-        g_tes = 0;
-        g_tes2 = 0;
 
-
-        if (num[i] == '%' && ((num[i + a] == '*' && num[i + a + 1] == '.') || (num[i + a] == '*' && num[i + a - 1] == '.')))
+    aa = pcounter(num);
+    ab = pcounter2(num);
+    g_tes = 0;
+    g_tes2 = 0;
+    if (num[i] == '%' && num[aa] == '.')
             adprintspace(args,num);
-       else if (num[i] == '%' && num[i + n + k + 1] >= '1' && num[i + n + k + 1] <= '9' && num[i + k + b] == '.')
-            adprintspace(args,num);
-        else if ((num[i] == '%' && num[i + n + 1] == '.') || (num[i] == '%' && num[i + 1] == '0' && (num[i + 2] >= '1' && num[i + 2] <= '9') && num[i + 3] == '.'))
+     else if (num[i] == '%' && num[ab] == '*')
             dprintspace(args,num);
-        else if (num[i] == '%' && (num[i + n + 1] >= '1' && num[i + n + 1] <= '9') && num[i + b + 1] == '.')
-            dprintspace(args,num);
-        else if (num[i] == '%' && num[i + n + 1] == '-' && num[i + b + 1] == '.')
-            dprintspace(args,num);
-         else if (num[i] == '%' && num[i + n + k] == '-' && (num[i + n + k + 1] >= '1' && num[i + n + k + 1] <= '9') && num[i + b + 1] == '.')
-            dprintspace(args,num);
-
 }
 
 
@@ -322,7 +309,6 @@ int ft_printf(const char *num, ...)
 
 
 
-    printf("%0*.*%",-5,-5);
 
       //  printf("%*.*d\n",15,-5,1);
 
@@ -332,7 +318,7 @@ int ft_printf(const char *num, ...)
 
         //Ela kan arguemnt lowla negative 0 is not working
 
-       // printf("%0*.*d\n",-15,-5,1);
+       printf("%.*s$\n",-5,"ABC");
 
 	return (0);
 }*/

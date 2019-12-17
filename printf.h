@@ -51,6 +51,7 @@ int acounter(const char *num,int i);
 int dotcounter(const char *num,int z);
 int pcounter(const char *num);
 int acounter2(const char *num);
+int pcounter2(const char *num);
 
 
 

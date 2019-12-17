@@ -19,6 +19,8 @@ int whichspace(const char *num,int n,va_list args,int h)
         c = c + printspace_p(args,h);
     else if (num[n + 1] == 'u')
         c = c + printspace_u(args,h);
+    else if (num[n + 1] == '%')
+        c = c + printspace_pp(h);
 
 
     return (c);
@@ -44,6 +46,8 @@ int dwhichspace(const char *num, va_list args,struct s_test st,int n)
         dprintspace_X(st,args);
     else if(num[n + 1] == 'p' || num[n] == 'p')
         dprintspace_p(st,args);
+    else if(num[n + 1] == '%' || num[n] == '%')
+        dprintspace_pp(st);
         
 
 
@@ -70,6 +74,8 @@ int zdwhichspace(const char *num, va_list args,struct s_test st,int n)
         zdprintspace_X(st,args);
     else if(num[n + 1] == 'p' || num[n] == 'p')
         zdprintspace_p(st,args);
+    else if(num[n + 1] == '%' || num[n] == '%')
+        zdprintspace_pp(st);
         
 
 
@@ -95,6 +101,8 @@ int zwhichspace(const char *num,int n,va_list args,int h)
         c = c + zprintspace_p(args,h);
     else if (num[n + 1] == 'u')
         c = c + zprintspace_u(args,h);
+    else if (num[n + 1] == '%')
+        c = c + zprintspace_pp(h);
 
 
     return (c);
@@ -119,6 +127,8 @@ int mwhichspace(const char *num,int n,va_list args,int h)
         c = c + mprintspace_p(args,h);
     else if (num[n + 1] == 'u')
         c = c + mprintspace_u(args,h);
+    else if (num[n + 1] == '%')
+        c = c + mprintspace_pp(h);
 
 
     return (c);

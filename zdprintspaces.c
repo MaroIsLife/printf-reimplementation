@@ -129,7 +129,6 @@ int zdprintspace_c(struct s_test st,va_list args)
     b = 1;
     c = st.h1 - 1;
     o = 0;
-    if (s != 0)
     ft_putchar(s);
     while (o < c)
     {
@@ -245,6 +244,24 @@ int zdprintspace_p(struct s_test st,va_list args)
     ft_putstr("0x"); 
     if (s != 0)
         ft_adr(s);
+    while (o < c)
+    {
+        ft_putchar(' ');
+        o++;
+    }
+    return (0);
+}
+
+int zdprintspace_pp(struct s_test st)
+{
+    int c;
+    int b;
+    int o;
+
+    b = 1;
+    c = st.h1 - 1;
+    o = 0;
+    ft_putchar('%');
     while (o < c)
     {
         ft_putchar(' ');

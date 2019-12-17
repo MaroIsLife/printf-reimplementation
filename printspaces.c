@@ -166,3 +166,21 @@ int printspace_p(va_list args,int h)
     c = o + ft_adr(s) + 2;
     return (c);
 }
+
+int printspace_pp(int h)
+{
+    int o;
+    int c;
+
+    c = 1;
+    c = h - c;
+    o = 0;
+    while(o < c)
+    {
+        ft_putchar(' ');
+        o++;
+    }
+    ft_putchar('%');
+    c = 1 + o;
+    return (c);
+}

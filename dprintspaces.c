@@ -38,7 +38,7 @@ int dprintspace_d(struct s_test st,va_list args)
     o = 1;
     else
     o = 0;
-    if (num1[0] == 'a' && num1[1] == 'z')
+    if (g_tes == 1)
     {
         if (s < 0)
         o = 1;
@@ -264,5 +264,30 @@ int dprintspace_p(struct s_test st,va_list args)
     ft_putstr("0x"); 
     if (s != 0)
         ft_adr(s);
+    return (0);
+}
+
+int dprintspace_pp(struct s_test st)
+{
+    char s;
+    int c;
+    int o;
+
+    if (g_tes == 1)
+        c = st.h2 - 1;
+    else
+    c = st.h1 - 1;
+
+    if (g_tes2 == 1)
+        s = '0';
+    else
+        s = ' ';
+    o = 0;
+    while (o < c)
+    {
+        ft_putchar(s);
+        o++;
+    }
+    ft_putchar('%');
     return (0);
 }

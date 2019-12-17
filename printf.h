@@ -10,8 +10,8 @@
 int g_r;
 int i;
 int g_off;
-const char *num1;
-
+int g_tes;
+int g_tes2;
 
 
 struct s_test {
@@ -61,6 +61,8 @@ int dprintspace_u(struct s_test st,va_list args);
 int dprintspace_x(struct s_test st,va_list args);
 int dprintspace_X(struct s_test st,va_list args);
 int dprintspace_p(struct s_test st,va_list args);
+int dprintspace_pp(struct s_test st);
+
 
 int zdprintspace_d(struct s_test st,va_list args);
 int zdprintspace_s(struct s_test st,va_list args);
@@ -69,6 +71,9 @@ int zdprintspace_u(struct s_test st,va_list args);
 int zdprintspace_x(struct s_test st,va_list args);
 int zdprintspace_X(struct s_test st,va_list args);
 int zdprintspace_p(struct s_test st,va_list args);
+int zdprintspace_pp(struct s_test st);
+
+
 
 
 
@@ -77,6 +82,7 @@ int printspace_x(va_list args,int h);
 int printspace_d(va_list args,int h);
 int printspace_c(va_list args,int h);
 int printspace_p(va_list args,int h);
+int printspace_pp(int h);
 int printspace_u(va_list args,int h);
 int printspace_X(va_list args,int h);
 
@@ -86,6 +92,7 @@ int zprintspace_x(va_list args,int h);
 int zprintspace_d(va_list args,int h);
 int zprintspace_c(va_list args,int h);
 int zprintspace_p(va_list args,int h);
+int zprintspace_pp(int h);
 int zprintspace_u(va_list args,int h);
 int zprintspace_X(va_list args,int h);
 
@@ -94,6 +101,7 @@ int mprintspace_x(va_list args,int h);
 int mprintspace_d(va_list args,int h);
 int mprintspace_c(va_list args,int h);
 int mprintspace_p(va_list args,int h);
+int mprintspace_pp(int h);
 int mprintspace_u(va_list args,int h);
 int mprintspace_X(va_list args,int h);
 

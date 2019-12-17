@@ -176,3 +176,24 @@ int mprintspace_p(va_list args,int h)
     c = o + k + 2;
     return (c);
 }
+
+int mprintspace_pp(int h)
+{
+    int o;
+    int c;
+
+
+    if (h < 0)
+    h = h * - 1;
+    c = 1;
+    c = h - c;
+    o = 0;
+    ft_putchar('%');
+    while(o < c)
+    {
+        ft_putchar(' ');
+        o++;
+    }
+    c = 1 + o;
+    return (c);
+}

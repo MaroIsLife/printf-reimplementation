@@ -128,7 +128,12 @@ int dprintspace(va_list args,const char *num)
     if (num[z] == '-')
         zdwhichspace(num,args,st,n);
     else
-    dwhichspace(num,args,st,n);
+    {
+        if (num[z] == '0')
+        g_tes2 = 1;
+        dwhichspace(num,args,st,n);
+    }
+
 
     z = convcounter(num,z);
     i = i + z + 1;
@@ -144,7 +149,6 @@ int adprintspace(va_list args,const char *num)
     
     z = i + 1;
     n = i + dotcounter(num,z);
-    g_off = n - 1;
     if (num[n] == '*' && num[n + 2] == '*')
     {
         st.h1 = va_arg(args,int);
@@ -173,7 +177,7 @@ int adprintspace(va_list args,const char *num)
 
             st.h2 = st.h1;
             st.h1 = 0;
-            num1 = "az";
+            g_tes = 1;
         }
     }
     n = i + convcounter(num,z);
@@ -183,15 +187,14 @@ int adprintspace(va_list args,const char *num)
         st.h1 = st.h1 * -1;
         zdwhichspace(num,args,st,n);
     }
-    /*else if (st.h2 < 0)
-    {
-        st.h2 = st.h2 * -1;
-        zdwhichspace(num,args,st,n);
-    }*/
     else if (num[z] == '-')
         zdwhichspace(num,args,st,n);
     else
-    dwhichspace(num,args,st,n);
+    {
+        if(num[z] == '0')
+        g_tes2 = 1;
+        dwhichspace(num,args,st,n);
+    }
 
     z = convcounter(num,z);
     i = i + z + 1;
@@ -200,7 +203,7 @@ int adprintspace(va_list args,const char *num)
 
 }
 
-void  mehdiconv(va_list args,const char *num, char c)
+void  normal_print(va_list args,const char *num, char c)
 {
      if (num[i] == '%' && c == 'c')
         print_c(args,num);
@@ -223,7 +226,7 @@ void  mehdiconv(va_list args,const char *num, char c)
     
 }
 
-void mehdiconv2(va_list args,const char *num)
+void precision_print(va_list args,const char *num)
 {
     int n;
     int k;
@@ -234,6 +237,8 @@ void mehdiconv2(va_list args,const char *num)
         k = mcounter(num,i + 1);
         b = ncounter(num,i + 1);
         a = acounter2(num);
+        g_tes = 0;
+        g_tes2 = 0;
 
 
         if (num[i] == '%' && ((num[i + a] == '*' && num[i + a + 1] == '.') || (num[i + a] == '*' && num[i + a - 1] == '.')))
@@ -268,11 +273,12 @@ int ft_checkstring(const char *num, va_list args)
         k = mcounter(num,i + 1);
         b = ncounter(num,i + 1);
         a = pcounter(num);
+
         
 
 
         if (num[i] == '%' && num[a] == '.')
-            mehdiconv2(args,num);     
+            precision_print(args,num);     
         else if (num[i] == '%' && (num[i + 1] >= '1' && num[i + 1] <= '9'))
             printspace(args,&i,num);
         else if (num[i] == '%' && (num[i + 1] == '*'))
@@ -286,7 +292,7 @@ int ft_checkstring(const char *num, va_list args)
         else if (num[i] == '%' && (num[i + 1] == '-' && (num[i + k + 1] >= '1' && num[i + k + 1] <= '9')))
                 printspace(args,&i,num);
         else 
-            mehdiconv(args, num, num[i + k + 1 + n]);
+            normal_print(args, num, num[i + k + 1 + n]);
     }
     return (0);
 
@@ -296,10 +302,10 @@ int ft_printf(const char *num, ...)
 {
     va_list args;
     int c;
+
     g_r = 0;
 
     va_start(args,num);
-    num1 = num;
     c = ft_checkstring(num,args);
     va_end(args);
     return (g_r);
@@ -307,23 +313,22 @@ int ft_printf(const char *num, ...)
 
 /*int	main()
 {
-   //Precisions with other convertions 
+
+    // FIX CTHEXA AND FTHEXA %16
+
 
    //Right = 0;
     //Left = Space
 
-    //ft_printf("%0*dh\n",-15,1); // FIX THIS
 
 
+    printf("%0*.*%",-5,-5);
 
-    //ft_printf("%.*d",-5,0);
-    //THIS VS THIS
-    //printf("%0*.*d\n",15,-5,1);
       //  printf("%*.*d\n",15,-5,1);
 
        //ft_printf("%0*.*dh\n",0,-5,0); //PROBLEM <
+       //printf("%*.*d\n",30,-15,0);
 
-       ft_printf("%-4.3xh\n",0); 
 
         //Ela kan arguemnt lowla negative 0 is not working
 

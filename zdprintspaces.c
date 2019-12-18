@@ -102,6 +102,9 @@ int zdprintspace_u(struct s_test st,va_list args)
         c = st.h1 - unsignedcount(s);
     if (s == 0)
         b = b + 1;
+    if (s == 0)
+        o = 1;
+    else
     o = 0; 
     while (o < b)
     {

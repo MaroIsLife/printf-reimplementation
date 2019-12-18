@@ -89,7 +89,7 @@ int zwhichspace(const char *num,int n,va_list args,int h)
     c = 0;
     if (num[n + 1] == 's')
         c = c + zprintspace_s(args,h);
-    else if (num[n + 1] == 'd')
+    else if (num[n + 1] == 'd' || num[n + 1] == 'i')
         c = c + zprintspace_d(args,h);
     else if (num[n + 1] == 'c')
         c = c + zprintspace_c(args,h);
@@ -115,7 +115,7 @@ int mwhichspace(const char *num,int n,va_list args,int h)
     c = 0;
     if (num[n + 1] == 's')
         c = c + mprintspace_s(args,h);
-    else if (num[n + 1] == 'd')
+    else if (num[n + 1] == 'd' || num[n + 1] == 'i')
         c = c + mprintspace_d(args,h);
     else if (num[n + 1] == 'c')
         c = c + mprintspace_c(args,h);

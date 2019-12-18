@@ -142,9 +142,7 @@ int dprintspace_c(struct s_test st,va_list args)
     s = va_arg(args,int);
     
     b = 1;
-  
     c = st.h1 - 1;
-    
     o = 0;
     while (o < c)
     {

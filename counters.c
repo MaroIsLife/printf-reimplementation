@@ -22,7 +22,7 @@ int convcounter(const char *num,int z)
     int a;
     a = z;
     n = 0;
-    while (num[a] != 'd' && num[a] != 's' && num[a] != 'i' && num[a] != 'u' && num[a] != 'p' && num[a] != 'x' && num[a] != 'X' && num[a] != '%' && num[a] != 'c')
+    while (num[a] != 'd' && num[a] != 's' && num[a] != 'i' && num[a] != 'u' && num[a] != 'p' && num[a] != 'x' && num[a] != 'X' && num[a] != '%' && num[a] != 'c' && num[a] != 'i')
     {
         n++;
         a++;
@@ -55,7 +55,7 @@ int zcounter(const char *num,int i)
         o++;
         i++;
     }
-    if ((num[i] == 'c' || num[i] == 'd' || num[i] == 's' || num[i] == 'p' || num[i] == 'u' || num[i] == 'x' || num[i] == 'X') || (num[i] >= '1' && num[i] <= '9') || num[i] == '*' || num[i] == '.')
+    if ((num[i] == 'c' || num[i] == 'd' || num[i] == 's' || num[i] == 'p' || num[i] == 'u' || num[i] == 'x' || num[i] == 'X') || (num[i] >= '1' && num[i] <= '9') || num[i] == '*' || num[i] == '.' || num[i] == 'i')
     {
         return (o);
     } 
@@ -88,7 +88,7 @@ int mcounter(const char *num,int i)
         o++;
         i++;
     }
-    if ((num[i] == 'c' || num[i] == 'd' || num[i] == 's' || num[i] == 'p' || num[i] == 'u' || num[i] == 'x' || num[i] == 'X') || (num[i] >= '1' && num[i] <= '9') || num[i] == '*' || num[i] == '.')
+    if ((num[i] == 'c' || num[i] == 'd' || num[i] == 's' || num[i] == 'p' || num[i] == 'u' || num[i] == 'x' || num[i] == 'X') || (num[i] >= '1' && num[i] <= '9') || num[i] == '*' || num[i] == '.' || num[i] == 'i')
     {
         return (o);
     } 
@@ -117,7 +117,7 @@ int mcounter3(const char *num,int i)
     o = 0;
     while (num[i] == '-')
     {
-        if (num[i] == 'c' || num[i] == 'd' || num[i] == 's' || num[i] == 'p' || num[i] == 'u' || num[i] == 'x' || num[i] == 'X')
+        if (num[i] == 'c' || num[i] == 'd' || num[i] == 's' || num[i] == 'p' || num[i] == 'u' || num[i] == 'x' || num[i] == 'X' || num[i] == 'i')
     {
         return (0);
     }

@@ -215,7 +215,7 @@ void  normal_print(va_list args,const char *num, char c)
          print_u(args,num);
     else if (num[i] == '%' && c == 's')
         print_s(args,num);
-    else if (num[i] == '%' && c == 'd')
+    else if (num[i] == '%' && (c == 'd' || c == 'i'))
         print_d(args,num);
     else if (num[i] == '%' && c == 'p')
             print_p(args,num);
@@ -262,9 +262,9 @@ int ft_checkstring(const char *num, va_list args)
         a = pcounter(num);
 
         
-
-
-        if (num[i] == '%' && num[a] == '.')
+        if (num[i] == '%' && num[i + k + 1 + n] == '%')
+            print_perc(i);
+        else if (num[i] == '%' && num[a] == '.')
             precision_print(args,num);     
         else if (num[i] == '%' && (num[i + 1] >= '1' && num[i + 1] <= '9'))
             printspace(args,&i,num);
@@ -308,17 +308,10 @@ int ft_printf(const char *num, ...)
     //Left = Space
 
 
-
-
-      //  printf("%*.*d\n",15,-5,1);
-
-       //ft_printf("%0*.*dh\n",0,-5,0); //PROBLEM <
-       //printf("%*.*d\n",30,-15,0);
+    //printf("%0-04.3%"); This
+       
 
 
         //Ela kan arguemnt lowla negative 0 is not working
-
-       printf("%.*s$\n",-5,"ABC");
-
 	return (0);
 }*/

@@ -1,135 +1,118 @@
 #include "printf.h"
 
-int whichspace(const char *num,int n,va_list args,int h)
+int     whichspace(const char *num, int n, va_list args, int h)
 {
-    int c;
-
-    c = 0;
     if (num[n + 1] == 's')
-        c = c + printspace_s(args,h);
+        printspace_s(args, h);
     else if (num[n + 1] == 'd' || num[n + 1] == 'i')
-        c = c + printspace_d(args,h);
+        printspace_d(args, h);
     else if (num[n + 1] == 'c')
-        c = c + printspace_c(args,h);
+        printspace_c(args, h);
     else if (num[n + 1] == 'x')
-        c = c + printspace_x(args,h);
+        printspace_x(args, h);
     else if (num[n + 1] == 'X')
-        c = c + printspace_X(args,h);
+        printspace_X(args, h);
     else if (num[n + 1] == 'p')
-        c = c + printspace_p(args,h);
+        printspace_p(args, h);
     else if (num[n + 1] == 'u')
-        c = c + printspace_u(args,h);
+        printspace_u(args, h);
     else if (num[n + 1] == '%')
-        c = c + printspace_pp(h);
-
-
-    return (c);
+        printspace_pp(h);
+    return (0);
 }
 
-int dwhichspace(const char *num, va_list args,struct s_test st,int n)
+int     dwhichspace(const char *num, va_list args,struct s_test st,int n)
 {
-    int c;
-
-    c = 0;
-   
+    if (st.h2 < 0 && num[n - 1] == '0' && st.h1 >= 0)
+    {
+        st.h2 = st.h1;
+        st.h1 = 0;
+        g_tes = 1;
+    }
     if (num[n + 1] == 'd' || num[n] == 'd' || num[n] == 'i' || num[n + 1] == 'i')
-        dprintspace_d(st,args);
+        dprintspace_d(st, args);
     else if(num[n + 1] == 's' || num[n] == 's')
-        dprintspace_s(st,args);
+        dprintspace_s(st, args);
     else if(num[n + 1] == 'c' || num[n] == 'c')
-        dprintspace_c(st,args);
+        dprintspace_c(st, args);
     else if(num[n + 1] == 'u' || num[n] == 'u')
-        dprintspace_u(st,args);
+        dprintspace_u(st, args);
     else if(num[n + 1] == 'x' || num[n] == 'x')
-        dprintspace_x(st,args);
+        dprintspace_x(st, args);
     else if(num[n + 1] == 'X' || num[n] == 'X')
-        dprintspace_X(st,args);
+        dprintspace_X(st, args);
     else if(num[n + 1] == 'p' || num[n] == 'p')
-        dprintspace_p(st,args);
+        dprintspace_p(st, args);
     else if(num[n + 1] == '%' || num[n] == '%')
         dprintspace_pp(st);
-        
-
-
-    return (c);
+    return (0);
 }
 
-int zdwhichspace(const char *num, va_list args,struct s_test st,int n)
-{
-    int c;
-
-    c = 0;
-   
+int     zdwhichspace(const char *num, va_list args,struct s_test st,int n)
+{ 
+    if (st.h2 < 0 && num[n - 1] == '0' && st.h1 >= 0)
+    {
+        st.h2 = st.h1;
+        st.h1 = 0;
+        g_tes = 1;
+    }
     if (num[n + 1] == 'd' || num[n] == 'd' || num[n] == 'i' || num[n + 1] == 'i')
-        zdprintspace_d(st,args);
+        zdprintspace_d(st, args);
     else if(num[n + 1] == 's' || num[n] == 's')
-        zdprintspace_s(st,args);
+        zdprintspace_s(st, args);
     else if(num[n + 1] == 'c' || num[n] == 'c')
-        zdprintspace_c(st,args);
+        zdprintspace_c(st, args);
     else if(num[n + 1] == 'u' || num[n] == 'u')
-        zdprintspace_u(st,args);
+        zdprintspace_u(st, args);
     else if(num[n + 1] == 'x' || num[n] == 'x')
-        zdprintspace_x(st,args);
+        zdprintspace_x(st, args);
     else if(num[n + 1] == 'X' || num[n] == 'X')
-        zdprintspace_X(st,args);
+        zdprintspace_X(st, args);
     else if(num[n + 1] == 'p' || num[n] == 'p')
-        zdprintspace_p(st,args);
+        zdprintspace_p(st, args);
     else if(num[n + 1] == '%' || num[n] == '%')
         zdprintspace_pp(st);
-        
-
-
-    return (c);
+    return (0);
 }
 
-int zwhichspace(const char *num,int n,va_list args,int h)
+int     zwhichspace(const char *num, int n, va_list args, int h)
 {
-    int c;
-
-    c = 0;
     if (num[n + 1] == 's')
-        c = c + zprintspace_s(args,h);
+        zprintspace_s(args, h);
     else if (num[n + 1] == 'd' || num[n + 1] == 'i')
-        c = c + zprintspace_d(args,h);
+        zprintspace_d(args, h);
     else if (num[n + 1] == 'c')
-        c = c + zprintspace_c(args,h);
+        zprintspace_c(args, h);
     else if (num[n + 1] == 'x')
-        c = c + zprintspace_x(args,h);
+        zprintspace_x(args, h);
     else if (num[n + 1] == 'X')
-        c = c + zprintspace_X(args,h);
+        zprintspace_X(args, h);
     else if (num[n + 1] == 'p')
-        c = c + zprintspace_p(args,h);
+        zprintspace_p(args, h);
     else if (num[n + 1] == 'u')
-        c = c + zprintspace_u(args,h);
+        zprintspace_u(args, h);
     else if (num[n + 1] == '%')
-        c = c + zprintspace_pp(h);
-
-
-    return (c);
+        zprintspace_pp(h);
+    return (0);
 }
 
-int mwhichspace(const char *num,int n,va_list args,int h)
+int     mwhichspace(const char *num, int n,va_list args,int h)
 {
-    int c;
-
-    c = 0;
     if (num[n + 1] == 's')
-        c = c + mprintspace_s(args,h);
+        mprintspace_s(args,h);
     else if (num[n + 1] == 'd' || num[n + 1] == 'i')
-        c = c + mprintspace_d(args,h);
+        mprintspace_d(args,h);
     else if (num[n + 1] == 'c')
-        c = c + mprintspace_c(args,h);
+        mprintspace_c(args,h);
     else if (num[n + 1] == 'x')
-        c = c + mprintspace_x(args,h);
+        mprintspace_x(args,h);
     else if (num[n + 1] == 'X')
-        c = c + mprintspace_X(args,h);
+        mprintspace_X(args,h);
     else if (num[n + 1] == 'p')
-        c = c + mprintspace_p(args,h);
+        mprintspace_p(args,h);
     else if (num[n + 1] == 'u')
-        c = c + mprintspace_u(args,h);
+        mprintspace_u(args,h);
     else if (num[n + 1] == '%')
-        c = c + mprintspace_pp(h);
-
-
-    return (c);
+        mprintspace_pp(h);
+    return (0);
 }

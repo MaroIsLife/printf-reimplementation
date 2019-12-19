@@ -72,7 +72,9 @@ int numb_counter1(const char *num)
     int n;
 
     z = i + 1;
-    n = i + dotcounter(num,z);
+    n = i + dotcounter(num,z); //EDITED
+    if(num[z] == '.')
+    n = 0;
     st2.s1 = ft_substr(num,z,n);
     b = i + ncounter(num,z) + 1;
     n = i + convcounter(num,b);
@@ -243,22 +245,36 @@ void precision_print(va_list args,const char *num)
             dprintspace(args,num);
 }
 
+void asterix_print(va_list args, const char *num)
+{
+    int n;
+    int k;
+
+        n = zcounter(num,i + 1); // If n Is still useful cause 0 is already checked in Ncounter.
+        k = mcounter(num,i + 1);
+
+        if (num[i] == '%' && (num[i + 1] == '*'))
+            aprintspace(args,&i,num);
+        else if (num[i] == '%' && (num[i + n] == '0' && num[i + n + 1] == '*'))
+            aprintspace(args,&i,num);
+        else if (num[i] == '%' && (num[i + 1] == '-' && num[i + k + 1] == '*'))
+            aprintspace(args,&i,num);
+}
+
 
 int ft_checkstring(const char *num, va_list args)
 {
     int n;
-    int b;
+    //int b;
     int a;
     int k;
 
-
     i = -1;
-
     while (num[++i] != '\0')
     {
         n = zcounter(num,i + 1); // If n Is still useful cause 0 is already checked in Ncounter.
         k = mcounter(num,i + 1);
-        b = ncounter(num,i + 1);
+        //b = ncounter(num,i + 1);
         a = pcounter(num);
 
         
@@ -268,15 +284,11 @@ int ft_checkstring(const char *num, va_list args)
             precision_print(args,num);     
         else if (num[i] == '%' && (num[i + 1] >= '1' && num[i + 1] <= '9'))
             printspace(args,&i,num);
-        else if (num[i] == '%' && (num[i + 1] == '*'))
-            aprintspace(args,&i,num);
-        else if (num[i] == '%' && (num[i + n] == '0' && num[i + n + 1] == '*'))
-            aprintspace(args,&i,num);
-        else if (num[i] == '%' && (num[i + 1] == '0' && (num[i + n + 1] >= '1' && num[i + n + 1] <= '9')))
+        else if (num[i] == '%' && (num[i + k + n + 1] == '*'))
+                asterix_print(args,num);
+        else if (num[i] == '%' && (num[i + n] == '0' && (num[i + n + 1] >= '1' && num[i + n + 1] <= '9')))    
             printspace(args,&i,num);
-        else if (num[i] == '%' && (num[i + 1] == '-' && num[i + k + 1] == '*'))
-            aprintspace(args,&i,num);
-        else if (num[i] == '%' && (num[i + 1] == '-' && (num[i + k + 1] >= '1' && num[i + k + 1] <= '9')))
+        else if (num[i] == '%' && (num[i + k] == '-' && (num[i + k + 1] >= '1' && num[i + k + 1] <= '9')))
                 printspace(args,&i,num);
         else 
             normal_print(args, num, num[i + k + 1 + n]);
@@ -291,7 +303,6 @@ int ft_printf(const char *num, ...)
     int c;
 
     g_r = 0;
-
     va_start(args,num);
     c = ft_checkstring(num,args);
     va_end(args);
@@ -306,10 +317,11 @@ int ft_printf(const char *num, ...)
 
    //Right = 0;
     //Left = Space
-
+ 
 
     //printf("%0-04.3%"); This
-       
+    
+   printf("%4p",(void *)0);
 
 
         //Ela kan arguemnt lowla negative 0 is not working

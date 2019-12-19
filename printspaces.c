@@ -84,7 +84,7 @@ int printspace_u(va_list args,int h)
 
 
     s = va_arg(args,unsigned int);
-    c = count(s);
+    c = unsignedcount(s);
     c = h - c;
     o = 0;
     while (o < c)
@@ -152,9 +152,9 @@ int printspace_p(va_list args,int h)
     
     s = va_arg(args,unsigned long);
     if (s == 0)
-    c = 3;
+    c = ct_adr(s) + 2;
     else
-    c = count(s) + 1;
+    c = ct_adr(s) + 2;
     c = h - c;
     o = 0;
     while (o < c)

@@ -91,7 +91,9 @@ int mprintspace_u(va_list args,int h)
 
 
     s = va_arg(args,unsigned int);
-    c = count(s);
+    c = unsignedcount(s);
+    if (h < 0)
+    h = h * -1;
     c = h - c;
     o = 0;
     ft_putunsigned(s);
@@ -159,9 +161,9 @@ int mprintspace_p(va_list args,int h)
     
     s = va_arg(args,unsigned long);
     if (s == 0)
-    c = 3;
+    c = ct_adr(s) + 2;
     else
-    c = count(s) + 1;
+    c = ct_adr(s) + 2;
     if (h < 0)
     h = h * - 1;
     c = h - c;

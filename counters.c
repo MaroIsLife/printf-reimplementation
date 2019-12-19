@@ -36,7 +36,7 @@ int dotcounter(const char *num,int z)
     int a;
     a = z;
     n = 0;
-    while (num[a] != '.')
+    while (num[a] != '.') // EDITED
     {
         n++;
         a++;
@@ -55,7 +55,7 @@ int zcounter(const char *num,int i)
         o++;
         i++;
     }
-    if ((num[i] == 'c' || num[i] == 'd' || num[i] == 's' || num[i] == 'p' || num[i] == 'u' || num[i] == 'x' || num[i] == 'X') || (num[i] >= '1' && num[i] <= '9') || num[i] == '*' || num[i] == '.' || num[i] == 'i')
+    if ((num[i] == 'c' || num[i] == 'd' || num[i] == 's' || num[i] == 'p' || num[i] == 'u' || num[i] == 'x' || num[i] == 'X') || (num[i] >= '1' && num[i] <= '9') || num[i] == '*' || num[i] == '.' || num[i] == 'i' || num[i] == '%')
     {
         return (o);
     } 
@@ -152,7 +152,7 @@ int pcounter(const char *num)
 {
     int a;
     a = i;
-    while (num[i] == '%' && num[a] != '.' && num[a] != '\0')
+    while (num[i] == '%' && num[a] != '.' && num[a] != 'd' && num[a] != 's' && num[a] != 'i' && num[a] != 'u' && num[a] != 'p' && num[a] != 'x' && num[a] != 'X' && num[a] != 'c' && num[a] != 'i' && num[a + 1] != '%')
         a++;
     //if (a == '.')
     return (a);

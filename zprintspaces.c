@@ -81,7 +81,7 @@ int zprintspace_u(va_list args,int h)
 
 
     s = va_arg(args,unsigned int);
-    c = count(s);
+    c = unsignedcount(s);
     c = h - c;
     o = 0;
     while (o < c)
@@ -149,9 +149,9 @@ int zprintspace_p(va_list args,int h)
     
     s = va_arg(args,unsigned long);
     if (s == 0)
-    c = 3;
+    c = ct_adr(s) + 2;
     else
-    c = 11;
+    c = ct_adr(s) + 2;
     c = h - c;
     o = 0;
     while (o < c)

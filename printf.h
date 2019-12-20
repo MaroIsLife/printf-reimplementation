@@ -13,14 +13,21 @@ int g_off;
 int g_tes;
 int g_tes2;
 
-
-struct s_test {
+/*struct s_test{
     int h1;
     int h2;
     char *s1;
     char *s2;
+};*/
 
-};
+typedef struct s_test{
+    int h1;
+    int h2;
+    char *s1;
+    char *s2;
+} t_container;
+
+
 
 int ft_printf(const char *num, ...);
 
@@ -39,8 +46,6 @@ char    *ft_substr(const char *s, int start, size_t len);
 int     ft_atoi(const char *str);
 int     wordputter(int b,char *s);
 
-int ct_adr(unsigned long s);
-
 int ncounter(const char *num,int i);
 int mcounter(const char *num,int i);
 int mcounter2(const char *num,int i);
@@ -54,29 +59,31 @@ int acounter2(const char *num);
 int pcounter2(const char *num);
 
 
+void zero_printer_d(int s, int b, struct s_test st);
+void space_printer_d(int s,int c);
+void unsigned_printer(unsigned int s, int c, int b);
+void zero_unsignedprinter(unsigned int s, int b);
+void space_unsignedprinter(int c);
 
-int dprintspace_d(struct s_test st,va_list args);
+
+void dprintspace_d(struct s_test st,va_list args);
 int dprintspace_s(struct s_test st,va_list args);
 int dprintspace_c(struct s_test st,va_list args);
-int dprintspace_u(struct s_test st,va_list args);
+void dprintspace_u(struct s_test st,va_list args);
 int dprintspace_x(struct s_test st,va_list args);
 int dprintspace_X(struct s_test st,va_list args);
 int dprintspace_p(struct s_test st,va_list args);
 int dprintspace_pp(struct s_test st);
 
 
-int zdprintspace_d(struct s_test st,va_list args);
+void zdprintspace_d(struct s_test st,va_list args);
 int zdprintspace_s(struct s_test st,va_list args);
 int zdprintspace_c(struct s_test st,va_list args);
-int zdprintspace_u(struct s_test st,va_list args);
-int zdprintspace_x(struct s_test st,va_list args);
-int zdprintspace_X(struct s_test st,va_list args);
+void zdprintspace_u(struct s_test st,va_list args);
+void zdprintspace_x(struct s_test st,va_list args);
+void zdprintspace_X(struct s_test st,va_list args);
 int zdprintspace_p(struct s_test st,va_list args);
 int zdprintspace_pp(struct s_test st);
-
-
-
-
 
 int printspace_s(va_list args,int h);
 int printspace_x(va_list args,int h);
@@ -97,14 +104,14 @@ int zprintspace_pp(int h);
 int zprintspace_u(va_list args,int h);
 int zprintspace_X(va_list args,int h);
 
-int mprintspace_s(va_list args,int h);
-int mprintspace_x(va_list args,int h);
-int mprintspace_d(va_list args,int h);
-int mprintspace_c(va_list args,int h);
-int mprintspace_p(va_list args,int h);
-int mprintspace_pp(int h);
-int mprintspace_u(va_list args,int h);
-int mprintspace_X(va_list args,int h);
+void mprintspace_s(va_list args,int h);
+void mprintspace_x(va_list args,int h);
+void mprintspace_d(va_list args,int h);
+void mprintspace_c(va_list args,int h);
+void mprintspace_p(va_list args,int h);
+void mprintspace_pp(int h);
+void mprintspace_u(va_list args,int h);
+void mprintspace_X(va_list args,int h);
 
 
 int whichspace(const char *num,int n,va_list args,int h);
@@ -118,6 +125,8 @@ int ft_hexa(unsigned int s);
 int ct_hexa(unsigned int s);
 int ft_heXa(unsigned int s);
 int ft_adr(unsigned long s);
+int ct_adr(unsigned long s);
+
 
 
 

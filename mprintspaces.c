@@ -1,6 +1,6 @@
 #include "printf.h"
 
-int mprintspace_s(va_list args, int h)
+void mprintspace_s(va_list args, int h)
 {
     int o;
     char *s;
@@ -27,10 +27,9 @@ int mprintspace_s(va_list args, int h)
         ft_putchar(' ');
         o++;
     }
-    return (0);
 }
 
-int mprintspace_d(va_list args, int h)
+void mprintspace_d(va_list args, int h)
 {
     int o;
     int s;
@@ -51,11 +50,9 @@ int mprintspace_d(va_list args, int h)
         ft_putchar(' ');
         o++;
     }
-    c = o + count(s);
-    return (c);
 }
 
-int mprintspace_c(va_list args, int h)
+void mprintspace_c(va_list args, int h)
 {
     int o;
     int s;
@@ -76,11 +73,9 @@ int mprintspace_c(va_list args, int h)
         ft_putchar(' ');
         o++;
     }
-    c = 1 + o;
-    return (c);
 }
 
-int mprintspace_u(va_list args, int h)
+void mprintspace_u(va_list args, int h)
 {
     int o;
     unsigned int s;
@@ -98,11 +93,9 @@ int mprintspace_u(va_list args, int h)
         ft_putchar(' ');
         o++;
     }
-    c = o + count(s);
-    return (c);
 }
 
-int mprintspace_x(va_list args,int h)
+void mprintspace_x(va_list args,int h)
 {
     int o;
     unsigned int s;
@@ -121,11 +114,9 @@ int mprintspace_x(va_list args,int h)
         ft_putchar(' ');
         o++;
     }
-    c = o + k;
-    return (c);
 }
 
-int mprintspace_X(va_list args, int h)
+void mprintspace_X(va_list args, int h)
 {
     int o;
     unsigned int s;
@@ -144,11 +135,9 @@ int mprintspace_X(va_list args, int h)
         ft_putchar(' ');
         o++;
     }
-    c = o + k;
-    return (c);
 }
 
-int mprintspace_p(va_list args, int h)
+void mprintspace_p(va_list args, int h)
 {
     int o;
     unsigned long s;
@@ -171,11 +160,9 @@ int mprintspace_p(va_list args, int h)
         ft_putchar(' ');
         o++;
     }
-    c = o + k + 2;
-    return (c);
 }
 
-int mprintspace_pp(int h)
+void mprintspace_pp(int h)
 {
     int o;
     int c;
@@ -191,6 +178,4 @@ int mprintspace_pp(int h)
         ft_putchar(' ');
         o++;
     }
-    c = 1 + o;
-    return (c);
 }

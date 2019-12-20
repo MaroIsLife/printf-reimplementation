@@ -1,14 +1,13 @@
 #include "printf.h"
 
 
-int zdprintspace_d(struct s_test st,va_list args)
+void zdprintspace_d(struct s_test st, va_list args)
 {
     int s;
     int c;
     int b;
-    int o;
 
-    s = va_arg(args,int);
+    s = va_arg(args, int);
     c = count(s);
     b = st.h2 - c;
     if (st.h2 == 0)
@@ -22,34 +21,18 @@ int zdprintspace_d(struct s_test st,va_list args)
         c = st.h1 - st.h2;
     else
         c = st.h1 - count(s);
-    if (s == 0)
-        b = b + 1;
-    if (s < 0) // TEST NEGATIVE NUMBER AND 0'S WITH D
+    if (s < 0)
     ft_putchar('-');
-     o = 0;
-    while (o < b)
-    {
-        ft_putchar('0');
-        o++;
-    }
+    zero_printer_d(s, b, st);
     if (s == 0 && st.h2 == 0)
     ;
     else
     zft_putnbr(s);
-    if (s < 0)
-        o = 1;
-    else
-    o = 0;
-    while (o < c)
-    {
-        ft_putchar(' ');
-        o++;
-    }
-    return (0);
+    space_printer_d(s, c);
 }
 
 
-int zdprintspace_s(struct s_test st,va_list args)
+int zdprintspace_s(struct s_test st, va_list args)
 {
     char *s;
     int c;
@@ -69,7 +52,7 @@ int zdprintspace_s(struct s_test st,va_list args)
     
     o = 0;
     b = st.h2;
-    wordputter(b,s);
+    wordputter(b, s);
     while (o < c)
     {
         ft_putchar(' ');
@@ -78,15 +61,14 @@ int zdprintspace_s(struct s_test st,va_list args)
     return (0);
 }
 
-int zdprintspace_u(struct s_test st,va_list args)
+void zdprintspace_u(struct s_test st, va_list args)
 {
 
     unsigned int s;
     int c;
     int b;
-    int o;
 
-    s = va_arg(args,unsigned int);
+    s = va_arg(args, unsigned int);
     c = unsignedcount(s);
     b = st.h2 - c;
     if (st.h2 == 0)
@@ -100,37 +82,21 @@ int zdprintspace_u(struct s_test st,va_list args)
         c = st.h1 - st.h2;
     else
         c = st.h1 - unsignedcount(s);
-    if (s == 0)
-        b = b + 1;
-    if (s == 0)
-        o = 1;
-    else
-    o = 0; 
-    while (o < b)
-    {
-        ft_putchar('0');
-        o++;
-    }
+    zero_unsignedprinter(s, b);    
     if (s == 0 && st.h2 == 0)
     ;
     else
     ft_putunsigned(s);
-    o = 0;
-    while (o < c)
-    {
-        ft_putchar(' ');
-        o++;
-    }
-    return (0);
+    space_unsignedprinter(c);
 }
-int zdprintspace_c(struct s_test st,va_list args)
+int zdprintspace_c(struct s_test st, va_list args)
 {
     int s;
     int c;
     int b;
     int o;
 
-    s = va_arg(args,int);
+    s = va_arg(args, int);
     b = 1;
     c = st.h1 - 1;
     o = 0;
@@ -143,14 +109,13 @@ int zdprintspace_c(struct s_test st,va_list args)
     return (0);
 }
 
-int zdprintspace_x(struct s_test st,va_list args)
+void zdprintspace_x(struct s_test st, va_list args)
 {
     unsigned int s;
     int c;
     int b;
-    int o;
 
-    s = va_arg(args,unsigned int);
+    s = va_arg(args, unsigned int);
     c = ct_hexa(s);
     b = st.h2 - c;
     if (st.h2 == 0)
@@ -164,38 +129,21 @@ int zdprintspace_x(struct s_test st,va_list args)
         c = st.h1 - st.h2;
     else
         c = st.h1 - ct_hexa(s);
-    if (s == 0)
-        b = b + 1;
-    if (s == 0)
-    o = 1;
-    else
-    o = 0;
-    while (o < b)
-    {
-        ft_putchar('0');
-        o++;
-    }
-    o = 0; 
+    zero_unsignedprinter(s, b);
     if (s == 0 && st.h2 == 0)
     ;
     else
     ft_hexa(s);
-    while (o < c)
-    {
-        ft_putchar(' ');
-        o++;
-    }
-    return (0);
+    space_unsignedprinter(c);
 }
 
-int zdprintspace_X(struct s_test st,va_list args)
+void zdprintspace_X(struct s_test st, va_list args)
 {
     unsigned int s;
     int c;
     int b;
-    int o;
 
-    s = va_arg(args,unsigned int);
+    s = va_arg(args, unsigned int);
     c = ct_hexa(s);
     b = st.h2 - c;
     if (st.h2 == 0)
@@ -209,37 +157,21 @@ int zdprintspace_X(struct s_test st,va_list args)
         c = st.h1 - st.h2;
     else
         c = st.h1 - ct_hexa(s);
-    if (s == 0)
-        b = b + 1;
-    if (s == 0)
-    o = 1;
-    else
-    o = 0;
-    while (o < b)
-    {
-        ft_putchar('0');
-        o++;
-    }
-    o = 0; 
+    zero_unsignedprinter(s, b);
     if (s == 0 && st.h2 == 0)
     ;
     else
     ft_heXa(s);
-    while (o < c)
-    {
-        ft_putchar(' ');
-        o++;
-    }
-    return (0);
+    space_unsignedprinter(c);
 }
 
-int zdprintspace_p(struct s_test st,va_list args)
+int zdprintspace_p(struct s_test st, va_list args)
 {
     unsigned long s;
     int c;
     int o;
 
-    s = va_arg(args,unsigned long);
+    s = va_arg(args, unsigned long);
     if (s == 0)
     c = ct_adr(s) + 1;
     else

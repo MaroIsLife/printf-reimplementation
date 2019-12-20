@@ -1,13 +1,12 @@
 #include "printf.h"
 
-int dprintspace_d(struct s_test st,va_list args)
+void dprintspace_d(struct s_test st, va_list args)
 {
     int s;
     int c;
     int b;
-    int o;
 
-    s = va_arg(args,int);
+    s = va_arg(args, int);
     c = count(s);
     b = st.h2 - c;
     if (st.h2 == 0)
@@ -21,51 +20,25 @@ int dprintspace_d(struct s_test st,va_list args)
         c = st.h1 - st.h2;
     else
         c = st.h1 - count(s);
-    if (s == 0)
-        b = b + 1;
-    if (s < 0)
-        o = 1;
-    else
-    o = 0; 
-    while (o < c)
-    {
-        ft_putchar(' ');
-        o++;
-    }
+    space_printer_d(s, c);
     if (s < 0)
     ft_putchar('-');
-    if (s == 0)
-    o = 1;
-    else
-    o = 0;
-    if (g_tes == 1)
-    {
-        if (s < 0)
-        o = 1;
-        else if (s == 0)
-            st.h2 = 1;
-    }
-    while (o < b)
-    {
-        ft_putchar('0');
-        o++;
-    }
+    zero_printer_d(s, b, st);
     if (s == 0 && st.h2 == 0)
-    return (0);
+    ;
     else
     zft_putnbr(s);
-    return (0);
 }
 
 
-int dprintspace_s(struct s_test st,va_list args)
+int dprintspace_s(struct s_test st, va_list args)
 {
     char *s;
     int c;
     int b;
     int o;
 
-    s = va_arg(args,char *);
+    s = va_arg(args, char *);
     if (s == NULL)
     s = "(null)";
     if (st.h2 < 0)
@@ -75,7 +48,6 @@ int dprintspace_s(struct s_test st,va_list args)
         c = st.h1 - b;
     else
         c = st.h1 - st.h2;
-    
     o = 0;
     while (o < c)
     {
@@ -83,19 +55,42 @@ int dprintspace_s(struct s_test st,va_list args)
         o++;
     }
     b = st.h2;
-    wordputter(b,s);
+    wordputter(b, s);
     return (0);
 }
 
-int dprintspace_u(struct s_test st,va_list args)
+void unsigned_printer(unsigned int s, int c, int b)
+{
+    int o;
+
+    if (s == 0)
+    b = b + 1;
+    o = 0; 
+    while (o < c)
+    {
+        ft_putchar(' ');
+        o++;
+    }
+    if (s == 0)
+    o = 1;
+    else
+    o = 0;
+    while (o < b)
+    {
+        ft_putchar('0');
+        o++;
+    }
+}
+
+
+void dprintspace_u(struct s_test st, va_list args)
 {
 
     unsigned int s;
     int c;
     int b;
-    int o;
 
-    s = va_arg(args,unsigned int);
+    s = va_arg(args, unsigned int);
     c = unsignedcount(s);
     b = st.h2 - c;
     if (st.h2 == 0)
@@ -109,38 +104,20 @@ int dprintspace_u(struct s_test st,va_list args)
         c = st.h1 - st.h2;
     else
         c = st.h1 - unsignedcount(s);
-    if (s == 0)
-        b = b + 1;
-    o = 0; 
-    while (o < c)
-    {
-        ft_putchar(' ');
-        o++;
-    }
-    if (s == 0)
-    o = 1;
-    else
-    o = 0;
-    while (o < b)
-    {
-        ft_putchar('0');
-        o++;
-    }
+    unsigned_printer(s, c, b);
     if (s == 0 && st.h2 == 0)
-    return (0);
+    ;
     else
     ft_putunsigned(s);
-    return (0);
 }
-int dprintspace_c(struct s_test st,va_list args)
+int dprintspace_c(struct s_test st, va_list args)
 {
     int s;
     int c;
     int b;
     int o;
 
-    s = va_arg(args,int);
-    
+    s = va_arg(args, int);
     b = 1;
     c = st.h1 - 1;
     o = 0;
@@ -153,14 +130,13 @@ int dprintspace_c(struct s_test st,va_list args)
     return (0);
 }
 
-int dprintspace_x(struct s_test st,va_list args)
+int dprintspace_x(struct s_test st, va_list args)
 {
     unsigned int s;
     int c;
     int b;
-    int o;
 
-    s = va_arg(args,unsigned int);
+    s = va_arg(args, unsigned int);
     c = ct_hexa(s);
     b = st.h2 - c;
     if (st.h2 == 0)
@@ -174,23 +150,7 @@ int dprintspace_x(struct s_test st,va_list args)
         c = st.h1 - st.h2;
     else
         c = st.h1 - ct_hexa(s);
-    if (s == 0)
-        b = b + 1;
-    o = 0; 
-    while (o < c)
-    {
-        ft_putchar(' ');
-        o++;
-    }
-    if (s == 0)
-    o = 1;
-    else
-    o = 0;
-    while (o < b)
-    {
-        ft_putchar('0');
-        o++;
-    }
+    unsigned_printer(s, c, b);
     if (s == 0 && st.h2 == 0)
     return (0);
     else
@@ -198,14 +158,13 @@ int dprintspace_x(struct s_test st,va_list args)
     return (0);
 }
 
-int dprintspace_X(struct s_test st,va_list args)
+int dprintspace_X(struct s_test st, va_list args)
 {
     unsigned int s;
     int c;
     int b;
-    int o;
 
-    s = va_arg(args,unsigned int);
+    s = va_arg(args, unsigned int);
     c = ct_hexa(s);
     b = st.h2 - c;
     if (st.h2 == 0)
@@ -219,23 +178,7 @@ int dprintspace_X(struct s_test st,va_list args)
         c = st.h1 - st.h2;
     else
         c = st.h1 - ct_hexa(s);
-    if (s == 0)
-        b = b + 1;
-    o = 0; 
-    while (o < c)
-    {
-        ft_putchar(' ');
-        o++;
-    }
-    if (s == 0)
-    o = 1;
-    else
-    o = 0;
-    while (o < b)
-    {
-        ft_putchar('0');
-        o++;
-    }
+    unsigned_printer(s, c, b);
     if (s == 0 && st.h2 == 0)
     return (0);
     else
@@ -243,13 +186,13 @@ int dprintspace_X(struct s_test st,va_list args)
     return (0);
 }
 
-int dprintspace_p(struct s_test st,va_list args)
+int dprintspace_p(struct s_test st, va_list args)
 {
     unsigned long s;
     int c;
     int o;
 
-    s = va_arg(args,unsigned long);
+    s = va_arg(args, unsigned long);
     if (s == 0)
     c = ct_adr(s) + 1;
     else
@@ -277,7 +220,6 @@ int dprintspace_pp(struct s_test st)
         c = st.h2 - 1;
     else
     c = st.h1 - 1;
-
     if (g_tes2 == 1)
         s = '0';
     else

@@ -1,6 +1,6 @@
 #include "printf.h"
 
-int print_X(va_list args,const char *num)
+int print_X(va_list args, const char *num)
 {
     int c;
     unsigned int a;
@@ -24,11 +24,11 @@ int print_X(va_list args,const char *num)
     c = ft_putstr(ft_strrev(buff));
     free(buff);
     a = i;
-    i = i + 1 + mcounter2(num,a + 1) + zcounter2(num,a + 1);;
+    i = i + 1 + mcounter2(num, a + 1) + zcounter2(num, a + 1);;
     return (c);
 }
 
-int print_p(va_list args,const char *num)
+int print_p(va_list args, const char *num)
 {
     int c;
     unsigned long a;
@@ -39,7 +39,7 @@ int print_p(va_list args,const char *num)
     af = "0123456789abcdef"; 
     c = 0;
     buff = calloc(20,1);
-    a = va_arg(args,unsigned long);
+    a = va_arg(args, unsigned long);
     if (a == 0)
     buff[0] = '0';
     while (a != 0)
@@ -53,7 +53,7 @@ int print_p(va_list args,const char *num)
     c = c + ft_putstr(ft_strrev(buff));
     free(buff);
     a = i;
-    i = i + 1 + mcounter2(num,a + 1) + zcounter2(num,a + 1);;
+    i = i + 1 + mcounter2(num, a + 1) + zcounter2(num, a + 1);;
     return (c);
 }
 
@@ -64,11 +64,10 @@ int print_perc()
     ft_putchar('%');
     c = 1;
     i = i + 1;
-
     return (c);
 }
 
-int print_n(const char *num,int *i)
+int print_n(const char *num, int *i)
 {
     int c;
 

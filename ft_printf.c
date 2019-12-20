@@ -6,214 +6,13 @@
 /*   By: mougnou <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 20:47:26 by mougnou           #+#    #+#             */
-/*   Updated: 2019/12/20 21:12:33 by mougnou          ###   ########.fr       */
+/*   Updated: 2019/12/20 21:47:30 by mougnou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
 int g_r;
-
-void	aprintspace(va_list args, int *i, const char *num)
-{
-	int h;
-	int n;
-	int z;
-
-	z = *i + 1;
-	h = va_arg(args, int);
-	n = *i + convcounter(num, z);
-	if (h < 0)
-	{
-		*i = *i + mwhichspace(num, n, args, h) + mcounter2(num, z);
-		*i = *i + acounter(num, z) + zcounter2(num, z) + 1;
-	}
-	else if (num[z] == '0')
-	{
-		*i = *i + zwhichspace(num, n, args, h) + zcounter2(num, z);
-		*i = *i + acounter(num, z) + mcounter2(num, z) + 1;
-	}
-	else if (num[z] == '-')
-	{
-		*i = *i + mwhichspace(num, n, args, h) + mcounter2(num, z);
-		*i = *i + acounter(num, z) + zcounter2(num, z) + 1;
-	}
-	else
-		*i = *i + whichspace(num, n, args, h) + acounter(num, z) + 1;
-}
-
-void	printspace(va_list args, int *i, const char *num)
-{
-	int		h;
-	int		n;
-	char	*s;
-	int		z;
-
-	z = *i + 1;
-	n = *i + convcounter(num, z);
-	s = ft_substr(num, z, n);
-	h = ft_atoi(s);
-	free(s);
-	if (num[z] == '0')
-	{
-		*i = *i + zwhichspace(num, n, args, h) + zcounter2(num, z);
-		*i = *i + count(h) + 1;
-	}
-	else if (num[z] == '-')
-	{
-		*i = *i + mwhichspace(num, n, args, h) + mcounter2(num, z);
-		*i = *i + count(h) + 1;
-	}
-	else
-		*i = *i + whichspace(num, n, args, h) + count(h) + 1;
-}
-
-int		numb_counter1(const char *num)
-{
-	struct s_test st2;
-	int		z;
-	int		b;
-	int		n;
-
-	z = i + 1;
-	n = i + dotcounter(num, z);
-	if (num[z] == '.')
-		n = 0;
-	st2.s1 = ft_substr(num, z, n);
-	b = i + ncounter(num, z) + 1;
-	n = i + convcounter(num, b);
-	st2.s2 = ft_substr(num, b, n);
-	st2.h1 = ft_atoi(st2.s1);
-	st2.h2 = ft_atoi(st2.s2);
-	free(st2.s1);
-	free(st2.s2);
-	return (st2.h1);
-}
-
-int		numb_counter2(const char *num)
-{
-	struct s_test st2;
-	int		z;
-	int		b;
-	int		n;
-
-	z = i + 1;
-	n = i + dotcounter(num, z);
-	st2.s1 = ft_substr(num, z, n);
-	b = i + ncounter(num, z) + 1;
-	n = i + convcounter(num, b);
-	st2.s2 = ft_substr(num, b, n);
-	st2.h1 = ft_atoi(st2.s1);
-	st2.h2 = ft_atoi(st2.s2);
-	free(st2.s1);
-	free(st2.s2);
-	return (st2.h2);
-}
-
-void	dprintspace(va_list args, const char *num)
-{
-	int	n;
-	int	z;
-	int	b;
-	struct s_test st;
-
-	st.h1 = numb_counter1(num);
-	st.h2 = numb_counter2(num);
-	z = i + 1;
-	b = i + ncounter(num, z) + 1;
-	n = i + dotcounter(num, z) + convcounter(num, b);
-	if (st.h2 < 0 && num[n - 1] == '0' && st.h1 >= 0)
-	{
-		st.h2 = st.h1;
-		st.h1 = 0;
-		g_tes = 1;
-	}
-	if (num[z] == '-')
-		zdwhichspace(num, args, st, n);
-	else
-	{
-		if (num[z] == '0')
-			g_tes2 = 1;
-		dwhichspace(num, args, st, n);
-	}
-	i = i + convcounter(num, z) + 1;
-}
-
-int		arg_checker_one(const char *num, int n, va_list args)
-{
-	int h1;
-
-	h1 = 0;
-	if (num[n] == '*' && num[n + 2] == '*')
-		h1 = va_arg(args, int);
-	else if (num[n] == '*' && num[n + 2] != '*')
-		h1 = va_arg(args, int);
-	else if (num[n] != '*' && num[n + 2] == '*')
-		h1 = numb_counter1(num);
-	else if (num[n] != '*' && num[n + 2] != '*')
-		h1 = numb_counter1(num);
-	return (h1);
-}
-
-int		arg_checker_two(const char *num, int n, va_list args)
-{
-	int h2;
-
-	h2 = 0;
-	if (num[n] == '*' && num[n + 2] == '*')
-		h2 = va_arg(args, int);
-	else if (num[n] == '*' && num[n + 2] != '*')
-		h2 = numb_counter2(num);
-	else if (num[n] != '*' && num[n + 2] == '*')
-		h2 = va_arg(args, int);
-	else if (num[n] != '*' && num[n + 2] != '*')
-		h2 = numb_counter2(num);
-	return (h2);
-}
-
-struct	s_test	if_zero_negative(struct s_test st, int n, const char *num)
-{
-	if (st.h2 < 0 && num[n - 1] == '0')
-	{
-		if (st.h1 >= 0)
-		{
-			st.h2 = st.h1;
-			g_tes = 1;
-			st.h1 = 0;
-			return (st);
-		}
-	}
-	return (st);
-}
-
-void	adprintspace(va_list args, const char *num)
-{
-	int		n;
-	int		z;
-	struct s_test st;
-    
-	z = i + 1;
-	n = i + dotcounter(num, i + 1);
-	st.h1 = arg_checker_one(num, n, args);
-	st.h2 = arg_checker_two(num, n, args);
-	st = if_zero_negative(st, n, num);
-	n = i + convcounter(num, i + 1);
-	if (st.h1 < 0)
-	{
-		st.h1 = st.h1 * -1;
-		zdwhichspace(num, args, st, n);
-	}
-	else if (num[z] == '-')
-		zdwhichspace(num, args, st, n);
-	else
-	{
-		if (num[z] == '0')
-			g_tes2 = 1;
-		dwhichspace(num, args, st, n);
-	}
-	z = convcounter(num, i + 1);
-	i = i + z + 1;
-}
 
 void	normal_print(va_list args, const char *num, char c)
 {
@@ -222,7 +21,7 @@ void	normal_print(va_list args, const char *num, char c)
 	else if (num[i] == '%' && c == 'x')
 		print_x(args, num);
 	else if (num[i] == '%' && c == 'X')
-		print_X(args, num);
+		print_xx(args, num);
 	else if (num[i] == '%' && c == 'u')
 		print_u(args, num);
 	else if (num[i] == '%' && c == 's')
@@ -232,7 +31,7 @@ void	normal_print(va_list args, const char *num, char c)
 	else if (num[i] == '%' && c == 'p')
 		print_p(args, num);
 	else if (num[i] == '%' && c == '%')
-		print_perc(i);
+		print_perc();
 	else
 		print_n(num, &i);
 }
@@ -280,7 +79,7 @@ void	ft_checkstring(const char *num, va_list args)
 		k = mcounter(num, i + 1);
 		a = pcounter(num);
 		if (num[i] == '%' && num[i + k + 1 + n] == '%')
-			print_perc(i);
+			print_perc();
 		else if (num[i] == '%' && num[a] == '.')
 			precision_print(args, num);
 		else if (num[i] == '%' && (num[i + 1] >= '1' && num[i + 1] <= '9'))
@@ -312,8 +111,7 @@ int		ft_printf(const char *num, ...)
 /*int	main()
 {
 
-	// FIX CTHEXA AND FTHEXA %16
-
+    //DONT FORGET MALLOC PROTECTION !!!!!!!!!!
 
 	//Right = 0;
 	//Left = Space

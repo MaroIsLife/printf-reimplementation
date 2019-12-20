@@ -1,6 +1,6 @@
 #include "printf.h"
 
-void dprintspace_d(struct s_test st, va_list args)
+void dprintspace_d(t_container st, va_list args)
 {
     int s;
     int c;
@@ -31,7 +31,7 @@ void dprintspace_d(struct s_test st, va_list args)
 }
 
 
-int dprintspace_s(struct s_test st, va_list args)
+int dprintspace_s(t_container st, va_list args)
 {
     char *s;
     int c;
@@ -83,7 +83,7 @@ void unsigned_printer(unsigned int s, int c, int b)
 }
 
 
-void dprintspace_u(struct s_test st, va_list args)
+void dprintspace_u(t_container st, va_list args)
 {
 
     unsigned int s;
@@ -110,7 +110,7 @@ void dprintspace_u(struct s_test st, va_list args)
     else
     ft_putunsigned(s);
 }
-int dprintspace_c(struct s_test st, va_list args)
+int dprintspace_c(t_container st, va_list args)
 {
     int s;
     int c;
@@ -130,7 +130,7 @@ int dprintspace_c(struct s_test st, va_list args)
     return (0);
 }
 
-int dprintspace_x(struct s_test st, va_list args)
+int dprintspace_x(t_container st, va_list args)
 {
     unsigned int s;
     int c;
@@ -158,7 +158,7 @@ int dprintspace_x(struct s_test st, va_list args)
     return (0);
 }
 
-int dprintspace_X(struct s_test st, va_list args)
+int dprintspace_X(t_container st, va_list args)
 {
     unsigned int s;
     int c;
@@ -186,7 +186,7 @@ int dprintspace_X(struct s_test st, va_list args)
     return (0);
 }
 
-int dprintspace_p(struct s_test st, va_list args)
+int dprintspace_p(t_container st, va_list args)
 {
     unsigned long s;
     int c;
@@ -210,7 +210,7 @@ int dprintspace_p(struct s_test st, va_list args)
     return (0);
 }
 
-int dprintspace_pp(struct s_test st)
+int dprintspace_pp(t_container st)
 {
     char s;
     int c;

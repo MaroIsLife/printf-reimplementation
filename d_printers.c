@@ -15,7 +15,7 @@ void space_printer_d(int s, int c)
     }
 }
 
-void zero_printer_d(int s, int b, struct s_test st)
+void zero_printer_d(int s, int b, t_container st)
 {
     int o;
 

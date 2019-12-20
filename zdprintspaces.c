@@ -1,7 +1,7 @@
 #include "printf.h"
 
 
-void zdprintspace_d(struct s_test st, va_list args)
+void zdprintspace_d(t_container st, va_list args)
 {
     int s;
     int c;
@@ -32,7 +32,7 @@ void zdprintspace_d(struct s_test st, va_list args)
 }
 
 
-int zdprintspace_s(struct s_test st, va_list args)
+int zdprintspace_s(t_container st, va_list args)
 {
     char *s;
     int c;
@@ -61,7 +61,7 @@ int zdprintspace_s(struct s_test st, va_list args)
     return (0);
 }
 
-void zdprintspace_u(struct s_test st, va_list args)
+void zdprintspace_u(t_container st, va_list args)
 {
 
     unsigned int s;
@@ -89,7 +89,7 @@ void zdprintspace_u(struct s_test st, va_list args)
     ft_putunsigned(s);
     space_unsignedprinter(c);
 }
-int zdprintspace_c(struct s_test st, va_list args)
+int zdprintspace_c(t_container st, va_list args)
 {
     int s;
     int c;
@@ -109,7 +109,7 @@ int zdprintspace_c(struct s_test st, va_list args)
     return (0);
 }
 
-void zdprintspace_x(struct s_test st, va_list args)
+void zdprintspace_x(t_container st, va_list args)
 {
     unsigned int s;
     int c;
@@ -137,7 +137,7 @@ void zdprintspace_x(struct s_test st, va_list args)
     space_unsignedprinter(c);
 }
 
-void zdprintspace_X(struct s_test st, va_list args)
+void zdprintspace_X(t_container st, va_list args)
 {
     unsigned int s;
     int c;
@@ -165,7 +165,7 @@ void zdprintspace_X(struct s_test st, va_list args)
     space_unsignedprinter(c);
 }
 
-int zdprintspace_p(struct s_test st, va_list args)
+int zdprintspace_p(t_container st, va_list args)
 {
     unsigned long s;
     int c;
@@ -189,7 +189,7 @@ int zdprintspace_p(struct s_test st, va_list args)
     return (0);
 }
 
-int zdprintspace_pp(struct s_test st)
+int zdprintspace_pp(t_container st)
 {
     int c;
     int b;

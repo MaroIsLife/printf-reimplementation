@@ -31,6 +31,17 @@ typedef struct s_test{
 
 int ft_printf(const char *num, ...);
 
+
+void	aprintspace(va_list args, int *i, const char *num);
+void	printspace(va_list args, int *i, const char *num);
+void	dprintspace(va_list args, const char *num);
+void	adprintspace(va_list args, const char *num);
+int				arg_checker_one(const char *num, int n, va_list args);
+int				arg_checker_two(const char *num, int n, va_list args);
+t_container		if_zero_negative(t_container st, int n, const char *num);
+int				numb_counter1(const char *num);
+int				numb_counter2(const char *num);
+
 void     ft_putchar(char c);
 int     ft_putstr(char *c);
 int     ft_strlen(const char *c);
@@ -59,31 +70,31 @@ int acounter2(const char *num);
 int pcounter2(const char *num);
 
 
-void zero_printer_d(int s, int b, struct s_test st);
+void zero_printer_d(int s, int b, t_container st);
 void space_printer_d(int s,int c);
 void unsigned_printer(unsigned int s, int c, int b);
 void zero_unsignedprinter(unsigned int s, int b);
 void space_unsignedprinter(int c);
 
 
-void dprintspace_d(struct s_test st,va_list args);
-int dprintspace_s(struct s_test st,va_list args);
-int dprintspace_c(struct s_test st,va_list args);
-void dprintspace_u(struct s_test st,va_list args);
-int dprintspace_x(struct s_test st,va_list args);
-int dprintspace_X(struct s_test st,va_list args);
-int dprintspace_p(struct s_test st,va_list args);
-int dprintspace_pp(struct s_test st);
+void dprintspace_d(t_container st,va_list args);
+int dprintspace_s(t_container st,va_list args);
+int dprintspace_c(t_container st,va_list args);
+void dprintspace_u(t_container st,va_list args);
+int dprintspace_x(t_container st,va_list args);
+int dprintspace_X(t_container st,va_list args);
+int dprintspace_p(t_container st,va_list args);
+int dprintspace_pp(t_container st);
 
 
-void zdprintspace_d(struct s_test st,va_list args);
-int zdprintspace_s(struct s_test st,va_list args);
-int zdprintspace_c(struct s_test st,va_list args);
-void zdprintspace_u(struct s_test st,va_list args);
-void zdprintspace_x(struct s_test st,va_list args);
-void zdprintspace_X(struct s_test st,va_list args);
-int zdprintspace_p(struct s_test st,va_list args);
-int zdprintspace_pp(struct s_test st);
+void zdprintspace_d(t_container st,va_list args);
+int zdprintspace_s(t_container st,va_list args);
+int zdprintspace_c(t_container st,va_list args);
+void zdprintspace_u(t_container st,va_list args);
+void zdprintspace_x(t_container st,va_list args);
+void zdprintspace_X(t_container st,va_list args);
+int zdprintspace_p(t_container st,va_list args);
+int zdprintspace_pp(t_container st);
 
 int printspace_s(va_list args,int h);
 int printspace_x(va_list args,int h);
@@ -117,8 +128,8 @@ void mprintspace_X(va_list args,int h);
 int whichspace(const char *num,int n,va_list args,int h);
 int zwhichspace(const char *num,int n,va_list args,int h);
 int mwhichspace(const char *num,int n,va_list args,int h);
-int dwhichspace(const char *num, va_list args,struct s_test st,int n);
-int zdwhichspace(const char *num, va_list args,struct s_test st,int n);
+int dwhichspace(const char *num, va_list args,t_container st,int n);
+int zdwhichspace(const char *num, va_list args,t_container st,int n);
 
 
 int ft_hexa(unsigned int s);
@@ -133,11 +144,11 @@ int ct_adr(unsigned long s);
 int     print_s(va_list args,const char *num);
 int     print_d(va_list args,const char *num);
 int     print_x(va_list args,const char *num);
-int     print_X(va_list args,const char *num);
+int     print_xx(va_list args,const char *num);
 int     print_p(va_list args,const char *num);
 int     print_u(va_list args,const char *num);
 int     print_c(va_list args,const char *num);
-int     print_perc();
+int     print_perc(void);
 int     print_n(const char *num,int *i);
 
 

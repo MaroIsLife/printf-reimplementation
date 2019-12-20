@@ -145,6 +145,20 @@ int arg_checker_two(const char *num, int n, va_list args)
     return (h2);
 }
 
+struct s_test if_zero_negative(struct s_test st, int n, const char *num)
+{
+    if (st.h2 < 0 && num[n - 1] == '0')	
+    {	
+        if (st.h1 >= 0)	
+        {	
+            st.h2 = st.h1;
+            g_tes = 1;
+            st.h1 = 0;
+            return (st);
+        }
+     }
+     return (st);
+}
 void adprintspace(va_list args, const char *num)
 {
     int n;
@@ -152,24 +166,16 @@ void adprintspace(va_list args, const char *num)
     struct s_test st;
     
     z = i + 1;
-    n = i + dotcounter(num, z);
+    n = i + dotcounter(num, i + 1);
     st.h1 = arg_checker_one(num, n, args);
     st.h2 = arg_checker_two(num, n ,args);
-    if (st.h2 < 0 && num[n - 1] == '0')	
-    {	
-        if (st.h1 >= 0)	
-        {	
-            st.h2 = st.h1;
-            st.h1 = 0;	
-            g_tes = 1;
-        }	
-     }
-     n = i + convcounter(num, z);
-     if (st.h1 < 0)
+    st = if_zero_negative(st, n, num);
+    n = i + convcounter(num, i + 1); 
+    if (st.h1 < 0)
     {	    
-        st.h1 = st.h1 * -1;
-        zdwhichspace(num,args,st,n);	       
-    }	    
+        st.h1 = st.h1 * -1;	       
+        zdwhichspace(num,args,st,n);	        
+    }  
     else if (num[z] == '-')
         zdwhichspace(num, args, st, n);
     else
@@ -178,7 +184,7 @@ void adprintspace(va_list args, const char *num)
         g_tes2 = 1;
         dwhichspace(num, args, st, n);
     }
-    z = convcounter(num, z);
+    z = convcounter(num, i + 1);
     i = i + z + 1;
 }
 

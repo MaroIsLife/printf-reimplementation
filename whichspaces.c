@@ -23,12 +23,6 @@ int     whichspace(const char *num, int n, va_list args, int h)
 
 int     dwhichspace(const char *num, va_list args,struct s_test st,int n)
 {
-    if (st.h2 < 0 && num[n - 1] == '0' && st.h1 >= 0)
-    {
-        st.h2 = st.h1;
-        st.h1 = 0;
-        g_tes = 1;
-    }
     if (num[n + 1] == 'd' || num[n] == 'd' || num[n] == 'i' || num[n + 1] == 'i')
         dprintspace_d(st, args);
     else if(num[n + 1] == 's' || num[n] == 's')
@@ -50,12 +44,6 @@ int     dwhichspace(const char *num, va_list args,struct s_test st,int n)
 
 int     zdwhichspace(const char *num, va_list args,struct s_test st,int n)
 { 
-    if (st.h2 < 0 && num[n - 1] == '0' && st.h1 >= 0)
-    {
-        st.h2 = st.h1;
-        st.h1 = 0;
-        g_tes = 1;
-    }
     if (num[n + 1] == 'd' || num[n] == 'd' || num[n] == 'i' || num[n + 1] == 'i')
         zdprintspace_d(st, args);
     else if(num[n + 1] == 's' || num[n] == 's')

@@ -113,7 +113,7 @@ int zprintspace_c(va_list args,int h);
 int zprintspace_p(va_list args,int h);
 int zprintspace_pp(int h);
 int zprintspace_u(va_list args,int h);
-int zprintspace_X(va_list args,int h);
+int zprintspace_xx(va_list args,int h);
 
 void mprintspace_s(va_list args,int h);
 void mprintspace_x(va_list args,int h);

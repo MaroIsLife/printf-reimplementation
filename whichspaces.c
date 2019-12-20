@@ -88,7 +88,7 @@ int		zwhichspace(const char *num, int n, va_list args, int h)
 	else if (num[n + 1] == 'x')
 		zprintspace_x(args, h);
 	else if (num[n + 1] == 'X')
-		zprintspace_X(args, h);
+		zprintspace_xx(args, h);
 	else if (num[n + 1] == 'p')
 		zprintspace_p(args, h);
 	else if (num[n + 1] == 'u')

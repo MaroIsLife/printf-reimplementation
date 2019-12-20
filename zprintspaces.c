@@ -1,13 +1,12 @@
 #include "printf.h"
 
-int zprintspace_s(va_list args,int h)
+int     zprintspace_s(va_list args, int h)
 {
     int o;
     char *s;
     int c;
 
-
-    s = va_arg(args,char *);
+    s = va_arg(args, char *);
     c = ft_strlen(s);
     c = h - c;
     if (s < 0)
@@ -23,14 +22,13 @@ int zprintspace_s(va_list args,int h)
     return (c);
 }
 
-int zprintspace_d(va_list args,int h)
+int     zprintspace_d(va_list args, int h)
 {
     int o;
     int s;
     int c;
 
-
-    s = va_arg(args,int);
+    s = va_arg(args, int);
     c = count(s);
     c = h - c;
     if (s < 0)
@@ -49,14 +47,14 @@ int zprintspace_d(va_list args,int h)
     return (c);
 }
 
-int zprintspace_c(va_list args,int h)
+int     zprintspace_c(va_list args, int h)
 {
     int o;
     int s;
     int c;
 
 
-    s = va_arg(args,int);
+    s = va_arg(args, int);
     c = 1;
     c = h - c;
     if (s < 0)
@@ -73,7 +71,7 @@ int zprintspace_c(va_list args,int h)
     return (c);
 }
 
-int zprintspace_u(va_list args,int h)
+int     zprintspace_u(va_list args, int h)
 {
     int o;
     unsigned int s;
@@ -93,14 +91,14 @@ int zprintspace_u(va_list args,int h)
     return (c);
 }
 
-int zprintspace_x(va_list args,int h)
+int     zprintspace_x(va_list args, int h)
 {
     int o;
     unsigned int s;
     int c;
     int k;
     
-    s = va_arg(args,int);
+    s = va_arg(args, int);
     k = s;
     if (k < 0)
     c = 8;
@@ -117,14 +115,14 @@ int zprintspace_x(va_list args,int h)
     return (c);
 }
 
-int zprintspace_X(va_list args,int h)
+int     zprintspace_X(va_list args, int h)
 {
     int o;
     unsigned int s;
     int c;
     int k;
     
-    s = va_arg(args,int);
+    s = va_arg(args, int);
     k = s;
     if (k < 0)
     c = 8;
@@ -141,13 +139,13 @@ int zprintspace_X(va_list args,int h)
     return (c);
 }
 
-int zprintspace_p(va_list args,int h)
+int     zprintspace_p(va_list args, int h)
 {
     int o;
     unsigned long s;
     int c;
     
-    s = va_arg(args,unsigned long);
+    s = va_arg(args, unsigned long);
     if (s == 0)
     c = ct_adr(s) + 2;
     else
@@ -164,7 +162,7 @@ int zprintspace_p(va_list args,int h)
     return (c);
 }
 
-int zprintspace_pp(int h)
+int     zprintspace_pp(int h)
 {
     int o;
     int c;

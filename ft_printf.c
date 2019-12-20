@@ -95,6 +95,12 @@ void dprintspace(va_list args, const char *num)
     z = i + 1;
     b = i + ncounter(num, z) + 1;
     n = i + dotcounter(num, z) + convcounter(num, b);
+    if (st.h2 < 0 && num[n - 1] == '0' && st.h1 >= 0)
+    {
+        st.h2 = st.h1;
+        st.h1 = 0;
+        g_tes = 1;
+    }
     if (num[z] == '-')
         zdwhichspace(num, args, st, n);
     else
@@ -149,12 +155,21 @@ void adprintspace(va_list args, const char *num)
     n = i + dotcounter(num, z);
     st.h1 = arg_checker_one(num, n, args);
     st.h2 = arg_checker_two(num, n ,args);
-    n = i + convcounter(num, z);
-    if (st.h1 < 0)
-    {
+    if (st.h2 < 0 && num[n - 1] == '0')	
+    {	
+        if (st.h1 >= 0)	
+        {	
+            st.h2 = st.h1;
+            st.h1 = 0;	
+            g_tes = 1;
+        }	
+     }
+     n = i + convcounter(num, z);
+     if (st.h1 < 0)
+    {	    
         st.h1 = st.h1 * -1;
-        zdwhichspace(num, args, st, n);
-    }
+        zdwhichspace(num,args,st,n);	       
+    }	    
     else if (num[z] == '-')
         zdwhichspace(num, args, st, n);
     else
@@ -272,7 +287,7 @@ int ft_printf(const char *num, ...)
 
     //printf("%0-04.3%"); This
     
-  ft_printf("%*.*d",5,3,14);
+  ft_printf("%0*.*d",5,-5,1);
 
 
         //Ela kan arguemnt lowla negative 0 is not working

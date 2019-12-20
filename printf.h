@@ -20,7 +20,7 @@
 # include <unistd.h>
 
 int				g_r;
-int				i;
+int				g_i;
 int				g_off;
 int				g_tes;
 int				g_tes2;

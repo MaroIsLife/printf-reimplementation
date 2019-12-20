@@ -35,8 +35,8 @@ int		print_xx(va_list args, const char *num)
 	}
 	c = ft_putstr(ft_strrev(buff));
 	free(buff);
-	a = i;
-	i = i + 1 + mcounter2(num, a + 1) + zcounter2(num, a + 1);
+	a = g_i;
+	g_i = g_i + 1 + mcounter2(num, a + 1) + zcounter2(num, a + 1);
 	return (c);
 }
 
@@ -64,8 +64,8 @@ int		print_p(va_list args, const char *num)
 	c = ft_putstr("0x");
 	c = c + ft_putstr(ft_strrev(buff));
 	free(buff);
-	a = i;
-	i = i + 1 + mcounter2(num, a + 1) + zcounter2(num, a + 1);
+	a = g_i;
+	g_i = g_i + 1 + mcounter2(num, a + 1) + zcounter2(num, a + 1);
 	return (c);
 }
 
@@ -75,7 +75,7 @@ int		print_perc(void)
 
 	ft_putchar('%');
 	c = 1;
-	i = i + 1;
+	g_i = g_i + 1;
 	return (c);
 }
 

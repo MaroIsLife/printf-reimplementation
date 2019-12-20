@@ -52,8 +52,8 @@ int		pcounter(const char *num)
 {
 	int a;
 
-	a = i;
-	while (num[i] == '%' && num[a] != '.' && num[a] != 'd' && num[a] != 's'
+	a = g_i;
+	while (num[g_i] == '%' && num[a] != '.' && num[a] != 'd' && num[a] != 's'
 			&& num[a] != 'i' && num[a] != 'u' && num[a] != 'p' && num[a] != 'x'
 			&& num[a] != 'X' && num[a] != 'c' && num[a] != 'i'
 			&& num[a + 1] != '%')
@@ -65,8 +65,8 @@ int		pcounter2(const char *num)
 {
 	int a;
 
-	a = i;
-	while (num[i] == '%' && num[a] != '*' && num[a] != '\0')
+	a = g_i;
+	while (num[g_i] == '%' && num[a] != '*' && num[a] != '\0')
 		a++;
 	return (a);
 }
@@ -75,8 +75,8 @@ int		acounter2(const char *num)
 {
 	int a;
 
-	a = i;
-	while (num[i] == '%' && num[a] != '*' && num[a] != '\0')
+	a = g_i;
+	while (num[g_i] == '%' && num[a] != '*' && num[a] != '\0')
 	{
 		a++;
 	}

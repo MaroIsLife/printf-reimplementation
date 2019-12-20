@@ -66,13 +66,13 @@ int				numb_counter1(const char *num)
 	int			b;
 	int			n;
 
-	z = i + 1;
-	n = i + dotcounter(num, z);
+	z = g_i + 1;
+	n = g_i + dotcounter(num, z);
 	if (num[z] == '.')
 		n = 0;
 	st2.s1 = ft_substr(num, z, n);
-	b = i + ncounter(num, z) + 1;
-	n = i + convcounter(num, b);
+	b = g_i + ncounter(num, z) + 1;
+	n = g_i + convcounter(num, b);
 	st2.s2 = ft_substr(num, b, n);
 	st2.h1 = ft_atoi(st2.s1);
 	st2.h2 = ft_atoi(st2.s2);
@@ -88,11 +88,11 @@ int				numb_counter2(const char *num)
 	int			b;
 	int			n;
 
-	z = i + 1;
-	n = i + dotcounter(num, z);
+	z = g_i + 1;
+	n = g_i + dotcounter(num, z);
 	st2.s1 = ft_substr(num, z, n);
-	b = i + ncounter(num, z) + 1;
-	n = i + convcounter(num, b);
+	b = g_i + ncounter(num, z) + 1;
+	n = g_i + convcounter(num, b);
 	st2.s2 = ft_substr(num, b, n);
 	st2.h1 = ft_atoi(st2.s1);
 	st2.h2 = ft_atoi(st2.s2);

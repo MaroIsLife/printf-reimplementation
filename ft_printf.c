@@ -16,24 +16,24 @@ int g_r;
 
 void	normal_print(va_list args, const char *num, char c)
 {
-	if (num[i] == '%' && c == 'c')
+	if (num[g_i] == '%' && c == 'c')
 		print_c(args, num);
-	else if (num[i] == '%' && c == 'x')
+	else if (num[g_i] == '%' && c == 'x')
 		print_x(args, num);
-	else if (num[i] == '%' && c == 'X')
+	else if (num[g_i] == '%' && c == 'X')
 		print_xx(args, num);
-	else if (num[i] == '%' && c == 'u')
+	else if (num[g_i] == '%' && c == 'u')
 		print_u(args, num);
-	else if (num[i] == '%' && c == 's')
+	else if (num[g_i] == '%' && c == 's')
 		print_s(args, num);
-	else if (num[i] == '%' && (c == 'd' || c == 'i'))
+	else if (num[g_i] == '%' && (c == 'd' || c == 'i'))
 		print_d(args, num);
-	else if (num[i] == '%' && c == 'p')
+	else if (num[g_i] == '%' && c == 'p')
 		print_p(args, num);
-	else if (num[i] == '%' && c == '%')
+	else if (num[g_i] == '%' && c == '%')
 		print_perc();
 	else
-		print_n(num, &i);
+		print_n(num, &g_i);
 }
 
 void	precision_print(va_list args, const char *num)
@@ -45,9 +45,9 @@ void	precision_print(va_list args, const char *num)
 	ab = pcounter2(num);
 	g_tes = 0;
 	g_tes2 = 0;
-	if (num[i] == '%' && num[aa] == '.')
+	if (num[g_i] == '%' && num[aa] == '.')
 		adprintspace(args, num);
-	else if (num[i] == '%' && num[ab] == '*')
+	else if (num[g_i] == '%' && num[ab] == '*')
 		dprintspace(args, num);
 }
 
@@ -56,14 +56,14 @@ void	asterix_print(va_list args, const char *num)
 	int n;
 	int k;
 
-	n = zcounter(num, i + 1);
-	k = mcounter(num, i + 1);
-	if (num[i] == '%' && (num[i + 1] == '*'))
-		aprintspace(args, &i, num);
-	else if (num[i] == '%' && (num[i + n] == '0' && num[i + n + 1] == '*'))
-		aprintspace(args, &i, num);
-	else if (num[i] == '%' && (num[i + 1] == '-' && num[i + k + 1] == '*'))
-		aprintspace(args, &i, num);
+	n = zcounter(num, g_i + 1);
+	k = mcounter(num, g_i + 1);
+	if (num[g_i] == '%' && (num[g_i + 1] == '*'))
+		aprintspace(args, &g_i, num);
+	else if (num[g_i] == '%' && (num[g_i + n] == '0' && num[g_i + n + 1] == '*'))
+		aprintspace(args, &g_i, num);
+	else if (num[g_i] == '%' && (num[g_i + 1] == '-' && num[g_i + k + 1] == '*'))
+		aprintspace(args, &g_i, num);
 }
 
 void	ft_checkstring(const char *num, va_list args)
@@ -72,28 +72,28 @@ void	ft_checkstring(const char *num, va_list args)
 	int a;
 	int k;
 
-	i = -1;
-	while (num[++i] != '\0')
+	g_i = -1;
+	while (num[++g_i] != '\0')
 	{
-		n = zcounter(num, i + 1);
-		k = mcounter(num, i + 1);
+		n = zcounter(num, g_i + 1);
+		k = mcounter(num, g_i + 1);
 		a = pcounter(num);
-		if (num[i] == '%' && num[i + k + 1 + n] == '%')
+		if (num[g_i] == '%' && num[g_i + k + 1 + n] == '%')
 			print_perc();
-		else if (num[i] == '%' && num[a] == '.')
+		else if (num[g_i] == '%' && num[a] == '.')
 			precision_print(args, num);
-		else if (num[i] == '%' && (num[i + 1] >= '1' && num[i + 1] <= '9'))
-			printspace(args, &i, num);
-		else if (num[i] == '%' && (num[i + k + n + 1] == '*'))
+		else if (num[g_i] == '%' && (num[g_i + 1] >= '1' && num[g_i + 1] <= '9'))
+			printspace(args, &g_i, num);
+		else if (num[g_i] == '%' && (num[g_i + k + n + 1] == '*'))
 			asterix_print(args, num);
-		else if (num[i] == '%' && (num[i + n] == '0'
-					&& (num[i + n + 1] >= '1' && num[i + n + 1] <= '9')))
-			printspace(args, &i, num);
-		else if (num[i] == '%' && (num[i + k] == '-'
-					&& (num[i + k + 1] >= '1' && num[i + k + 1] <= '9')))
-			printspace(args, &i, num);
+		else if (num[g_i] == '%' && (num[g_i + n] == '0'
+					&& (num[g_i + n + 1] >= '1' && num[g_i + n + 1] <= '9')))
+			printspace(args, &g_i, num);
+		else if (num[g_i] == '%' && (num[g_i + k] == '-'
+					&& (num[g_i + k + 1] >= '1' && num[g_i + k + 1] <= '9')))
+			printspace(args, &g_i, num);
 		else
-			normal_print(args, num, num[i + k + 1 + n]);
+			normal_print(args, num, num[g_i + k + 1 + n]);
 	}
 }
 

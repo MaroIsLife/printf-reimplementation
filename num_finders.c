@@ -75,9 +75,9 @@ void	dprintspace(va_list args, const char *num)
 
 	st.h1 = numb_counter1(num);
 	st.h2 = numb_counter2(num);
-	z = i + 1;
-	b = i + ncounter(num, z) + 1;
-	n = i + dotcounter(num, z) + convcounter(num, b);
+	z = g_i + 1;
+	b = g_i + ncounter(num, z) + 1;
+	n = g_i + dotcounter(num, z) + convcounter(num, b);
 	if (st.h2 < 0 && num[n - 1] == '0' && st.h1 >= 0)
 	{
 		st.h2 = st.h1;
@@ -92,7 +92,7 @@ void	dprintspace(va_list args, const char *num)
 			g_tes2 = 1;
 		dwhichspace(num, args, st, n);
 	}
-	i = i + convcounter(num, z) + 1;
+	g_i = g_i + convcounter(num, z) + 1;
 }
 
 void	adprintspace(va_list args, const char *num)
@@ -101,12 +101,12 @@ void	adprintspace(va_list args, const char *num)
 	int			z;
 	t_container st;
 
-	z = i + 1;
-	n = i + dotcounter(num, i + 1);
+	z = g_i + 1;
+	n = g_i + dotcounter(num, g_i + 1);
 	st.h1 = arg_checker_one(num, n, args);
 	st.h2 = arg_checker_two(num, n, args);
 	st = if_zero_negative(st, n, num);
-	n = i + convcounter(num, i + 1);
+	n = g_i + convcounter(num, g_i + 1);
 	if (st.h1 < 0)
 	{
 		st.h1 = st.h1 * -1;
@@ -120,6 +120,6 @@ void	adprintspace(va_list args, const char *num)
 			g_tes2 = 1;
 		dwhichspace(num, args, st, n);
 	}
-	z = convcounter(num, i + 1);
-	i = i + z + 1;
+	z = convcounter(num, g_i + 1);
+	g_i = g_i + z + 1;
 }

@@ -82,7 +82,7 @@ int dprintspace_s(t_container st,va_list args);
 int dprintspace_c(t_container st,va_list args);
 void dprintspace_u(t_container st,va_list args);
 int dprintspace_x(t_container st,va_list args);
-int dprintspace_X(t_container st,va_list args);
+int dprintspace_xx(t_container st,va_list args);
 int dprintspace_p(t_container st,va_list args);
 int dprintspace_pp(t_container st);
 
@@ -92,7 +92,7 @@ int zdprintspace_s(t_container st,va_list args);
 int zdprintspace_c(t_container st,va_list args);
 void zdprintspace_u(t_container st,va_list args);
 void zdprintspace_x(t_container st,va_list args);
-void zdprintspace_X(t_container st,va_list args);
+void zdprintspace_xx(t_container st,va_list args);
 int zdprintspace_p(t_container st,va_list args);
 int zdprintspace_pp(t_container st);
 
@@ -103,7 +103,7 @@ int printspace_c(va_list args,int h);
 int printspace_p(va_list args,int h);
 int printspace_pp(int h);
 int printspace_u(va_list args,int h);
-int printspace_X(va_list args,int h);
+int printspace_xx(va_list args,int h);
 
 
 int zprintspace_s(va_list args,int h);
@@ -122,7 +122,7 @@ void mprintspace_c(va_list args,int h);
 void mprintspace_p(va_list args,int h);
 void mprintspace_pp(int h);
 void mprintspace_u(va_list args,int h);
-void mprintspace_X(va_list args,int h);
+void mprintspace_xx(va_list args,int h);
 
 
 int whichspace(const char *num,int n,va_list args,int h);
@@ -134,7 +134,7 @@ int zdwhichspace(const char *num, va_list args,t_container st,int n);
 
 int ft_hexa(unsigned int s);
 int ct_hexa(unsigned int s);
-int ft_heXa(unsigned int s);
+int ft_hexxa(unsigned int s);
 int ft_adr(unsigned long s);
 int ct_adr(unsigned long s);
 

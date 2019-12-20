@@ -23,7 +23,7 @@ int		whichspace(const char *num, int n, va_list args, int h)
 	else if (num[n + 1] == 'x')
 		printspace_x(args, h);
 	else if (num[n + 1] == 'X')
-		printspace_X(args, h);
+		printspace_xx(args, h);
 	else if (num[n + 1] == 'p')
 		printspace_p(args, h);
 	else if (num[n + 1] == 'u')
@@ -47,7 +47,7 @@ int		dwhichspace(const char *num, va_list args, t_container st, int n)
 	else if (num[n + 1] == 'x' || num[n] == 'x')
 		dprintspace_x(st, args);
 	else if (num[n + 1] == 'X' || num[n] == 'X')
-		dprintspace_X(st, args);
+		dprintspace_xx(st, args);
 	else if (num[n + 1] == 'p' || num[n] == 'p')
 		dprintspace_p(st, args);
 	else if (num[n + 1] == '%' || num[n] == '%')
@@ -69,7 +69,7 @@ int		zdwhichspace(const char *num, va_list args, t_container st, int n)
 	else if (num[n + 1] == 'x' || num[n] == 'x')
 		zdprintspace_x(st, args);
 	else if (num[n + 1] == 'X' || num[n] == 'X')
-		zdprintspace_X(st, args);
+		zdprintspace_xx(st, args);
 	else if (num[n + 1] == 'p' || num[n] == 'p')
 		zdprintspace_p(st, args);
 	else if (num[n + 1] == '%' || num[n] == '%')
@@ -109,7 +109,7 @@ int		mwhichspace(const char *num, int n, va_list args, int h)
 	else if (num[n + 1] == 'x')
 		mprintspace_x(args, h);
 	else if (num[n + 1] == 'X')
-		mprintspace_X(args, h);
+		mprintspace_xx(args, h);
 	else if (num[n + 1] == 'p')
 		mprintspace_p(args, h);
 	else if (num[n + 1] == 'u')

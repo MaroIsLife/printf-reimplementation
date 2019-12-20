@@ -135,7 +135,7 @@ int     zprintspace_X(va_list args, int h)
         ft_putchar('0');
         o++;
     }
-    c = o + ft_heXa(s);
+    c = o + ft_hexxa(s);
     return (c);
 }
 

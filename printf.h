@@ -6,7 +6,7 @@
 /*   By: mougnou <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 00:30:37 by mougnou           #+#    #+#             */
-/*   Updated: 2019/12/21 00:38:18 by mougnou          ###   ########.fr       */
+/*   Updated: 2019/12/21 01:35:57 by mougnou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@
 
 int				g_r;
 int				g_i;
-int				g_off;
+int				g_k;
+int				g_n;
+int				g_a;
 int				g_tes;
 int				g_tes2;
 typedef struct	s_test{

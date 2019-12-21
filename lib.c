@@ -6,7 +6,7 @@
 /*   By: mougnou <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 22:44:27 by mougnou           #+#    #+#             */
-/*   Updated: 2019/12/20 22:51:34 by mougnou          ###   ########.fr       */
+/*   Updated: 2019/12/21 00:52:58 by mougnou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,21 @@
 
 int		ft_hexa(unsigned int s)
 {
-	int		c;
-	char	*buff;
-	char	*af;
+	int				c;
+	unsigned int	b;
+	char			*buff;
+	char			*af;
 
 	af = "0123456789abcdef";
 	c = 0;
-	buff = calloc(20, 1);
+	if (!(buff = calloc(20, 1)))
+	return (0);
 	if (s == 0)
 		buff[0] = '0';
 	while (s != 0)
 	{
-		buff[c] = af[s % 16];
+		b = s % 16;
+		buff[c] = af[b];
 		s = s / 16;
 		c++;
 	}
@@ -36,18 +39,21 @@ int		ft_hexa(unsigned int s)
 
 int		ct_hexa(unsigned int s)
 {
-	int		c;
-	char	*buff;
-	char	*af;
+	int				c;
+	unsigned int	b;
+	char			*buff;
+	char			*af;
 
 	af = "0123456789abcdef";
 	c = 0;
-	buff = calloc(20, 1);
+	if (!(buff = calloc(20, 1)))
+	return (0);
 	if (s == 0)
 		buff[0] = '0';
 	while (s != 0)
 	{
-		buff[c] = af[s % 16];
+		b = s % 16;
+		buff[c] = af[b];
 		s = s / 16;
 		c++;
 	}
@@ -59,17 +65,20 @@ int		ct_hexa(unsigned int s)
 int		ct_adr(unsigned long s)
 {
 	unsigned long	c;
+	unsigned long	b;
 	char			*buff;
 	char			*af;
 
 	af = "0123456789abcdef";
 	c = 0;
-	buff = calloc(20, 1);
+	if (!(buff = calloc(20, 1)))
+	return (0);
 	if (s == 0)
 		buff[0] = '0';
 	while (s != 0)
 	{
-		buff[c] = af[s % 16];
+		b = s % 16;
+		buff[c] = af[b];
 		s = s / 16;
 		c++;
 	}
@@ -80,18 +89,21 @@ int		ct_adr(unsigned long s)
 
 int		ft_hexxa(unsigned int s)
 {
-	int		c;
-	char	*buff;
-	char	*af;
+	int				c;
+	char			*buff;
+	char			*af;
+	unsigned int	b;
 
 	af = "0123456789ABCDEF";
 	c = 0;
-	buff = calloc(20, 1);
+	if (!(buff = calloc(20, 1)))
+	return (0);
 	if (s == 0)
 		buff[0] = '0';
 	while (s != 0)
 	{
-		buff[c] = af[s % 16];
+		b = s % 16;
+		buff[c] = af[b];
 		s = s / 16;
 		c++;
 	}
@@ -109,7 +121,8 @@ int		ft_adr(unsigned long s)
 
 	af = "0123456789abcdef";
 	c = 0;
-	buff = calloc(20, 1);
+	if (!(buff = calloc(20, 1)))
+	return (0);
 	if (s == 0)
 		buff[0] = '0';
 	while (s != 0)

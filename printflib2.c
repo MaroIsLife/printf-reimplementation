@@ -6,7 +6,7 @@
 /*   By: mougnou <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 22:24:02 by mougnou           #+#    #+#             */
-/*   Updated: 2019/12/20 22:27:20 by mougnou          ###   ########.fr       */
+/*   Updated: 2019/12/21 00:50:49 by mougnou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int		print_xx(va_list args, const char *num)
 
 	af = "0123456789ABCDEF";
 	c = 0;
-	buff = calloc(20, 1);
+	if (!(buff = calloc(20, 1)))
+	return (0);
 	a = va_arg(args, unsigned int);
 	if (a == 0)
 		buff[0] = '0';
@@ -50,7 +51,8 @@ int		print_p(va_list args, const char *num)
 
 	af = "0123456789abcdef";
 	c = 0;
-	buff = calloc(20, 1);
+	if (!(buff = calloc(20, 1)))
+	return (0);
 	a = va_arg(args, unsigned long);
 	if (a == 0)
 		buff[0] = '0';

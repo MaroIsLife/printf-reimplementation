@@ -6,7 +6,7 @@
 /*   By: mougnou <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 22:43:20 by mougnou           #+#    #+#             */
-/*   Updated: 2019/12/20 22:43:21 by mougnou          ###   ########.fr       */
+/*   Updated: 2019/12/21 01:32:21 by mougnou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,11 @@ int		mcounter2(const char *num, int i)
 		i++;
 	}
 	return (o);
+}
+
+void	maincounter(const char *num)
+{
+	g_n = zcounter(num, g_i + 1);
+	g_k = mcounter(num, g_i + 1);
+	g_a = pcounter(num);
 }

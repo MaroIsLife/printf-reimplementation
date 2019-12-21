@@ -107,20 +107,3 @@ int		ft_printf(const char *num, ...)
 	va_end(args);
 	return (g_r);
 }
-
-/*int	main()
-  {
-
-//Right = 0;
-//Left = Space
-
-
-//printf("%0-04.3%"); This
-int a;
-a = ft_printf("%--%");
-
-
-
-//Ela kan arguemnt lowla negative 0 is not working
-return (0);
-}*/

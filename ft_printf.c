@@ -29,7 +29,7 @@ void	normal_print(va_list args, const char *num, char c)
 	else if (num[g_i] == '%' && c == 'p')
 		print_p(args, num);
 	else if (num[g_i] == '%' && c == '%')
-		print_perc();
+		print_perc(num);
 	else
 		print_n(num, &g_i);
 }
@@ -72,7 +72,7 @@ void	ft_checkstring(const char *num, va_list args)
 	{
 		maincounter(num);
 		if (num[g_i] == '%' && num[g_i + g_k + 1 + g_n] == '%')
-			print_perc();
+			print_perc(num);
 		else if (num[g_i] == '%' && num[g_a] == '.')
 			precision_print(args, num);
 		else if (num[g_i] == '%' && (num[g_i + 1] >= '1'
@@ -111,16 +111,14 @@ int		ft_printf(const char *num, ...)
 /*int	main()
   {
 
-//DONT FORGET MALLOC PROTECTION !!!!!!!!!!
-
 //Right = 0;
 //Left = Space
 
 
 //printf("%0-04.3%"); This
 int a;
-a = ft_printf("%*.c\n",-42,0);
-printf("%d", a);
+a = ft_printf("%--%");
+
 
 
 //Ela kan arguemnt lowla negative 0 is not working

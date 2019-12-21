@@ -6,7 +6,7 @@
 /*   By: mougnou <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 00:30:37 by mougnou           #+#    #+#             */
-/*   Updated: 2019/12/21 01:35:57 by mougnou          ###   ########.fr       */
+/*   Updated: 2019/12/21 01:58:47 by mougnou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct	s_test{
 	char	*s1;
 	char	*s2;
 }				t_container;
+void			maincounter(const char *num);
 int				ft_printf(const char *num, ...);
 void			aprintspace(va_list args, int *i, const char *num);
 void			printspace(va_list args, int *i, const char *num);
@@ -131,7 +132,7 @@ int				print_xx(va_list args, const char *num);
 int				print_p(va_list args, const char *num);
 int				print_u(va_list args, const char *num);
 int				print_c(va_list args, const char *num);
-int				print_perc(void);
+int				print_perc(const char *num);
 int				print_n(const char *num, int *i);
 
 #endif

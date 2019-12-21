@@ -38,7 +38,7 @@ int		mcounter(const char *num, int i)
 	if ((num[i] == 'c' || num[i] == 'd' || num[i] == 's' || num[i] == 'p'
 				|| num[i] == 'u' || num[i] == 'x' || num[i] == 'X') ||
 			(num[i] >= '1' && num[i] <= '9') || num[i] == '*'
-			|| num[i] == '.' || num[i] == 'i')
+			|| num[i] == '.' || num[i] == 'i' || num[i] == '%')
 	{
 		return (o);
 	}

@@ -6,7 +6,7 @@
 /*   By: mougnou <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 22:44:27 by mougnou           #+#    #+#             */
-/*   Updated: 2019/12/21 00:52:58 by mougnou          ###   ########.fr       */
+/*   Updated: 2019/12/21 01:57:09 by mougnou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		ft_hexa(unsigned int s)
 	af = "0123456789abcdef";
 	c = 0;
 	if (!(buff = calloc(20, 1)))
-	return (0);
+		return (0);
 	if (s == 0)
 		buff[0] = '0';
 	while (s != 0)
@@ -47,7 +47,7 @@ int		ct_hexa(unsigned int s)
 	af = "0123456789abcdef";
 	c = 0;
 	if (!(buff = calloc(20, 1)))
-	return (0);
+		return (0);
 	if (s == 0)
 		buff[0] = '0';
 	while (s != 0)
@@ -72,7 +72,7 @@ int		ct_adr(unsigned long s)
 	af = "0123456789abcdef";
 	c = 0;
 	if (!(buff = calloc(20, 1)))
-	return (0);
+		return (0);
 	if (s == 0)
 		buff[0] = '0';
 	while (s != 0)
@@ -97,7 +97,7 @@ int		ft_hexxa(unsigned int s)
 	af = "0123456789ABCDEF";
 	c = 0;
 	if (!(buff = calloc(20, 1)))
-	return (0);
+		return (0);
 	if (s == 0)
 		buff[0] = '0';
 	while (s != 0)
@@ -122,7 +122,7 @@ int		ft_adr(unsigned long s)
 	af = "0123456789abcdef";
 	c = 0;
 	if (!(buff = calloc(20, 1)))
-	return (0);
+		return (0);
 	if (s == 0)
 		buff[0] = '0';
 	while (s != 0)

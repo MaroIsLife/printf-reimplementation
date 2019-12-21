@@ -6,7 +6,7 @@
 /*   By: mougnou <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 23:15:49 by mougnou           #+#    #+#             */
-/*   Updated: 2019/12/20 23:18:07 by mougnou          ###   ########.fr       */
+/*   Updated: 2019/12/21 02:29:58 by mougnou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,11 @@ void	mprintspace_x(va_list args, int h)
 	int				k;
 
 	s = va_arg(args, unsigned int);
-	c = count(s) - 1;
+	k = s;
+	if (k < 0)
+		c = 8;
+	else
+		c = ct_hexa(s);
 	if (h < 0)
 		h = h * -1;
 	c = h - c;

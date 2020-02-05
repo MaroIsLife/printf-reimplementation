@@ -1,6 +1,5 @@
 # Ft_printf
-
-
+This project is pretty straight forward. a recoded version of printf (42 Login MOUGNOU).
 
 # 
 ft_printf must achieve the following mandatory requirements:  
